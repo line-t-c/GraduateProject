@@ -24,6 +24,10 @@ class GraduateProjectApplicationTests {
 	Assertions.assertEquals("Hello Academy", message);
 	}
 
+//	Oprette en test, når man søger noget der ikke er i databasen, sende en meddelelse
+
+//	test for når man søger på en ingrediens, får man alle resultater med denne
+
 	Ingredient cal;
 
 	@BeforeEach
