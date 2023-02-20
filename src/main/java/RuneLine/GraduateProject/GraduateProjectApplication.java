@@ -7,7 +7,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GraduateProjectApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(GraduateProjectApplication.class, args);
 	}
 
+	public class HelloService {
+		public String getMessage(String name) {
+			return "Hello " + name;
+		}
+	}
 }
