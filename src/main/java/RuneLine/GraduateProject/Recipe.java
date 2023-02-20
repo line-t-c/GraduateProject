@@ -13,7 +13,11 @@ public class Recipe {
 
     private String title;
     private String instruction;
-    private Ingredient ingredient;
+    //private Ingredient ingredient;
+
+    public String getMessage(String test) {
+        return "Hello " + test;
+    }
 //    private String author;
 
 
