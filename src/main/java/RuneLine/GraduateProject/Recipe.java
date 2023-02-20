@@ -1,9 +1,6 @@
 package RuneLine.GraduateProject;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Recipe {
@@ -11,12 +8,15 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name="TITLE")
     private String title;
+
+    @Column(name="INSTRUCTION")
     private String instruction;
+
+    @Column(name="INGREDIENT")
     private Ingredient ingredient;
+
 //    private String author;
-
-
-
 
 }

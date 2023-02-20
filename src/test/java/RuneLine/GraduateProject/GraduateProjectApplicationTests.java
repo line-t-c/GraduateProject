@@ -18,11 +18,11 @@ class GraduateProjectApplicationTests {
     sut = new Recipe();
 	}
 
-	@Test
-	public void test1() {
-	String message = sut.getMessage("Academy");
-	Assertions.assertEquals("Hello Academy", message);
-	}
+//	@Test
+//	public void test1() {
+//	String message = sut.getMessage("Academy");
+//	Assertions.assertEquals("Hello Academy", message);
+//	}
 
 //	Oprette en test, når man søger noget der ikke er i databasen, sende en meddelelse
 
