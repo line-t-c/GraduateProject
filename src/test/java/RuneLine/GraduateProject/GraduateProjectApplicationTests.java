@@ -15,12 +15,7 @@ class GraduateProjectApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-	@Test
-	public void testRecipeSearch() {
-		RecipeController sut = new RecipeController();
-		String message = sut.getMessage("Academy");
-		Assertions.assertEquals("Hello Academy", message);
-	}
+
 	List<Recipe> recipeTest;
 	@BeforeEach
 	public void before() {

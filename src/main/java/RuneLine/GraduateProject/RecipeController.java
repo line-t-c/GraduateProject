@@ -15,6 +15,10 @@ public class RecipeController {
     @Autowired
     private RecipeMethods recipeMethods;
 
+    @GetMapping("/")
+    public String home () {
+        return "home";
+    }
     @GetMapping("/about")
     public String about () {
         return "about";
