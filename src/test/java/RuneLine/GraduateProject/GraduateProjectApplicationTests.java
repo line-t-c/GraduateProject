@@ -50,8 +50,9 @@ class GraduateProjectApplicationTests {
 
 //	Så hvis man har gennemført et step, overstreges den. Boolean default false. Boolean if false == true. JS?
 	@Test
-	public void testNextStep (boolean done) {
-		Recipe result = RecipeMethods.isStepDone(recipeTest,false);
-		assertEquals( 5, result.getTitle( ) );
+	public void testNextStep2 (boolean done) {
+		Boolean result = RecipeMethods.isDone(false);
+		assertEquals( true, result.booleanValue( ));
 	}
+
 }

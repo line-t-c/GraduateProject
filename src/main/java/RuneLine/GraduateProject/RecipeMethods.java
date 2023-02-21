@@ -15,8 +15,9 @@ public class RecipeMethods {
         return null;
     }
 
-    public static Recipe isStepDone(List<Recipe> recipeTest, boolean isDone) {
-        isDone = true;
-        return null;
+    public static Boolean isDone(boolean isDone) {
+        Boolean isStepDone = !isDone;
+        return isStepDone;
     }
+
 }

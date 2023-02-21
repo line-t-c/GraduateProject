@@ -3,7 +3,13 @@ package RuneLine.GraduateProject;
 // Season tag - skal den som en variable eller et ENUM eller hvordan?
 // Allergier
 
+import jakarta.persistence.*;
+
+@Entity
 public class Ingredient {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private String ingredient;
 
@@ -12,6 +18,20 @@ public class Ingredient {
     private String measurement;
 
     private Double portions;
+
+    @ManyToOne
+    private Recipe recipe;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Ingredient() {
+    }
 
     public Ingredient(String ingredient, double amount, String measurement, Double portions) {
         this.ingredient = ingredient;

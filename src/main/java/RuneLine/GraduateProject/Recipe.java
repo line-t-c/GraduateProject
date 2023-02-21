@@ -12,24 +12,22 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="TITLE")
     private String title;
 
-    @Column(name="INSTRUCTION")
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Instruction> instruction;
 
-    @Column(name="INGREDIENT")
-    private List<Ingredient> ingredient;
-
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    private List<Ingredient> ingredients;
 
     public Recipe() {
     }
 
-    public Recipe(int id, String title, List<Instruction> instruction, List<Ingredient> ingredient) {
+    public Recipe(int id, String title, List<Instruction> instruction, List<Ingredient> ingredients) {
         this.id = id;
         this.title = title;
         this.instruction = instruction;
-        this.ingredient = ingredient;
+        this.ingredients = ingredients;
     }
 
     public int getId() {
@@ -57,10 +55,10 @@ public class Recipe {
     }
 
     public List<Ingredient> getIngredient() {
-        return ingredient;
+        return ingredients;
     }
 
-    public void setIngredient(List<Ingredient> ingredient) {
-        this.ingredient = ingredient;
+    public void setIngredient(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 }
