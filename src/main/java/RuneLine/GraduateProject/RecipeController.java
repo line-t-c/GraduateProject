@@ -8,4 +8,7 @@ public class RecipeController {
 
     @Autowired
     private RecipeRepo repository;
+
+    @Autowired
+    private RecipeMethods recipeMethods;
 }

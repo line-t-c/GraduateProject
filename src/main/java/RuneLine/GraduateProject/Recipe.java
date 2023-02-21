@@ -2,31 +2,41 @@ package RuneLine.GraduateProject;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
+//  Tag for Veganer/Vegetar/uden svinekød/pescetar???
+
 @Entity
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
+    @Column(name="TITLE")
     private String title;
-    private Instruction instruction;
-    private Ingredient ingredient;
+
+    @Column(name="INSTRUCTION")
+    private List<Instruction> instruction;
+
+    @Column(name="INGREDIENT")
+    private List<Ingredient> ingredient;
+
 
     public Recipe() {
     }
 
-    public Recipe(Long id, String title, Instruction instruction, Ingredient ingredient) {
+    public Recipe(int id, String title, List<Instruction> instruction, List<Ingredient> ingredient) {
         this.id = id;
         this.title = title;
         this.instruction = instruction;
         this.ingredient = ingredient;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -38,19 +48,19 @@ public class Recipe {
         this.title = title;
     }
 
-    public Instruction getInstruction() {
+    public List<Instruction> getInstruction() {
         return instruction;
     }
 
-    public void setInstruction(Instruction instruction) {
+    public void setInstruction(List<Instruction> instruction) {
         this.instruction = instruction;
     }
 
-    public Ingredient getIngredient() {
+    public List<Ingredient> getIngredient() {
         return ingredient;
     }
 
-    public void setIngredient(Ingredient ingredient) {
+    public void setIngredient(List<Ingredient> ingredient) {
         this.ingredient = ingredient;
     }
 }
