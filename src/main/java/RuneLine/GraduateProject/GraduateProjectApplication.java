@@ -11,9 +11,4 @@ public class GraduateProjectApplication {
 		SpringApplication.run(GraduateProjectApplication.class, args);
 	}
 
-	public class HelloService {
-		public String getMessage(String name) {
-			return "Hello " + name;
-		}
-	}
 }
