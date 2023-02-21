@@ -2,24 +2,29 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"></meta>
-    <title>Home</title>
+    <title>Hjem</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="/home">Home</a>
-    <a href="/season">Season</a>
-    <a href="/recipes">Recipes</a>
-    <a href="/about">About</a>
+    <a class="active" href="/hjem">Home</a>
+    <a href="/season">Sæson</a>
+    <a href="/recipes">Opskrifter</a>
+    <a href="/about">Om os</a>
 </div>
 
-<h1>Spis Op!</h1>
+<h1>Spis Op</h1>
 
+<h2>Find opskrifter</h2>
 <div id="search-container">
     <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Search...">
-        <button type="submit">Search</button>
+        <input type="text" name="query" placeholder="Søg...">
+        <button type="submit">Søg</button>
     </form>
+</div>
+<div>
+    <p>Søg på de ingredienser du har i køleskabet. Adskil med mellemrum (fx "gulerødder blomkål ærter").</p>
+    <p>Undgå specifikke ingredienser med minus (fx "gulerødder blomkål -ærter").</p>
 </div>
 
 </body>
