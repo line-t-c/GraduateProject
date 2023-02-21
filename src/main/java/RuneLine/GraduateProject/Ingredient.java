@@ -1,7 +1,7 @@
 package RuneLine.GraduateProject;
 
 // Season tag - skal den som en variable eller et ENUM eller hvordan?
-// Allergier
+// Allergier.
 
 import jakarta.persistence.*;
 
