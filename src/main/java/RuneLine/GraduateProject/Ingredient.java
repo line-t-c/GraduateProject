@@ -1,5 +1,8 @@
 package RuneLine.GraduateProject;
 
+// Season tag - skal den som en variable eller et ENUM eller hvordan?
+// Allergier
+
 public class Ingredient {
 
     private String ingredient;
@@ -8,10 +11,13 @@ public class Ingredient {
 
     private String measurement;
 
-    public Ingredient(String ingredient, double amount, String measurement) {
+    private Double portions;
+
+    public Ingredient(String ingredient, double amount, String measurement, Double portions) {
         this.ingredient = ingredient;
         this.amount = amount;
         this.measurement = measurement;
+        this.portions = portions;
     }
 
     public String getIngredient() {
@@ -36,5 +42,13 @@ public class Ingredient {
 
     public void setMeasurement(String measurement) {
         this.measurement = measurement;
+    }
+
+    public Double getPortions() {
+        return portions;
+    }
+
+    public void setPortions(Double portions) {
+        this.portions = portions;
     }
 }

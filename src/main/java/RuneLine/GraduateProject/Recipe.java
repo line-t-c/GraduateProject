@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.util.List;
 
+//  Tag for Veganer/Vegetar/uden svinekød/pescetar???
+
 @Entity
 public class Recipe {
     @Id
