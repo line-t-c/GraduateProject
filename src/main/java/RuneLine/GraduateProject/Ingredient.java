@@ -11,13 +11,11 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String ingredient;
+    private String ingredient_name;
 
     private double amount;
 
     private String measurement;
-
-    private Double portions;
 
     @ManyToOne
     private Recipe recipe;
@@ -33,19 +31,18 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String ingredient, double amount, String measurement, Double portions) {
-        this.ingredient = ingredient;
+    public Ingredient(String ingredient_name, double amount, String measurement) {
+        this.ingredient_name = ingredient_name;
         this.amount = amount;
         this.measurement = measurement;
-        this.portions = portions;
     }
 
-    public String getIngredient() {
-        return ingredient;
+    public String getIngredient_name() {
+        return ingredient_name;
     }
 
-    public void setIngredient(String ingredient) {
-        this.ingredient = ingredient;
+    public void setIngredient_name(String ingredient_name) {
+        this.ingredient_name = ingredient_name;
     }
 
     public double getAmount() {
@@ -64,11 +61,4 @@ public class Ingredient {
         this.measurement = measurement;
     }
 
-    public Double getPortions() {
-        return portions;
-    }
-
-    public void setPortions(Double portions) {
-        this.portions = portions;
-    }
 }

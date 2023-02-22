@@ -23,8 +23,8 @@ class GraduateProjectApplicationTests {
 
 //	Set up recipes for testing
 
-	Ingredient ingredient1 = new Ingredient("Carrot", 1, "pc", 1.0);
-	Ingredient ingredient2 = new Ingredient("Water", 1, "L", 1.0);
+	Ingredient ingredient1 = new Ingredient("Carrot", 1, "pc");
+	Ingredient ingredient2 = new Ingredient("Water", 1, "L");
 
 	List<Ingredient> ingredientList = new ArrayList<>();
 	ingredientList.add(ingredient1);
@@ -39,7 +39,7 @@ class GraduateProjectApplicationTests {
 	instructionList.add(instruction2);
 	instructionList.add(instruction3);
 
-	Recipe carrotSoup = new Recipe(1, "CarrotSoup",instructionList, ingredientList);
+	Recipe carrotSoup = new Recipe(1, "CarrotSoup", 4, instructionList, ingredientList);
 	}
 
 	@Test

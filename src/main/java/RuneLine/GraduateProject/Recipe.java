@@ -14,6 +14,8 @@ public class Recipe {
 
     private String title;
 
+    private int portions;
+
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Instruction> instruction;
 
@@ -23,9 +25,10 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(int id, String title, List<Instruction> instruction, List<Ingredient> ingredients) {
+    public Recipe(int id, String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients) {
         this.id = id;
         this.title = title;
+        this.portions = portions;
         this.instruction = instruction;
         this.ingredients = ingredients;
     }
@@ -44,6 +47,22 @@ public class Recipe {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getPortions() {
+        return portions;
+    }
+
+    public void setPortions(int portions) {
+        this.portions = portions;
+    }
+
+    public List<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<Ingredient> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public List<Instruction> getInstruction() {

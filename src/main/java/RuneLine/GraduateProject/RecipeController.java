@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class RecipeController {
@@ -23,4 +25,22 @@ public class RecipeController {
     public String about () {
         return "about";
     }
+
+//    Til mapping, tilføje søgeresultat
+//    @GetMapping("/result/{searchResult}")
+//    public String searchResult (@PathVariable String searchResult) {
+////        Recipe recipe = repository.findByIngredient(searchResult).get();
+//        return "result";
+//    }
+
+    @GetMapping ("/result")
+    public String searchResult () {
+        return "result";
+    }
+
+//    @PostMapping("/result")
+//    public String searchResul () {
+//        return "result";
+//    }
+
 }

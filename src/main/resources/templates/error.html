@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
+    <link rel="stylesheet" href="style.css" th:href="style.css">
     <meta charset="UTF-8">
-    <title>Error</title>
+    <title>About</title>
 </head>
 <body>
-<h1>We can't find the page you're looking for</h1>
-<a href="/">Go back to the main page</a>
+<header>
+    <div class="logo"><img src="/images/logo.png" height="150" width="150" alt="Logo"></div>
+    <div class="topnav">
+        <a href="/">Hjem</a>
+        <a href="/season">Sæsonens grønt</a>
+        <a href="/recipes">Opskrifter</a>
+        <a href="/about">Om os</a>
+    </div>
+</header>
+<h1>Ups der er sket en fejl"</h1>
+<div class="main">
+Vi kan desværre ikke finde den side du leder efter
+</div>
 </body>
 </html>
