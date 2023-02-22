@@ -18,21 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class GraduateProjectApplicationTests {
 
-//	private static EntityManagerFactory emf;
-	private static EntityManager em;
-
-//	@BeforeAll
-//	public static void setUp() {
-//		emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-//		em = emf.createEntityManager();
-//	}
-//
-//	@AfterAll
-//	public static void tearDown() {
-//		em.close();
-//		emf.close();
-//	}
-
 	@Test
 	void contextLoads() {
 	}
@@ -61,18 +46,6 @@ class GraduateProjectApplicationTests {
 	instructionList.add(instruction3);
 
 	Recipe carrotSoup = new Recipe(1, "CarrotSoup", 4, instructionList, ingredientList, "www");
-	}
-
-	@Test
-	public void testImageUrls() {
-		TypedQuery<Recipe> query = em.createQuery("SELECT r FROM Recipe r", Recipe.class);
-		List<Recipe> recipes = query.getResultList();
-
-		Recipe carbonara = recipes.get(0);
-		Recipe kyllingesalat = recipes.get(1);
-
-		assertEquals("https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg", carbonara.getImageUrl());
-		assertEquals("https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg", kyllingesalat.getImageUrl());
 	}
 
 	@Test
