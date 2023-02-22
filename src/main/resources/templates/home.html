@@ -17,9 +17,9 @@
 
 <h2>Find opskrifter</h2>
 <div id="search-container">
-    <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Søg fx gulerødder blomkål -ærter">
-        <button type="submit">Søg</button>
+    <form th:action="@{/search}" method="get">
+        <input type="text" name="ingredients" placeholder="Søg fx gulerødder blomkål">
+        <button type="submit">Search</button>
     </form>
 </div>
 <div>

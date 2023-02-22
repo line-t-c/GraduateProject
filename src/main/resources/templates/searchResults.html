@@ -20,17 +20,27 @@
 </header>
 <h1>Opskrifter</h1>
 <div class="main">
+    <h2>Du søgte på <strong th:text="${ingredientName}"></strong></h2>
 
     <div class="grid-container">
         <div class="grid-item item1">
-            <img src="/images/search.png" height="20" width="20 alt="search"">
+            <img src="/images/search.png" height="20" width="20" alt="search">
             Du har søgt på
-            <div class="box">Et søgeresultat</div>
-
-
+            <div class="box">
+                Et søgeresultat:
+            </div>
+        </div>
+        <div class="grid-item item2">
+<!--            <div th:if="${param.error}">-->
+<!--                <i>Vi har desværre endnu ingen opskrifter der matcher dit søgeresultat</i>-->
+<!--            </div>-->
+<!--            Eller lave en if match = vis nedenfor, else = vis denne besked (og i fremtiden 'opret opskrifty'-->
+            <div th:each="recipe : ${recipes}">
+                <h3 th:text="${recipe.title}"></h3>
+                <img th:src="${recipe.image_url}" alt="recipe image">
+            </div>
 
         </div>
-        <div class="grid-item item2">2</div>
     </div>
 
 
