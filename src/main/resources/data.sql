@@ -1,11 +1,7 @@
 -- Indsæt en opskrift
-INSERT INTO RECIPE (TITLE, PORTIONS) VALUES
-('Pasta Carbonara', 4),
-('Grillet Kyllingesalat', 4);
-
---Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException:
---Syntax error in SQL statement "([*]'Grillet Kyllingesalat', 4)"; expected "(, SELECT, TABLE, VALUES"; SQL statement:
-
+INSERT INTO RECIPE (TITLE, PORTIONS, IMAGE_URL) VALUES
+('Pasta Carbonara', 4, 'https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg'),
+('Grillet Kyllingesalat', 4, 'https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg');
 
 -- Indsæt ingredienser til opskriften, forbind med ID i enden
 INSERT INTO INGREDIENT (INGREDIENT_NAME, AMOUNT, MEASUREMENT, RECIPE_ID_FK)

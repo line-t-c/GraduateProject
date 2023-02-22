@@ -1,5 +1,11 @@
 package RuneLine.GraduateProject;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,6 +18,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 class GraduateProjectApplicationTests {
 
+//	private static EntityManagerFactory emf;
+	private static EntityManager em;
+
+//	@BeforeAll
+//	public static void setUp() {
+//		emf = Persistence.createEntityManagerFactory("my-persistence-unit");
+//		em = emf.createEntityManager();
+//	}
+//
+//	@AfterAll
+//	public static void tearDown() {
+//		em.close();
+//		emf.close();
+//	}
+
 	@Test
 	void contextLoads() {
 	}
@@ -23,8 +44,8 @@ class GraduateProjectApplicationTests {
 
 //	Set up recipes for testing
 
-	Ingredient ingredient1 = new Ingredient("Carrot", 1, "pc");
-	Ingredient ingredient2 = new Ingredient("Water", 1, "L");
+	Ingredient ingredient1 = new Ingredient("Carrot", 1, "https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg");
+	Ingredient ingredient2 = new Ingredient("Water", 1, "https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg");
 
 	List<Ingredient> ingredientList = new ArrayList<>();
 	ingredientList.add(ingredient1);
@@ -39,7 +60,19 @@ class GraduateProjectApplicationTests {
 	instructionList.add(instruction2);
 	instructionList.add(instruction3);
 
-	Recipe carrotSoup = new Recipe(1, "CarrotSoup", 4, instructionList, ingredientList);
+	Recipe carrotSoup = new Recipe(1, "CarrotSoup", 4, instructionList, ingredientList, "www");
+	}
+
+	@Test
+	public void testImageUrls() {
+		TypedQuery<Recipe> query = em.createQuery("SELECT r FROM Recipe r", Recipe.class);
+		List<Recipe> recipes = query.getResultList();
+
+		Recipe carbonara = recipes.get(0);
+		Recipe kyllingesalat = recipes.get(1);
+
+		assertEquals("https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg", carbonara.getImageUrl());
+		assertEquals("https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg", kyllingesalat.getImageUrl());
 	}
 
 	@Test

@@ -24,15 +24,18 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients = new ArrayList<>();
 
+    private String imageUrl; // new field for image URL
+
     public Recipe() {
     }
 
-    public Recipe(int id, String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients) {
+    public Recipe(int id, String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients, String imageUrl) {
         this.id = id;
         this.title = title;
         this.portions = portions;
         this.instruction = instruction;
         this.ingredients = ingredients;
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {
@@ -81,5 +84,13 @@ public class Recipe {
 
     public void setIngredient(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
