@@ -17,12 +17,6 @@ public class RecipeController {
     @Autowired
     private RecipeMethods recipeMethods;
 
-//    JPA funktioner, if needed
-    // count of Recipe table
-//    long count = repository.count();
-    // find all recipes
-//    Iterable<Recipe> recipes = repository.findAll();
-
     @GetMapping("/")
     public String home () {
         return "home";
