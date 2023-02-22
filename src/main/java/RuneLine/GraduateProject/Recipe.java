@@ -2,6 +2,7 @@ package RuneLine.GraduateProject;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 //  Tag for Veganer/Vegetar/uden svinekød/pescetar?
@@ -16,11 +17,12 @@ public class Recipe {
 
     private int portions;
 
+//    Skal de hedde det samme? "recipe". Automatic joins also gets the related Entity
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<Instruction> instruction;
+    private List<Instruction> instruction = new ArrayList<>();
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<Ingredient> ingredients;
+    private List<Ingredient> ingredients = new ArrayList<>();
 
     public Recipe() {
     }
