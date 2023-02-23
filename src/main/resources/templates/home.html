@@ -8,9 +8,9 @@
 <body>
 <div class="topnav">
     <a class="active" href="/">Home</a>
-    <a href="/season">Sæson</a>
-    <a href="/recipes">Opskrifter</a>
-    <a href="/about">Om os</a>
+    <a href="/saeson">Sæsonens grønt</a>
+    <a href="/opskrifter">Opskrifter</a>
+    <a href="/om">Om os</a>
 </div>
 
 <h1>Spis Op</h1>
@@ -21,10 +21,18 @@
         <input type="text" name="ingredients" placeholder="Søg fx gulerødder blomkål">
         <button type="submit">Search</button>
     </form>
+
+<!--
+    <form action="/search" method="POST"> --- skal dens action være /search eller /
+        <input type="text" name="firstName"/>
+        <input type="text" name="ingredients" placeholder="Søg fx gulerødder blomkål">
+        <button type="submit">Search</button>
+    </form>
+
+-->
 </div>
 <div>
-    <p>Søg på de ingredienser du har i køleskabet. Adskil med mellemrum (fx "gulerødder blomkål ærter").</p>
-    <p>Undgå specifikke ingredienser med minus (fx "gulerødder blomkål -ærter").</p>
+    <p>Søg på de ingredienser du har i køleskabet. Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
 </div>
 
 </body>

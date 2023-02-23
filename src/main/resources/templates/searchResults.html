@@ -13,37 +13,36 @@
     </div>
     <div class="topnav">
         <a href="/">Hjem</a>
-        <a href="/season">Sæsonens grønt</a>
-        <a href="/recipes">Opskrifter</a>
-        <a href="/about">Om os</a>
+        <a href="/saeson">Sæsonens grønt</a>
+        <a href="/opskrifter">Opskrifter</a>
+        <a href="/om">Om os</a>
     </div>
 </header>
 <h1>Opskrifter</h1>
 <div class="main">
-    <h2>Du søgte på <strong th:text="${ingredientName}"></strong></h2>
 
     <div class="grid-container">
         <div class="grid-item item1">
             <img src="/images/search.png" height="20" width="20" alt="search">
             Du har søgt på
             <div class="box">
-                Et søgeresultat:
+                <p th:text="${ingredientName}"></p>
             </div>
         </div>
         <div class="grid-item item2">
-<!--            <div th:if="${param.error}">-->
-<!--                <i>Vi har desværre endnu ingen opskrifter der matcher dit søgeresultat</i>-->
-<!--            </div>-->
-<!--            Eller lave en if match = vis nedenfor, else = vis denne besked (og i fremtiden 'opret opskrifty'-->
-            <div th:each="recipe : ${recipes}">
-                <h3 th:text="${recipe.title}"></h3>
-                <img th:src="${recipe.image_url}" alt="recipe image">
+            <div th:if="${not #lists.isEmpty(searchResult)}">
+                <ul>
+                    <li th:each="result : ${searchResult}">
+                        <img th:src="${result.image_url}" alt="recipe image">
+                        <h3 th:text="${result.title}"></h3>
+                    </li>
+                </ul>
             </div>
-
+            <div th:if="${#lists.isEmpty(searchResult)}">
+                <p>Der er desværre ingen opskrifter med de ingredienser. Prøv en ny søgning</p>
+            </div>
         </div>
     </div>
-
-
 </div>
 </body>
 </html>
