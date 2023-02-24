@@ -23,6 +23,31 @@ public class RecipeService {
                 .collect(Collectors.toList());
     }
 
+    public void updatePortions(Recipe recipe, boolean addPortion) {
+        int currentPortions = recipe.getPortions();
+        int newPortions = addPortion ? currentPortions + 1 : currentPortions - 1;
+
+        // calculate the scaling factor for the ingredients
+        double scalingFactor = (double) newPortions / currentPortions;
+
+        // update the ingredient quantities
+        List<Ingredient> ingredients = recipe.getIngredients();
+        for (Ingredient ingredient : ingredients) {
+            double oldAmount = ingredient.getAmount();
+            double newAmount = oldAmount * scalingFactor;
+            ingredient.setAmount(newAmount);
+        }
+
+        // update the recipe portion size
+        recipe.setPortions(newPortions);
+    }
+
+
+
+
+
+
+
     public static Recipe scaleRecipe(List<Recipe> recipeTest, int i) {
         return null;
     }

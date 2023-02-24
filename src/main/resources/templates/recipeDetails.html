@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-    <title>Alle opskrifter</title>
+    <title>Opskrift detalje</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -42,14 +42,52 @@
         </div>
     </nav>
 </header>
+
+</header>
+<br>
+<br>
 <h2 th:text="${recipe.title}"></h2>
-<!--<img th:src="${recipe.imageUrl}" alt="recipe image">-->
-<!--<ul>-->
-<!--    <li th:each="ingredient : ${recipe.ingredients}">-->
-<!--        <span th:text="${ingredient.ingredientName}"></span>-->
-<!--        <span th:text="${ingredient.amount}"></span>-->
-<!--    </li>-->
-<!--</ul>-->
+<img th:src="${recipe.imageUrl}" height="350" width="350" alt="recipe image">
+<ul>
+<!--    <h5 th:text="'Portioner: ' + ${recipe.portions}"></h5>-->
+<!--    <div>-->
+<!--        <button>-</button>-->
+<!--        <h5 th:text="'Portioner: ' + ${recipe.portions}"></h5>-->
+<!--        <button>+</button>-->
+<!--    </div>-->
+<!--    <button onclick="addPortion()">+</button>-->
+<!--    <h5 th:text="'Portioner: ' + ${recipe.portions}"></h5>-->
+<!--    <button onclick="removePortion()">-</button>-->
+
+<!--    <form action="/recipe/{id}/portions" method="post">
+        <input type="hidden" name="_method" value="put">
+        <p>Current Portions: <span th:text="${recipe.portions}"></span></p>
+        <button type="submit" name="addPortion" value="true">+</button>
+        <button type="submit" name="addPortion" value="false">-</button>
+    </form>-->
+
+
+    <h5>
+        Portioner: <span th:text="${recipe.portions}"></span>
+        <button type="button" onclick="location.href='/recipe/'+${recipe.id}+'/add-portion'" class="btn btn-outline-secondary ml-2">+</button>
+        <button type="button" onclick="location.href='/recipe/'+${recipe.id}+'/remove-portion'" class="btn btn-outline-secondary ml-2">-</button>
+    </h5>
+
+
+
+
+
+
+    <li th:each="ingredient : ${recipe.ingredients}">
+
+        <span th:text="${ingredient.ingredientName}"></span>
+        <span th:text="${ingredient.amount}"></span>
+        <!--<span th:text="${ingredient.amount != 0 ? #numbers.formatDecimal(ingredient.amount, 1) : 0}"></span>-->
+        <span th:text="${ingredient.measurement}"></span>
+    </li>
+</ul>
+
+<h4>Tilberedning</h4>
 <!--<ol>-->
 <!--    <li th:each="instruction : ${recipe.instructions}">-->
 <!--        <span th:text="${instruction.step}"></span>-->
