@@ -1,11 +1,7 @@
 package RuneLine.GraduateProject;
 
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
 import jakarta.persistence.TypedQuery;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -50,14 +46,14 @@ class GraduateProjectApplicationTests {
 
 	@Test
 	public void testScale (int numPersons) {
-		Recipe result = RecipeMethods.scaleRecipe(recipeTest,5);
+		Recipe result = RecipeService.scaleRecipe(recipeTest,5);
 		assertEquals( 5, result.getTitle( ) );
 	}
 
 //	Så hvis man har gennemført et step, overstreges den. Boolean default false. Boolean if false == true. JS?
 	@Test
 	public void testNextStep2 (boolean done) {
-		Boolean result = RecipeMethods.isDone(false);
+		Boolean result = RecipeService.isDone(false);
 		assertEquals( true, result.booleanValue( ));
 	}
 

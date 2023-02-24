@@ -12,6 +12,7 @@ public class Instruction {
     private String step;
 
     @ManyToOne
+    @JoinColumn(name = "recipe_id_fk")
     private Recipe recipe;
 
     public Instruction() {
