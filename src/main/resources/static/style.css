@@ -1,7 +1,5 @@
 body {
 background-color: #EAECE1;
-padding-left: 20px;
-padding-right: 20px;
 }
 
 .spis1 { background-color: #00A748; }
@@ -11,6 +9,22 @@ padding-right: 20px;
 
 .navbar-brand {
 margin-left: 20px;
+}
+
+.container-fluid {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 15px;
+}
+
+@media (max-width: 767px) {
+.container-fluid {
+  padding: 0;
+  }
+}
+
+.card {
+background-color: #EAECE1;
 }
 
 header {
