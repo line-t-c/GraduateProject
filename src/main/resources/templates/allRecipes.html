@@ -48,8 +48,10 @@
   <div>
     <ul>
       <li th:each="recipe : ${recipes}">
-        <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
-        <h4 th:text="${recipe.title}"></h4>
+        <a th:href="@{/opskrifter/{recipeId}(recipeId=${recipe.id})}">
+          <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
+          <h4 th:text="${recipe.title}"></h4>
+        </a>
       </li>
     </ul>
   </div>

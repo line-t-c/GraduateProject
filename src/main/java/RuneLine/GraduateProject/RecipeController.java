@@ -37,15 +37,13 @@ public class RecipeController {
         return "allRecipes";
     }
 
+    @GetMapping("/opskrifter/{recipeId}")
+    public String opskrift(@PathVariable long recipeId, Model model) {
+        Recipe recipe = repository.findById(recipeId).get();
+        model.addAttribute("recipe", recipe);
+        return "recipeDetails";
+    }
 
-
-//    @GetMapping("/opskrifter")
-//    public String alleOpskrifter (Model model) {
-////        List<Recipe> recipeList = new ArrayList<>();
-//        Iterable<Recipe> recipeList = repository.findAll();
-//        model.addAttribute("recipes", recipeList);
-//        return "recipes";
-//    }
 
 //    @GetMapping("/opskrifter")
 //    public  String index(Model model, @RequestParam(defaultValue = "1") int page){
