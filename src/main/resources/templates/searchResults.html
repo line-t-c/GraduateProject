@@ -34,8 +34,8 @@
 <!--                Bootstrap billede -->
                 <ul>
                     <li th:each="result : ${searchResult}">
-<!--                        <img th:src="${result.image_url}" alt="recipe image">-->
-                        <h3 th:text="${result.title}"></h3>
+                        <img th:src="${result.imageUrl}" height="230" width="250" alt="recipe image">
+                        <h4 th:text="${result.title}"></h4>
                     </li>
                 </ul>
             </div>
