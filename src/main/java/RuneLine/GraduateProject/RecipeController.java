@@ -38,7 +38,6 @@ public class RecipeController {
 //        return "recipes";
 //    }
 
-
 //    @GetMapping("/opskrifter")
 //    public  String index(Model model, @RequestParam(defaultValue = "1") int page){
 //        int pageSize = 5;
