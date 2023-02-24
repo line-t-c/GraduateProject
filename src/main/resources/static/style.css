@@ -2,6 +2,31 @@ body {
 background-color: #EAECE1;
 }
 
+.spis1 { background-color: #00A748; }
+.spis2 { background-color: #66AD61; }
+.spis3 { background-color: #8DCD77; }
+.spis4 { background-color: #EAECE1; }
+
+.navbar-brand {
+margin-left: 20px;
+}
+
+.container-fluid {
+max-width: 1000px;
+margin: 0 auto;
+padding: 0 15px;
+}
+
+@media (max-width: 767px) {
+.container-fluid {
+  padding: 0;
+  }
+}
+
+.card {
+background-color: #EAECE1;
+}
+
 header {
 }
 
