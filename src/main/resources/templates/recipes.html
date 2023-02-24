@@ -20,33 +20,35 @@
 </header>
 <h1>Opskrifter</h1>
 <div class="main">
-
-    <ul>
-        <li th:each="result : ${searchResult}">
-            <img th:src="${result.image_url}" alt="recipe image">
-            <h3 th:text="${result.title}"></h3>
-        </li>
-    </ul>
-    <ul>
-        <li th:object="${recipe}">
-            <h3 th:text="$*{title}"></h3>
-            <h3 th:field="$*{title}"></h3>
-            <img th:src="$*{image_url}" alt="recipe image">
-        </li>
-    </ul>
+<!--    <ul>-->
+<!--        <li th:each="result : ${searchResult}">-->
+<!--            <img th:src="${result.image_url}" alt="recipe image">-->
+<!--            <h3 th:text="${result.title}"></h3>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--    <ul>-->
+<!--        <li th:object="${recipe}">-->
+<!--            <h3 th:text="$*{title}"></h3>-->
+<!--            <h3 th:field="$*{title}"></h3>-->
+<!--            <img th:src="$*{image_url}" alt="recipe image">-->
+<!--        </li>-->
+<!--    </ul>-->
 
     <div>
         <div th:each="recipe : ${recipes}">
             <a th:href="'/opskrifte/' + ${recipe.getId}">
                 <h2 th:text="${recipe.getTitle}"></h2>
-                <img th:src="${recipe.image_url}" alt="recipe image">
             </a>
+                <img th:src="${recipe.image_url}" alt="recipe image">
+            <hr />
         </div>
     </div>
 
+</div>
 
-
-
+<div>
+    <a th:if="${page > 1}" th:href="'/?page=' + ${page - 1}">Back</a>
+    <a th:if="${page < noOfPages}" th:href="'/?page=' + ${page + 1}">Next</a>
 </div>
 </body>
 </html>
