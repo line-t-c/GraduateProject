@@ -1,14 +1,9 @@
 package RuneLine.GraduateProject;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,17 +14,33 @@ public class RecipeController {
     private RecipeRepo repository;
 
     @Autowired
-    private RecipeMethods recipeMethods;
-
-//    JPA funktioner, if needed
-//    count of Recipe table
-//    long count = repository.count();
-
+    private RecipeService recipeService;
 
     @GetMapping("/")
     public String home () {
         return "home";
     }
+
+    @GetMapping("/search")
+    public String searchRecipesByIngredients(@RequestParam String ingredients, Model model) {
+        List<String> ingredientList = Arrays.asList(ingredients.split("\\s*,\\s*"));
+        List<Recipe> searchResult = recipeService.findByIngredients(ingredientList);
+        model.addAttribute("ingredientName", ingredients);
+        model.addAttribute("searchResult", searchResult);
+        return "searchResults";
+    }
+
+//        @GetMapping("/search")
+//        public List<Recipe> searchRecipesByTitle(@RequestParam("q") String searchTerm) {
+//            List<Recipe> recipes = (List<Recipe>) recipeRepository.findAll();
+//            return recipes.stream()
+//                    .filter(recipe -> recipe.getTitle().contains(searchTerm))
+//                    .collect(Collectors.toList());
+//        }
+
+
+
+
 
 //        if (!ingredients.isEmpty()) {
 //            String[] ingredientList = ingredients.split(" ");

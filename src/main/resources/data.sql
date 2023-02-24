@@ -14,6 +14,7 @@ VALUES
 ('æg', 4, 'stk', 1),
 ('parmesan', 75, 'g', 1),
 ('spaghetti', 400, 'g', 1),
+('kartofler', 400, 'g', 1),
 ('kyllingebryst', 2, 'stk', 2),
 ('blandet salat', 1, 'pose', 2),
 ('cherrytomater', 250, 'g', 2),

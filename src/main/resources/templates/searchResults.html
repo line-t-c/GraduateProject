@@ -31,9 +31,10 @@
         </div>
         <div class="grid-item item2">
             <div th:if="${not #lists.isEmpty(searchResult)}">
+<!--                Bootstrap billede -->
                 <ul>
                     <li th:each="result : ${searchResult}">
-                        <img th:src="${result.image_url}" alt="recipe image">
+<!--                        <img th:src="${result.image_url}" alt="recipe image">-->
                         <h3 th:text="${result.title}"></h3>
                     </li>
                 </ul>

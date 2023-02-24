@@ -24,7 +24,8 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    private String imageUrl; // new field for image URL
+    @Column(name = "image_url")
+    private String imageUrl;
 
     public Recipe() {
     }
