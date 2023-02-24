@@ -21,24 +21,10 @@ public class RecipeController {
     @Autowired
     private RecipeMethods recipeMethods;
 
-//    JPA funktioner, if needed
-//    count of Recipe table
-//    long count = repository.count();
-
-
     @GetMapping("/")
     public String home () {
         return "home";
     }
-
-//        if (!ingredients.isEmpty()) {
-//            String[] ingredientList = ingredients.split(" ");
-//            searchResult = repository.findByIngredientNames(Arrays.asList(ingredientList), ingredientList.length);
-//        }
-
-
-
-
 
 //    @GetMapping("/search")
 //    public String searchRecipesByIngredient(@RequestParam(required=false, defaultValue = " ") String ingredients, Model model) {
@@ -60,67 +46,6 @@ public class RecipeController {
 //    and also remove any whitespace characters around each item.
 
 
-
-
-
-//    @GetMapping("/opskrifter")
-//    public String alleOpskrifter (Model model) {
-////        List<Recipe> recipeList = new ArrayList<>();
-//        Iterable<Recipe> recipeList = repository.findAll();
-//        model.addAttribute("recipes", recipeList);
-//        return "recipes";
-//    }
-
-
-//    @GetMapping("/opskrifter")
-//    public  String index(Model model, @RequestParam(defaultValue = "1") int page){
-//        int pageSize = 5;
-//        int recipeRepoSize = (int) repository.count();
-//        int noOfPages = recipeRepoSize / pageSize;
-//        if (recipeRepoSize % pageSize > 0){
-//            noOfPages++;
-//        }
-//        if(page < 1){
-//            return "redirect:/opskrifter?page=1";
-//        } else if(page > noOfPages){
-//            return "redirect:/opskrifter/?page=" + noOfPages;
-//        }
-//        int startIndex = pageSize*(page-1);
-//        int endIndex = startIndex + pageSize;
-//        if (endIndex > recipeRepoSize){
-//            endIndex = recipeRepoSize;
-//        }
-//        List<Recipe> recipeList = new ArrayList<>();
-//        if(startIndex < endIndex){
-//            recipeList = repository.findAll().subList(startIndex, endIndex);
-//        }
-//        model.addAttribute("recipes", recipeList);
-//        model.addAttribute("page", page);
-//        model.addAttribute("noOfPages", noOfPages);
-//
-//        return "recipes";
-//    }
-
-//    @GetMapping("/opskrifter")
-//    public String index(Model model, @RequestParam(defaultValue = "0") int page) {
-//        int pageSize = 5;
-//        Pageable pageable = PageRequest.of(page, pageSize);
-//        Page<Recipe> recipePage = repository.findAll(pageable);
-//        int recipeRepoSize = (int) recipePage.getTotalElements();
-//        int noOfPages = recipePage.getTotalPages();
-//
-//        if (page < 0 || page >= noOfPages) {
-//            return "redirect:/opskrifter?page=0";
-//        }
-//
-//        List<Recipe> recipeList = recipePage.getContent();
-//
-//        model.addAttribute("recipes", recipeList);
-//        model.addAttribute("page", page);
-//        model.addAttribute("noOfPages", noOfPages);
-//
-//        return "recipes";
-//    }
 
 
 
@@ -147,14 +72,6 @@ public class RecipeController {
 //        return "recipes";
 //    }
 
-
-
-
-
-
-
-//  find all recipes
-//  Iterable<Recipe> recipes = repository.findAll();
 
     @GetMapping("/om")
     public String about () {
