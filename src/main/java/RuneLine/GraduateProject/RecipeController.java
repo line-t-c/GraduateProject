@@ -30,50 +30,6 @@ public class RecipeController {
         return "searchResults";
     }
 
-//        @GetMapping("/search")
-//        public List<Recipe> searchRecipesByTitle(@RequestParam("q") String searchTerm) {
-//            List<Recipe> recipes = (List<Recipe>) recipeRepository.findAll();
-//            return recipes.stream()
-//                    .filter(recipe -> recipe.getTitle().contains(searchTerm))
-//                    .collect(Collectors.toList());
-//        }
-
-
-
-
-
-//        if (!ingredients.isEmpty()) {
-//            String[] ingredientList = ingredients.split(" ");
-//            searchResult = repository.findByIngredientNames(Arrays.asList(ingredientList), ingredientList.length);
-//        }
-
-
-
-
-
-//    @GetMapping("/search")
-//    public String searchRecipesByIngredient(@RequestParam(required=false, defaultValue = " ") String ingredients, Model model) {
-//        List<String> ingredientList = Arrays.asList(ingredients.split("\\s*,\\s*"));
-////        String ingredientListAsString = "";
-////        for (int i = 0; i<ingredientList.size(); i++){
-////            if (i == 0) {
-////                ingredientListAsString += "'" + ingredientList.get(i) + "'";
-////            } else {
-////                ingredientListAsString += ", '" + ingredientList.get(i) + "'";
-////            }
-////        }
-//        List<Ingredient> searchResult = repository.findByIngredientName(ingredientList.get(0));
-//        model.addAttribute("searchResult", searchResult);
-//        model.addAttribute("ingredientName", ingredients);
-//        return "searchResults";
-//    }
-//    the split("\\s*,\\s*") method call will split the ingredients string using comma as a delimiter
-//    and also remove any whitespace characters around each item.
-
-
-
-
-
 //    @GetMapping("/opskrifter")
 //    public String alleOpskrifter (Model model) {
 ////        List<Recipe> recipeList = new ArrayList<>();
