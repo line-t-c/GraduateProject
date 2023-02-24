@@ -38,4 +38,8 @@ public class RecipeController {
         return "about";
     }
 
+    @GetMapping("/testview")
+    public String testview () {
+        return "testview";
+    }
 }
