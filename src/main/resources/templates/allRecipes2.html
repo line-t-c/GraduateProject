@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Opskrift detaljer</title>
+</head>
+<body>
+<header>
+    <h1>Opskrift detaljer</h1>
+</header>
+
+<section>
+    <div>
+        <button onclick="updatePortions(false)" name="removePortion" style="display: inline-block;">-</button>
+        <h5 id="portions" th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>
+        <button onclick="updatePortions(true)" name="addPortion" style="display: inline-block;">+</button>
+
+        <div class="portion-controls" action="opskrifter/{id}/portions" method="post">
+            <button id="decrease-button" onclick="updatePortions(false)" name="removePortion" value="false" style="display: inline-block;">-</button>
+            <h5 th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>
+            <button id="increase-button" onclick="updatePortions(true)" name="addPortion" value="true" style="display: inline-block;">+</button>
+        </div>
+        <input type="hidden" id="recipe-id" th:value="${recipe.id}" />
+    </div>
+
+    <ul>
+        <div class="ingredients">
+            <li th:each="ingredient : ${recipe.ingredients}">
+                <span th:text="${ingredient.ingredientName}"></span>
+                <span id="ingredientAmount" th:text="${#numbers.formatDecimal(ingredient.amount, 1, 1, 'COMMA')}"></span>
+                <span th:text="${ingredient.measurement}"></span>
+            </li>
+        </div>
+    </ul>
+
+    <h4>Tilberedning</h4>
+    <ol>
+        <li th:each="instruction : ${recipe.instruction}">
+            <span th:text="${instruction.recipeSteps}"></span>
+        </li>
+    </ol>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

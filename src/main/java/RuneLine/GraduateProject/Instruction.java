@@ -9,7 +9,8 @@ public class Instruction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String step;
+    @Column(name = "recipe_steps")
+    private String recipeSteps;
 
     @ManyToOne
     @JoinColumn(name = "recipe_id_fk")
@@ -18,15 +19,31 @@ public class Instruction {
     public Instruction() {
     }
 
-    public Instruction(String step) {
-        this.step = step;
+    public Instruction(String recipeSteps) {
+        this.recipeSteps = recipeSteps;
     }
 
-    public String getStep() {
-        return step;
+    public Long getId() {
+        return id;
     }
 
-    public void setStep(String step) {
-        this.step = step;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getRecipeSteps() {
+        return recipeSteps;
+    }
+
+    public void setRecipeSteps(String recipeSteps) {
+        this.recipeSteps = recipeSteps;
+    }
+
+    public Recipe getRecipe() {
+        return recipe;
+    }
+
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
     }
 }

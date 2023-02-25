@@ -91,3 +91,8 @@ width=150px
   padding: 20px;
   margin: 20px;
 }
+
+.portion-controls button,
+.portion-controls h5 {
+  display: inline-block;
+}

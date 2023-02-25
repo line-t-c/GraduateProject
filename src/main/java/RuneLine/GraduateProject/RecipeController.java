@@ -1,5 +1,7 @@
 package RuneLine.GraduateProject;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,11 +46,36 @@ public class RecipeController {
 //        return "recipeDetails";
 //    }
 
-    @GetMapping("/recipe/{id}")
+    @GetMapping("/opskrifter/{id}")
     public String getRecipe(@PathVariable Long id, Model model) {
         Recipe recipe = repository.findById(id).get();
         model.addAttribute("recipe", recipe);
-        return "recipeDetails";
+        return "recipeDetails2";
+    }
+
+    @GetMapping("/opskrifter/{id}/portions")
+    public String updatePortionsForm(@PathVariable Long id, Model model) {
+        Recipe recipe = repository.findById(id).get();
+        model.addAttribute("recipe", recipe);
+        return "recipeDetails2";
+    }
+
+//    @PutMapping("/opskrifter/{id}/portions")
+//    public String updatePortions(@PathVariable Long id, @RequestParam Boolean addPortion) {
+//        Recipe recipe = repository.findById(id).get();
+//        recipeService.updatePortions(recipe, addPortion);
+//        return "redirect:/opskrifter/{id}";
+//    }
+
+    @PutMapping("/opskrifter/{id}/portions")
+    public String updatePortions(@PathVariable Long id, @RequestParam Boolean addPortion, HttpServletResponse response) {
+        Recipe recipe = repository.findById(id).get();
+        recipeService.updatePortions(recipe, addPortion);
+
+        // Set the HTTP response status to 204 No Content to indicate success
+        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+
+        return "redirect:/opskrifter/{id}";
     }
 
 //    @GetMapping("/recipe/{id}/portions")

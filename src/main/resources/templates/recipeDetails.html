@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="style.css" th:href="style.css">
     <meta charset="UTF-8">
+
     <title>Opskrift detaljer</title>
 </head>
 <body>
@@ -16,17 +17,10 @@
     </div>
 </header>
 <h2 th:text="${recipe.title}"></h2>
-<img th:src="${recipe.imageUrl}" height="350" width="350" alt="recipe image">
-<ul>
-<!--    <h5 th:text="'Portioner: ' + ${recipe.portions}"></h5>-->
-<!--    <div>-->
-<!--        <button>-</button>-->
-<!--        <h5 th:text="'Portioner: ' + ${recipe.portions}"></h5>-->
-<!--        <button>+</button>-->
-<!--    </div>-->
-<!--    <button onclick="addPortion()">+</button>-->
-<!--    <h5 th:text="'Portioner: ' + ${recipe.portions}"></h5>-->
-<!--    <button onclick="removePortion()">-</button>-->
+<img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
+
+
+
 
 <!--    <form action="/recipe/{id}/portions" method="post">
         <input type="hidden" name="_method" value="put">
@@ -34,33 +28,45 @@
         <button type="submit" name="addPortion" value="true">+</button>
         <button type="submit" name="addPortion" value="false">-</button>
     </form>-->
+<!--<form action="/recipe/{id}/portions" method="post">-->
+<!--    <input type="hidden" name="_method" value="put">-->
+<!--    <p>Current Portions: <span th:text="${recipe.portions}"></span></p>-->
+<!--    <button type="submit" name="removePortion" value="false">-</button>-->
+<!--    <button type="submit" name="addPortion" value="true">+</button>-->
+<!--</form>-->
+
+<div class="portion-controls" action="opskrifter/{id}/portions" method="post">
+    <button onclick="updatePortions()" name="removePortion" value="false" style="display: inline-block;">-</button>
+    <h5 th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>
+    <button onclick="updatePortions()" name="addPortion" value="true" style="display: inline-block;">+</button>
+</div>
+
+<div class="portion-controls" action="opskrifter/{id}/portions" method="post">
+    <button id="decrease-button" onclick="updatePortions(false)" name="removePortion" value="false" style="display: inline-block;">-</button>
+    <h5 th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>
+    <button id="increase-button" onclick="updatePortions(true)" name="addPortion" value="true" style="display: inline-block;">+</button>
+</div>
+<input type="hidden" id="recipe-id" th:value="${recipe.id}" />
 
 
-    <h5>
-        Portioner: <span th:text="${recipe.portions}"></span>
-        <button type="button" onclick="location.href='/recipe/'+${recipe.id}+'/add-portion'" class="btn btn-outline-secondary ml-2">+</button>
-        <button type="button" onclick="location.href='/recipe/'+${recipe.id}+'/remove-portion'" class="btn btn-outline-secondary ml-2">-</button>
-    </h5>
-
-
-
-
-
-
-    <li th:each="ingredient : ${recipe.ingredients}">
-
-        <span th:text="${ingredient.ingredientName}"></span>
-        <span th:text="${ingredient.amount}"></span>
-        <!--<span th:text="${ingredient.amount != 0 ? #numbers.formatDecimal(ingredient.amount, 1) : 0}"></span>-->
-        <span th:text="${ingredient.measurement}"></span>
-    </li>
+<ul>
+    <div class="ingredients">
+        <li th:each="ingredient : ${recipe.ingredients}">
+            <span th:text="${ingredient.ingredientName}"></span>
+            <span  th:text="${#numbers.formatDecimal(ingredient.amount, 1, 1, 'COMMA')}"></span>
+            <span th:text="${ingredient.measurement}"></span>
+        </li>
+    </div>
 </ul>
 
 <h4>Tilberedning</h4>
-<!--<ol>-->
-<!--    <li th:each="instruction : ${recipe.instructions}">-->
-<!--        <span th:text="${instruction.step}"></span>-->
-<!--    </li>-->
-<!--</ol>-->
+<ol>
+    <li th:each="instruction : ${recipe.instruction}">
+        <span th:text="${instruction.recipeSteps}"></span>
+    </li>
+</ol>
+
+
+<script src="script.js"></script>
 </body>
 </html>

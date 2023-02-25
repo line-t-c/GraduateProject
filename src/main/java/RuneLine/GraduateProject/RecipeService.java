@@ -23,6 +23,31 @@ public class RecipeService {
                 .collect(Collectors.toList());
     }
 
+
+    // Increase portion size and update ingredient amounts
+    public void addPortion(Recipe recipe) {
+        int newPortions = recipe.getPortions() + 1;
+        recipe.setPortions(newPortions);
+        for (Ingredient ingredient : recipe.getIngredients()) {
+            double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
+            ingredient.setAmount(newAmount);
+        }
+    }
+
+    // Decrease portion size and update ingredient amounts
+    public void removePortion(Recipe recipe) {
+        int newPortions = recipe.getPortions() - 1;
+        if (newPortions >= 1) {
+            recipe.setPortions(newPortions);
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
+                ingredient.setAmount(newAmount);
+            }
+        }
+    }
+
+    // other methods in your RecipeService class
+
     public void updatePortions(Recipe recipe, boolean addPortion) {
         int currentPortions = recipe.getPortions();
         int newPortions = addPortion ? currentPortions + 1 : currentPortions - 1;
@@ -38,9 +63,12 @@ public class RecipeService {
             ingredient.setAmount(newAmount);
         }
 
-        // update the recipe portion size
         recipe.setPortions(newPortions);
     }
+
+
+
+
 
 
 
