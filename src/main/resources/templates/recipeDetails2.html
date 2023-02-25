@@ -15,6 +15,8 @@
     <a href="/om">Om os</a>
   </div>
 </header>
+<h2 th:text="${recipe.title}"></h2>
+<img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
 <section>
   <div>
     <button onclick="updatePortions(false)" name="removePortion" style="display: inline-block;">-</button>
