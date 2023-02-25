@@ -44,19 +44,10 @@ public class RecipeController {
         return "recipeDetails";
     }
 
-    @PostMapping("/recipe/{id}")
-    public String updateRecipe(@PathVariable long id, @RequestParam boolean isPortionAdded) {
-        // fetch the recipe from the database based on its ID
-        Recipe recipe = repository.findById(id).get();
-        // update the portions and ingredient amounts
-        recipeService.updatePortions(recipe, isPortionAdded);
-        // save the updated recipe back to the database
-        repository.save(recipe);
-        // redirect the user back to the recipe page
-        return "redirect:/recipe/{id}";
+    @GetMapping("/fejl")
+    public String fejl () {
+        return "error";
     }
-
-
 
     @GetMapping("/om")
     public String about () {
