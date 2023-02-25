@@ -30,8 +30,33 @@ public class RecipeController {
         return "searchResults";
     }
 
-//  find all recipes
-//  Iterable<Recipe> recipes = repository.findAll();
+    @GetMapping("/opskrifter")
+    public String alleOpskrifter (Model model) {
+        List<Recipe> recipes = (List<Recipe>) repository.findAll();
+        model.addAttribute("recipes", recipes);
+        return "allRecipes";
+    }
+
+    @GetMapping("/opskrifter/{id}")
+    public String getRecipe(@PathVariable Long id, Model model) {
+        Recipe recipe = repository.findById(id).get();
+        model.addAttribute("recipe", recipe);
+        return "recipeDetails";
+    }
+
+    @PostMapping("/recipe/{id}")
+    public String updateRecipe(@PathVariable long id, @RequestParam boolean isPortionAdded) {
+        // fetch the recipe from the database based on its ID
+        Recipe recipe = repository.findById(id).get();
+        // update the portions and ingredient amounts
+        recipeService.updatePortions(recipe, isPortionAdded);
+        // save the updated recipe back to the database
+        repository.save(recipe);
+        // redirect the user back to the recipe page
+        return "redirect:/recipe/{id}";
+    }
+
+
 
     @GetMapping("/om")
     public String about () {
