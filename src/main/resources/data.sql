@@ -39,7 +39,7 @@ VALUES
 
 
 -- Indsæt trin til opskriften
-INSERT INTO INSTRUCTION (STEP, RECIPE_ID_FK)
+INSERT INTO INSTRUCTION (RECIPE_STEPS, RECIPE_ID_FK)
 VALUES
 ('Kog pastaen i en stor gryde med rigeligt saltet vand.', 1),
 ('Imens pastaen koger, pisk æggene sammen med parmesan, salt og peber i en skål.', 1),

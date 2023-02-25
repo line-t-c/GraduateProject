@@ -22,14 +22,6 @@ public class Ingredient {
     @JoinColumn(name = "recipe_id_fk")
     private Recipe recipe;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public Ingredient() {
     }
 
@@ -37,6 +29,14 @@ public class Ingredient {
         this.ingredientName = ingredientName;
         this.amount = amount;
         this.measurement = measurement;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIngredientName() {

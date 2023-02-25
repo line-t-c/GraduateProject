@@ -11,7 +11,7 @@ import java.util.List;
 public class Recipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String title;
 
@@ -30,8 +30,7 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(int id, String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients, String imageUrl) {
-        this.id = id;
+    public Recipe(String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients, String imageUrl) {
         this.title = title;
         this.portions = portions;
         this.instruction = instruction;
@@ -39,11 +38,11 @@ public class Recipe {
         this.imageUrl = imageUrl;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

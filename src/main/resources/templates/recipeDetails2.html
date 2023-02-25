@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="stylesheet" href="style.css" th:href="style.css">
+  <meta charset="UTF-8">
+  <title>Alle opskrifter</title>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="/images/logo2.png" height="100" width="100" alt="Logo"></div>
+  <div class="topnav">
+    <a href="/">Hjem</a>
+    <a href="/saeson">Sæsonens grønt</a>
+    <a href="/opskrifter">Opskrifter</a>
+    <a href="/om">Om os</a>
+  </div>
+</header>
+<h2 th:text="${recipe.title}"></h2>
+<img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
+<section>
+  <div>
+    <button onclick="updatePortions(false)" name="removePortion" style="display: inline-block;">-</button>
+    <h5 id="portions" th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>
+    <button onclick="updatePortions(true)" name="addPortion" style="display: inline-block;">+</button>
+
+    <div class="portion-controls" action="opskrifter/{id}/portions" method="post">
+      <button id="decrease-button" onclick="updatePortions(false)" name="removePortion" value="false" style="display: inline-block;">-</button>
+      <h5 th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>
+      <button id="increase-button" onclick="updatePortions(true)" name="addPortion" value="true" style="display: inline-block;">+</button>
+    </div>
+    <input type="hidden" id="recipe-id" th:value="${recipe.id}" />
+  </div>
+
+  <ul>
+    <div class="ingredients">
+      <li th:each="ingredient : ${recipe.ingredients}">
+        <span th:text="${ingredient.ingredientName}"></span>
+        <span id="ingredientAmount" th:text="${#numbers.formatDecimal(ingredient.amount, 1, 1, 'COMMA')}"></span>
+        <span th:text="${ingredient.measurement}"></span>
+      </li>
+    </div>
+  </ul>
+
+  <h4>Tilberedning</h4>
+  <ol>
+    <li th:each="instruction : ${recipe.instruction}">
+      <span th:text="${instruction.recipeSteps}"></span>
+    </li>
+  </ol>
+</section>
+
+<script src="recipeScript.js"></script>
+</body>
+</html>

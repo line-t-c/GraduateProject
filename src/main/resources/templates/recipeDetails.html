@@ -19,6 +19,22 @@
 <h2 th:text="${recipe.title}"></h2>
 <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
 
+
+
+
+<!--    <form action="/recipe/{id}/portions" method="post">
+        <input type="hidden" name="_method" value="put">
+        <p>Current Portions: <span th:text="${recipe.portions}"></span></p>
+        <button type="submit" name="addPortion" value="true">+</button>
+        <button type="submit" name="addPortion" value="false">-</button>
+    </form>-->
+<!--<form action="/recipe/{id}/portions" method="post">-->
+<!--    <input type="hidden" name="_method" value="put">-->
+<!--    <p>Current Portions: <span th:text="${recipe.portions}"></span></p>-->
+<!--    <button type="submit" name="removePortion" value="false">-</button>-->
+<!--    <button type="submit" name="addPortion" value="true">+</button>-->
+<!--</form>-->
+
 <!--<div class="portion-controls" action="opskrifter/{id}/portions" method="post">-->
 <!--    <button onclick="updatePortions()" name="removePortion" value="false" style="display: inline-block;">-</button>-->
 <!--    <h5 th:text="'Portioner: ' + ${recipe.portions}" style="display: inline-block;"></h5>-->
@@ -50,5 +66,7 @@
     </li>
 </ol>
 
+
+<script src="script.js"></script>
 </body>
 </html>
