@@ -23,13 +23,4 @@ public class RecipeService {
                 .collect(Collectors.toList());
     }
 
-    public static Recipe scaleRecipe(List<Recipe> recipeTest, int i) {
-        return null;
-    }
-
-    public static Boolean isDone(boolean isDone) {
-        Boolean isStepDone = !isDone;
-        return isStepDone;
-    }
-
 }
