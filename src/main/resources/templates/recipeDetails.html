@@ -34,7 +34,7 @@
     <div class="ingredients">
         <li th:each="ingredient : ${recipe.ingredients}">
             <span th:text="${ingredient.ingredientName}"></span>
-            <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
+                <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
             <span th:text="${ingredient.measurement}"></span>
         </li>
     </div>
