@@ -25,14 +25,14 @@ public class RecipeService {
 
 
     // Increase portion size and update ingredient amounts
-    public void addPortion(Recipe recipe) {
-        int newPortions = recipe.getPortions() + 1;
-        recipe.setPortions(newPortions);
-        for (Ingredient ingredient : recipe.getIngredients()) {
-            double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
-            ingredient.setAmount(newAmount);
-        }
-    }
+//    public void addPortion(Recipe recipe) {
+//        int newPortions = recipe.getPortions() + 1;
+//        recipe.setPortions(newPortions);
+//        for (Ingredient ingredient : recipe.getIngredients()) {
+//            double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
+//            ingredient.setAmount(newAmount);
+//        }
+//    }
 
     // Decrease portion size and update ingredient amounts
     public void removePortion(Recipe recipe) {
@@ -40,7 +40,7 @@ public class RecipeService {
         if (newPortions >= 1) {
             recipe.setPortions(newPortions);
             for (Ingredient ingredient : recipe.getIngredients()) {
-                double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
+                int newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
                 ingredient.setAmount(newAmount);
             }
         }
@@ -48,23 +48,23 @@ public class RecipeService {
 
     // other methods in your RecipeService class
 
-    public void updatePortions(Recipe recipe, boolean addPortion) {
-        int currentPortions = recipe.getPortions();
-        int newPortions = addPortion ? currentPortions + 1 : currentPortions - 1;
-
-        // calculate the scaling factor for the ingredients
-        double scalingFactor = (double) newPortions / currentPortions;
-
-        // update the ingredient quantities
-        List<Ingredient> ingredients = recipe.getIngredients();
-        for (Ingredient ingredient : ingredients) {
-            double oldAmount = ingredient.getAmount();
-            double newAmount = oldAmount * scalingFactor;
-            ingredient.setAmount(newAmount);
-        }
-
-        recipe.setPortions(newPortions);
-    }
+//    public void updatePortions(Recipe recipe, boolean addPortion) {
+//        int currentPortions = recipe.getPortions();
+//        int newPortions = addPortion ? currentPortions + 1 : currentPortions - 1;
+//
+//        // calculate the scaling factor for the ingredients
+//        double scalingFactor = (double) newPortions / currentPortions;
+//
+//        // update the ingredient quantities
+//        List<Ingredient> ingredients = recipe.getIngredients();
+//        for (Ingredient ingredient : ingredients) {
+//            int oldAmount = ingredient.getAmount();
+//            int newAmount = oldAmount * scalingFactor;
+//            ingredient.setAmount(newAmount);
+//        }
+//
+//        recipe.setPortions(newPortions);
+//    }
 
 
 
