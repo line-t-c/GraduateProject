@@ -34,8 +34,10 @@
                         <a class="nav-link" href="/om">Om</a>
                     </li>
                 </ul>
+
                 <form class="d-flex">
-                    <input class="form-control me-2" type="text" placeholder="Søg fx gulerødder blomkål">
+                    <span id="search-icon" class="fa fa-search"></span>
+                    <input id="search-input" class="form-control me-2" type="text" placeholder="Søg fx gulerødder blomkål" style="display: none;">
                     <button class="btn spis3" type="button">Søg</button>
                 </form>
             </div>
@@ -54,19 +56,24 @@
         <input type="text" name="ingredients" placeholder="Søg fx gulerødder blomkål">
         <button type="submit">Search</button>
     </form>
-
-<!--
-    <form action="/search" method="POST"> --- skal dens action være /search eller /
-        <input type="text" name="firstName"/>
-        <input type="text" name="ingredients" placeholder="Søg fx gulerødder blomkål">
-        <button type="submit">Search</button>
-    </form>
-
--->
 </div>
 <div>
     <p>Søg på de ingredienser du har i køleskabet. Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
 </div>
+
+
+<script>
+    var form = document.querySelector('.d-flex');
+    var input = document.querySelector('#search-input');
+
+    form.addEventListener('mouseover', function() {
+        input.style.display = 'block';
+    });
+
+    form.addEventListener('mouseout', function() {
+        input.style.display = 'none';
+    });
+</script>
 
 </body>
 </html>
