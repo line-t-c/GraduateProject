@@ -29,7 +29,7 @@
     <div class="ingredients">
         <li th:each="ingredient : ${recipe.ingredients}">
             <span th:text="${ingredient.ingredientName}"></span>
-            <span class="ingredient-amount" th:text="${#numbers.formatDecimal(ingredient.amount, 1, 1, 'COMMA')}"></span>
+            <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
             <span th:text="${ingredient.measurement}"></span>
         </li>
     </div>
