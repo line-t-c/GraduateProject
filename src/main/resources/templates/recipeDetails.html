@@ -18,19 +18,11 @@
 </header>
 <h2 th:text="${recipe.title}"></h2>
 <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
-<!--<ul>-->
-<!--    <li th:each="diet : ${recipe.diets}">-->
-<!--        <span th:text="${diet.diet}"></span>-->
-<!--    </li>-->
-<!--</ul>-->
 <div class="button-group">
         <span th:each="diet : ${recipe.diets}">
             <button type="button" class="btn btn-secondary" th:text="${diet.diet}"></button>
         </span>
 </div>
-
-
-
 
 <div class="portion-controls">
     <button onclick="updatePortions(false)" style="display: inline-block;">-</button>
