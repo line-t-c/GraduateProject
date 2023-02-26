@@ -30,10 +30,10 @@
             <div th:if="${not #lists.isEmpty(searchResult)}">
 <!--                Bootstrap billede -->
                 <ul th:each="result : ${searchResult}">
-<!--                        <a th:href="@{/opskrifter/{recipeId}(recipeId=${recipe.id})}">-->
+                        <a th:href="@{/opskrifter/{recipeId}(recipeId=${result.id})}">
                             <img th:src="${result.imageUrl}" height="230" width="250" alt="recipe image">
                             <h4 th:text="${result.title}"></h4>
-<!--                        </a>-->
+                        </a>
                 </ul>
             </div>
             <div th:if="${#lists.isEmpty(searchResult)}">
