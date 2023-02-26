@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css" th:href="style.css">
+    <title>Spis Op - Søgeresultat</title>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-light spis4 fixed-top">
+        <div class="container-fluid">
+            <img src="/images/logo.png" alt="Logo" height="30" width="30" margin-left="20px">
+            <a class="navbar-brand" href="/">Spis Op</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/season">Sæsonens grønt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/opskrifter">Opskrifter</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/om">Om os</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="text" placeholder="Søg">
+                    <button class="btn spis3" type="button">Søg</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div>.</div>
+<div>.</div>
+<div class="container-fluid mt-3">
+    <h1>Opskrifter</h1>
+    <div class="container-fluid">
+        <div class="row">
+            <!--Search words-->
+            <div class="col-4 spis2 text-white p-3">
+                <p>Du har søgt på</p>
+                <div class="box">
+                    <p th:text="${ingredientName}"></p>
+                </div>
+            </div>
+            <!--Search results-->
+            <div class="col-8 spis3 text-dark p-3">
+                <div class="container">
+                    <!--If one or more search results-->
+                    <div th:if="${not #lists.isEmpty(searchResult)}">
+                        <div class="row gy-4">
+                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card">
+                                    <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title" th:text="${result.title}"></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--If no search results-->
+                    <div th:if="${#lists.isEmpty(searchResult)}">
+                        <p>Der er desværre ingen opskrifter med de ingredienser. Prøv en ny søgning</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
