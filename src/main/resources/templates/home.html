@@ -34,11 +34,10 @@
                         <a class="nav-link" href="/om">Om</a>
                     </li>
                 </ul>
-
-                <form class="d-flex">
+                <form th:action="@{/search}" method="get" class="d-flex">
                     <span id="search-icon" class="fa fa-search"></span>
-                    <input id="search-input" class="form-control me-2" type="text" placeholder="Søg fx gulerødder blomkål" style="display: none;">
-                    <button class="btn spis3" type="button">Søg</button>
+                    <input type="text" name="ingredients" placeholder="Søg fx gulerødder blomkål" id="search-input" class="form-control me-2" style="display: none;">
+                    <button type="submit" class="btn spis3" >Søg</button>
                 </form>
             </div>
         </div>
