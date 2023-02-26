@@ -46,29 +46,90 @@ public class RecipeController {
         return "recipeDetails";
     }
 
-    @GetMapping("/opskrifter/{id}/portions")
-    public String updatePortionsForm(@PathVariable Long id, Model model) {
-        Recipe recipe = repository.findById(id).get();
-        model.addAttribute("recipe", recipe);
-        return "recipeDetails2";
-    }
 
-    @PutMapping("/opskrifter/{id}/portions")
-    public String updatePortions(@PathVariable Long id, @RequestParam Boolean addPortion, HttpServletResponse response) {
-        Recipe recipe = repository.findById(id).get();
-        recipeService.updatePortions(recipe, addPortion);
+//    @GetMapping("/opskrifter")
+//    public  String index(Model model, @RequestParam(defaultValue = "1") int page){
+//        int pageSize = 5;
+//        int recipeRepoSize = (int) repository.count();
+//        int noOfPages = recipeRepoSize / pageSize;
+//        if (recipeRepoSize % pageSize > 0){
+//            noOfPages++;
+//        }
+//        if(page < 1){
+//            return "redirect:/opskrifter?page=1";
+//        } else if(page > noOfPages){
+//            return "redirect:/opskrifter/?page=" + noOfPages;
+//        }
+//        int startIndex = pageSize*(page-1);
+//        int endIndex = startIndex + pageSize;
+//        if (endIndex > recipeRepoSize){
+//            endIndex = recipeRepoSize;
+//        }
+//        List<Recipe> recipeList = new ArrayList<>();
+//        if(startIndex < endIndex){
+//            recipeList = repository.findAll().subList(startIndex, endIndex);
+//        }
+//        model.addAttribute("recipes", recipeList);
+//        model.addAttribute("page", page);
+//        model.addAttribute("noOfPages", noOfPages);
+//
+//        return "recipes";
+//    }
 
-        // Set the HTTP response status to 204 No Content to indicate success
-        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
+//    @GetMapping("/opskrifter")
+//    public String index(Model model, @RequestParam(defaultValue = "0") int page) {
+//        int pageSize = 5;
+//        Pageable pageable = PageRequest.of(page, pageSize);
+//        Page<Recipe> recipePage = repository.findAll(pageable);
+//        int recipeRepoSize = (int) recipePage.getTotalElements();
+//        int noOfPages = recipePage.getTotalPages();
+//
+//        if (page < 0 || page >= noOfPages) {
+//            return "redirect:/opskrifter?page=0";
+//        }
+//
+//        List<Recipe> recipeList = recipePage.getContent();
+//
+//        model.addAttribute("recipes", recipeList);
+//        model.addAttribute("page", page);
+//        model.addAttribute("noOfPages", noOfPages);
+//
+//        return "recipes";
+//    }
 
-        return "redirect:/opskrifter/{id}";
-    }
 
-    @GetMapping("/fejl")
-    public String fejl () {
-        return "error";
-    }
 
+
+
+//    @GetMapping("/opskrifter")
+//    public String index(Model model, @RequestParam(defaultValue = "1") int page){
+//        int pageSize = 5;
+//        PageRequest pageRequest = PageRequest.of(page - 1, pageSize);
+//        Page<Recipe> recipePage = repository.findAll(pageRequest);
+//        List<Recipe> recipeList = recipePage.getContent();
+//        int noOfPages = recipePage.getTotalPages();
+//
+//        if(page < 1){
+//            return "redirect:/opskrifter?page=1";
+//        } else if(page > noOfPages){
+//            return "redirect:/opskrifter/?page=" + noOfPages;
+//        }
+//
+//        model.addAttribute("recipes", recipeList);
+//        model.addAttribute("page", page);
+//        model.addAttribute("noOfPages", noOfPages);
+//
+//        return "recipes";
+//    }
+
+
+
+
+
+
+
+//  find all recipes
+//  Iterable<Recipe> recipes = repository.findAll();
 
     @GetMapping("/om")
     public String about () {

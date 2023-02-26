@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <link rel="stylesheet" href="style.css" th:href="style.css">
-    <meta charset="UTF-8">
+  <link rel="stylesheet" href="style.css" th:href="style.css">
+  <meta charset="UTF-8">
 
-    <title>Opskrift detaljer</title>
+  <title>Opskrift detaljer</title>
 </head>
 <body>
 <header>
-    <div class="logo"><img src="/images/logo2.png" height="100" width="100" alt="Logo"></div>
-    <div class="topnav">
-        <a href="/">Hjem</a>
-        <a href="/saeson">Sæsonens grønt</a>
-        <a href="/opskrifter">Opskrifter</a>
-        <a href="/om">Om os</a>
-    </div>
+  <div class="logo"><img src="/images/logo2.png" height="100" width="100" alt="Logo"></div>
+  <div class="topnav">
+    <a href="/">Hjem</a>
+    <a href="/saeson">Sæsonens grønt</a>
+    <a href="/opskrifter">Opskrifter</a>
+    <a href="/om">Om os</a>
+  </div>
 </header>
 <h2 th:text="${recipe.title}"></h2>
 <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
 
 <div class="portion-controls">
-    <button onclick="updatePortions(false)" style="display: inline-block;">-</button>
-    <h5 id="portions" th:text="${recipe.portions}" style="display: inline-block;"></h5>
-    <button onclick="updatePortions(true)" style="display: inline-block;">+</button>
+  <button onclick="updatePortions(false)" style="display: inline-block;">-</button>
+  <h5 id="portions" th:text="${recipe.portions}" style="display: inline-block;"></h5>
+  <button onclick="updatePortions(true)" style="display: inline-block;">+</button>
 </div>
 
 <ul>
-    <div class="ingredients">
-        <li th:each="ingredient : ${recipe.ingredients}">
-            <span th:text="${ingredient.ingredientName}"></span>
-            <span class="ingredient-amount" th:text="${#numbers.formatDecimal(ingredient.amount, 1, 1, 'COMMA')}"></span>
-            <span th:text="${ingredient.measurement}"></span>
-        </li>
-    </div>
+  <div class="ingredients">
+    <li th:each="ingredient : ${recipe.ingredients}">
+      <span th:text="${ingredient.ingredientName}"></span>
+      <span class="ingredient-amount" th:text="${#numbers.formatDecimal(ingredient.amount, 1, 1, 'COMMA')}"></span>
+      <span th:text="${ingredient.measurement}"></span>
+    </li>
+  </div>
 </ul>
 
 <h4>Tilberedning</h4>
 <ol>
-    <li th:each="instruction : ${recipe.instruction}">
-        <span onclick="overline(this)" th:text="${instruction.recipeSteps}"></span>
-    </li>
+  <li th:each="instruction : ${recipe.instruction}">
+    <span onclick="overline(this)" th:text="${instruction.recipeSteps}"></span>
+  </li>
 </ol>
 
 <button onclick="window.print()">Print opskriften</button>
