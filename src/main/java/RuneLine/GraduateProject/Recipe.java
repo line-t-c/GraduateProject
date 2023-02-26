@@ -1,11 +1,8 @@
 package RuneLine.GraduateProject;
 
 import jakarta.persistence.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
-//  Tag for Veganer/Vegetar/uden svinekød/pescetar?
 
 @Entity
 public class Recipe {
@@ -17,24 +14,27 @@ public class Recipe {
 
     private int portions;
 
-//    Skal de hedde det samme? "recipe". Automatic joins also gets the related Entity
+    @Column(name = "image_url")
+    private String imageUrl;
+
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Instruction> instruction = new ArrayList<>();
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients = new ArrayList<>();
 
-    @Column(name = "image_url")
-    private String imageUrl;
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    private List<Diet> diets = new ArrayList<>();
 
     public Recipe() {
     }
 
-    public Recipe(String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients, String imageUrl) {
+    public Recipe(String title, int portions, List<Instruction> instruction, List<Ingredient> ingredients, List<Diet> diets, String imageUrl) {
         this.title = title;
         this.portions = portions;
         this.instruction = instruction;
         this.ingredients = ingredients;
+        this.diets = diets;
         this.imageUrl = imageUrl;
     }
 
@@ -62,12 +62,12 @@ public class Recipe {
         this.portions = portions;
     }
 
-    public List<Ingredient> getIngredients() {
-        return ingredients;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public List<Instruction> getInstruction() {
@@ -78,19 +78,19 @@ public class Recipe {
         this.instruction = instruction;
     }
 
-    public List<Ingredient> getIngredient() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredient(List<Ingredient> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<Diet> getDiets() {
+        return diets;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setDiets(List<Diet> diets) {
+        this.diets = diets;
     }
 }

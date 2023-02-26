@@ -2,7 +2,7 @@
 INSERT INTO RECIPE (TITLE, PORTIONS, IMAGE_URL) VALUES
 ('Pasta Carbonara', 4, 'https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg'),
 ('Grillet Kyllingesalat', 4, 'https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg'),
-('Opskrift 3', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
+('Vegetarisk Brændende Kæerlighed', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
 ('Opskrift 4', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
 ('Opskrift 5', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
 ('Opskrift 6', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg');
@@ -64,6 +64,26 @@ VALUES
 ('Skær syltede rødbeder i tern', 6),
 ('Drys med hakket purløg og ristede løg', 6);
 
+-- Indsæt trin til diet / kostretning
+INSERT INTO DIET (DIET, RECIPE_ID_FK)
+VALUES
+('Glutenfri', 2),
+('Vegetar', 3),
+('Vegansk', 3),
+('Glutenfri', 3),
+('Laktosefri', 3),
+('Vegetar', 4),
+('Vegansk', 4),
+('Glutenfri', 4),
+('Laktosefri', 4),
+('Vegetar', 5),
+('Vegansk', 5),
+('Glutenfri', 5),
+('Laktosefri', 5),
+('Vegetar', 6),
+('Vegansk', 6),
+('Glutenfri', 6),
+('Laktosefri', 6);
 
 
 

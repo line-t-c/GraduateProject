@@ -41,7 +41,12 @@ class GraduateProjectApplicationTests {
 	instructionList.add(instruction2);
 	instructionList.add(instruction3);
 
-	Recipe carrotSoup = new Recipe("CarrotSoup", 4, instructionList, ingredientList, "www");
+	Diet diet1 = new Diet("vegetar");
+
+	List<Diet> diets = new ArrayList<>();
+	diets.add(diet1);
+
+	Recipe carrotSoup = new Recipe("CarrotSoup", 4, instructionList, ingredientList, diets, "www");
 	}
 
 	@Test

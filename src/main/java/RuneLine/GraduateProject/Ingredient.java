@@ -14,7 +14,7 @@ public class Ingredient {
     @Column(name = "ingredient_name")
     private String ingredientName;
 
-    private int amount;
+    private double amount;
 
     private String measurement;
 
@@ -25,7 +25,7 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String ingredientName, int amount, String measurement) {
+    public Ingredient(String ingredientName, double amount, String measurement) {
         this.ingredientName = ingredientName;
         this.amount = amount;
         this.measurement = measurement;
@@ -47,11 +47,11 @@ public class Ingredient {
         this.ingredientName = ingredientName;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
