@@ -11,6 +11,7 @@
 
     <title>Spis Op - Hjem</title>
 </head>
+
 <body>
 <header>
     <nav class="navbar navbar-expand-sm navbar-light spis4 fixed-top">
@@ -35,7 +36,7 @@
                 <form th:action="@{/search}" method="get" class="d-flex">
                     <span id="search-icon" class="fa fa-search"></span>
                     <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" id="search-input" class="form-control me-2" style="display: none;">
-                    <button type="submit" class="btn spis3" >Søg</button>
+                    <button type="submit" class="btn spis3">Søg</button>
                 </form>
             </div>
         </div>
@@ -66,10 +67,9 @@
         </div>
     </div>
 </div>
-</br>
-</br>
 
 <script>
+// HIDE SEARCH FIELD
     var form = document.querySelector('.d-flex');
     var input = document.querySelector('#search-input');
 
