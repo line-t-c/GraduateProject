@@ -48,9 +48,8 @@
     <h1>Opskrifter</h1>
     <div class="container-fluid">
         <div class="row">
-            <!--Search words-->
+            <!--Show search words in search bar-->
             <div class="col-4 spis2 text-white p-3">
-                <!--<p>Du har søgt på</p>-->
                 <p>Søg på de ingredienser du har i køleskabet.</p>
                 <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
                 <form th:action="@{/search}" method="get" class="d-flex">
@@ -66,7 +65,7 @@
                         <div class="row gy-4">
                             <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
                                 <div class="card">
-                                    <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="...">
+                                    <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
                                     <div class="card-body">
                                         <h5 class="card-title" th:text="${result.title}"></h5>
                                     </div>
@@ -76,7 +75,8 @@
                     </div>
                     <!--If no search results-->
                     <div th:if="${#lists.isEmpty(searchResult)}">
-                        <p>Der er desværre ingen opskrifter med de ingredienser. Prøv en ny søgning</p>
+                        <p>Der er desværre ingen opskrifter med de ingredienser.</p>
+                        <p>Prøv en ny søgning.</p>
                     </div>
                 </div>
             </div>
