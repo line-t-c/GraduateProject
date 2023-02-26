@@ -39,86 +39,12 @@ public class RecipeController {
         return "allRecipes";
     }
 
-//    @GetMapping("/opskrifter/{recipeId}")
-//    public String opskrift(@PathVariable Long recipeId, Model model) {
-//        Recipe recipe = repository.findById(recipeId).get();
-//        model.addAttribute("recipe", recipe);
-//        return "recipeDetails";
-//    }
-
     @GetMapping("/opskrifter/{id}")
     public String getRecipe(@PathVariable Long id, Model model) {
         Recipe recipe = repository.findById(id).get();
         model.addAttribute("recipe", recipe);
         return "recipeDetails";
     }
-
-//    @PostMapping("/recipe/{id}")
-//    public String updateRecipe(@PathVariable long id, @RequestParam boolean isPortionAdded) {
-//        // fetch the recipe from the database based on its ID
-//        Recipe recipe = repository.findById(id).get();
-//        // update the portions and ingredient amounts
-//        recipeService.updatePortions(recipe, isPortionAdded);
-//        // save the updated recipe back to the database
-//        repository.save(recipe);
-//        // redirect the user back to the recipe page
-//        return "redirect:/recipe/{id}";
-//    }
-
-
-    @GetMapping("/opskrifter/{id}/portions")
-    public String updatePortionsForm(@PathVariable Long id, Model model) {
-        Recipe recipe = repository.findById(id).get();
-        model.addAttribute("recipe", recipe);
-        return "recipeDetails2";
-    }
-
-//    @PutMapping("/opskrifter/{id}/portions")
-//    public String updatePortions(@PathVariable Long id, @RequestParam Boolean addPortion) {
-//        Recipe recipe = repository.findById(id).get();
-//        recipeService.updatePortions(recipe, addPortion);
-//        return "redirect:/opskrifter/{id}";
-//    }
-
-    @PutMapping("/opskrifter/{id}/portions")
-    public String updatePortions(@PathVariable Long id, @RequestParam Boolean addPortion, HttpServletResponse response) {
-        Recipe recipe = repository.findById(id).get();
-        recipeService.updatePortions(recipe, addPortion);
-
-        // Set the HTTP response status to 204 No Content to indicate success
-        response.setStatus(HttpServletResponse.SC_NO_CONTENT);
-
-        return "redirect:/opskrifter/{id}";
-    }
-
-//    @GetMapping("/recipe/{id}/portions")
-//    public String updatePortionsForm(@PathVariable Long id, Model model) {
-//        Recipe recipe = recipeService.findById(id);
-//        model.addAttribute("recipe", recipe);
-//        return "updatePortions";
-//    }
-
-//    // constructor injection
-//
-//    @GetMapping("/recipe/{id}/portions")
-//    public String updatePortionsForm(@PathVariable Long id, Model model) {
-//        Recipe recipe = recipeService.findById(id);
-//        model.addAttribute("recipe", recipe);
-//        return "updatePortions";
-//    }
-//
-//    @PutMapping("/recipe/{id}/portions")
-//    public String updatePortions(@PathVariable Long id, @RequestParam Boolean addPortion) {
-//        Recipe recipe = recipeService.findById(id);
-//        recipeService.updatePortions(recipe, addPortion);
-//        return "redirect:/recipe/{id}";
-//    }
-//}
-//In the above example, updatePortions is a new @PutMapping method that maps to the same URL as the updatePortionsForm method. This method takes the recipe id as a path variable and the addPortion parameter as a request parameter. The method loads the recipe from the database using the `
-
-
-
-
 
 
 //    @GetMapping("/opskrifter")
