@@ -131,6 +131,11 @@ public class RecipeController {
 //  find all recipes
 //  Iterable<Recipe> recipes = repository.findAll();
 
+    @GetMapping("/fejl")
+    public String fejl () {
+        return "error";
+    }
+
     @GetMapping("/om")
     public String about () {
         return "about";
