@@ -46,6 +46,11 @@ public class RecipeController {
         return "recipeDetails";
     }
 
+    @GetMapping("/saeson")
+    public String season () {
+        return "season";
+    }
+
     @GetMapping("/om")
     public String about () {
         return "about";
