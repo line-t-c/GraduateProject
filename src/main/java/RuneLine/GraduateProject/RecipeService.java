@@ -23,59 +23,6 @@ public class RecipeService {
                 .collect(Collectors.toList());
     }
 
-//
-//    // Increase portion size and update ingredient amounts
-//    public void addPortion(Recipe recipe) {
-//        int newPortions = recipe.getPortions() + 1;
-//        recipe.setPortions(newPortions);
-//        for (Ingredient ingredient : recipe.getIngredients()) {
-//            double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
-//            ingredient.setAmount(newAmount);
-//        }
-//    }
-//
-//    // Decrease portion size and update ingredient amounts
-//    public void removePortion(Recipe recipe) {
-//        int newPortions = recipe.getPortions() - 1;
-//        if (newPortions >= 1) {
-//            recipe.setPortions(newPortions);
-//            for (Ingredient ingredient : recipe.getIngredients()) {
-//                double newAmount = ingredient.getAmount() * newPortions / recipe.getPortions();
-//                ingredient.setAmount(newAmount);
-//            }
-//        }
-//    }
-
-    // other methods in your RecipeService class
-
-//    public void updatePortions(Recipe recipe, boolean addPortion) {
-//        int currentPortions = recipe.getPortions();
-//        int newPortions = addPortion ? currentPortions + 1 : currentPortions - 1;
-//
-//        // calculate the scaling factor for the ingredients
-//        double scalingFactor = (double) newPortions / currentPortions;
-//
-//        // update the ingredient quantities
-//        List<Ingredient> ingredients = recipe.getIngredients();
-//        for (Ingredient ingredient : ingredients) {
-//            double oldAmount = ingredient.getAmount();
-//            double newAmount = oldAmount * scalingFactor;
-//            ingredient.setAmount(newAmount);
-//        }
-//
-//        recipe.setPortions(newPortions);
-//    }
-
-
-
-
-
-
-
-
-
-
-
     public static Recipe scaleRecipe(List<Recipe> recipeTest, int i) {
         return null;
     }
