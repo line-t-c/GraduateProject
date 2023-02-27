@@ -3,6 +3,8 @@ background-color: #EAECE1;
 }
 
 h1 {
+font-family: 'Titan One';
+font-size: 30px;
 color: white;
 background-color: #00A748;
 padding: 10px;
@@ -36,7 +38,8 @@ background-color: #EAECE1;
 }
 
 a {
-  text-decoration: none;
+text-decoration: none;
+text-color: #00A748;
 }
 
 /*.logo {
