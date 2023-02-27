@@ -79,27 +79,7 @@
     </div>
 </div>
 
-<!-- ORIGINAL CODE -->
-<!--<ul th:each="recipe : ${recipes}">
-    <a th:href="@{/opskrifter/{id}(id=${recipe.id})}">
-        <h2 th:text="${recipe.title}"></h2>
-        <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
-    </a>
-</ul>-->
-
-<script>
-// HIDE SEARCH FIELD
-    var form = document.querySelector('.d-flex');
-    var input = document.querySelector('#search-input');
-
-    form.addEventListener('mouseover', function() {
-        input.style.display = 'block';
-    });
-
-    form.addEventListener('mouseout', function() {
-        input.style.display = 'none';
-    });
-</script>
+<script src="script.js" th:src="@{/script.js}"></script>
 
 </body>
 </html>

@@ -23,9 +23,6 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Ingredient> ingredients = new ArrayList<>();
 
-//    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-//    private List<Diet> diets = new ArrayList<>();
-
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Diet> diets = new ArrayList<>();
 
