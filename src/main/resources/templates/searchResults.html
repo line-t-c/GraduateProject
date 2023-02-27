@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css" th:href="style.css">
+    <link rel="stylesheet" href="/style.css" th:href="@{/style.css}">
 
     <title>Spis Op - Søgeresultat</title>
 </head>
@@ -49,7 +49,7 @@
     <h1>Opskrifter</h1>
     <div class="container-fluid">
         <div class="row">
-            <!--Show search words in search bar-->
+            <!-- Left coloumn: Show search words in search bar -->
             <div class="col-4 spis2 text-white p-3">
                 <p>Søg på de ingredienser du har i køleskabet.</p>
                 <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
@@ -58,10 +58,10 @@
                     <button type="submit" class="btn spis3">Søg</button>
                 </form>
             </div>
-            <!--Search results-->
+            <!-- Right coloumn: Search results -->
             <div class="col-8 spis3 text-dark p-3">
                 <div class="container">
-                    <!--If one or more search results-->
+                    <!-- If one or more search results -->
                     <div th:if="${not #lists.isEmpty(searchResult)}">
                         <div class="row gy-4">
                             <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
@@ -76,7 +76,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--If no search results-->
+                    <!-- If no search results -->
                     <div th:if="${#lists.isEmpty(searchResult)}">
                         <p>Der er desværre ingen opskrifter med de ingredienser.</p>
                         <p>Prøv en ny søgning.</p>
