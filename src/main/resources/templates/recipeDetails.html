@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css" th:href="style.css">
+    <link rel="stylesheet" href="/style.css" th:href="@{/style.css}">
 
     <title>Spis Op - Opskrift detaljer</title>
 </head>
@@ -53,7 +53,7 @@
                 <!-- Diet Tag -->
                 <div class="button-group">
                     <span th:each="diet : ${recipe.diets}">
-                        <button type="button" class="btn btn-secondary" th:text="${diet.diet}"></button>
+                        <button type="button" class="btn spis3" th:text="${diet.diet}"></button>
                     </span>
                 </div>
                 </br>
@@ -78,7 +78,6 @@
                 <!-- Image -->
                 <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
                 <!-- Instruction -->
-                <h4>Tilberedning</h4>
                 <ol>
                     <li th:each="instruction : ${recipe.instruction}">
                         <span onclick="overline(this)" th:text="${instruction.recipeSteps}"></span>

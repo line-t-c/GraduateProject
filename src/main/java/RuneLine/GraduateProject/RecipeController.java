@@ -1,7 +1,7 @@
 package RuneLine.GraduateProject;
 
-/*import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;*/
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,7 +43,7 @@ public class RecipeController {
     public String getRecipe(@PathVariable Long id, Model model) {
         Recipe recipe = repository.findById(id).get();
         model.addAttribute("recipe", recipe);
-        return "recipeDetailsOriginal";
+        return "recipeDetails";
     }
 
     @GetMapping("/saeson")

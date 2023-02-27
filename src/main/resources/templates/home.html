@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="style.css" th:href="style.css">
+    <link rel="stylesheet" href="/style.css" th:href="@{/style.css}">
 
     <title>Spis Op - Hjem</title>
 </head>
@@ -49,6 +49,7 @@
     <h1>Find opskrifter</h1>
     <div class="container-fluid">
         <div class="row">
+            <!-- Left coloumn: Search field -->
             <div class="col-4 spis2 text-white p-3">
                 <div>
                     <p>Søg på de ingredienser du har i køleskabet.</p>
@@ -61,6 +62,7 @@
                     </form>
                 </div>
             </div>
+            <!-- Right coloumn: Yet to be decided what to put here -->
             <div class="col-8 spis3 text-dark p-3">
             <!--Evt. indsæt alle opskrifter her-->
             </div>
