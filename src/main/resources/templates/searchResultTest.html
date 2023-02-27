@@ -55,11 +55,11 @@
                     Du har søgt på <span style="font-style: italic;" th:text="${ingredientName}"></span>
                 </div>
                 <div class="button-group">
-                    <button type="button" onclick="filterByDiet('Vegetar')">Vegetarisk</button>
-                    <button type="button" onclick="filterByDiet('Vegansk')">Vegansk</button>
-                    <button type="button" onclick="filterByDiet('Glutenfri')">Glutenfrit</button>
-                    <button type="button" onclick="filterByDiet('Laktosefri')">Laktosefrit</button>
-                    <button type="button" onclick="filterByDiet('Alle')">Fjern filter</button>
+                    <button type="button" value="vegetarian" onclick="filterByDiet()"> Vegetarisk</button>
+                    <button type="button" value="vegan" onclick="filterByDiet()"> Vegansk</button>
+                    <button type="button" value="gluten-free" onclick="filterByDiet()"> Glutenfrit</button>
+                    <button type="button" value="lactose-free" onclick="filterByDiet()"> Laktosefrit</button>
+                    <button type="button" onclick="removeFilters()">Fjern filtre</button>
                 </div>
             </div>
             <!--Search results-->
@@ -69,7 +69,7 @@
                     <div id="search-results-container">
                         <div th:if="${not #lists.isEmpty(searchResult)}">
                             <div class="row gy-4">
-                                <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12 recipe-item"
+                                <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12 recipe-item recipe-item-diet-match"
                                      data-diet-tags="${result.diets.stream().map(d -> d.getDiet()).collect(Collectors.joining(','))}">
                                 <div class="card">
                                         <a th:href="@{/opskrifter/{id}(id=${result.id})}">
@@ -96,8 +96,8 @@
 
 <script>
 // HIDE SEARCH FIELD
-    var form = document.querySelector('.d-flex');
-    var input = document.querySelector('#search-input');
+    let form = document.querySelector('.d-flex');
+    let input = document.querySelector('#search-input');
 
     form.addEventListener('mouseover', function() {
         input.style.display = 'block';
@@ -107,31 +107,28 @@
         input.style.display = 'none';
     });
 
-function filterByDiet(diet) {
+function filterByDiet() {
+  // Get the value of all checked diet filter checkboxes
+  const checkedFilters = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                             .map(input => input.value);
+
   // Get all recipe items
-  var recipeItems = document.querySelectorAll('.recipe-item');
+  const recipeItems = Array.from(document.querySelectorAll('.recipe-item'));
 
-  // Loop through each recipe item
-  for (var i = 0; i < recipeItems.length; i++) {
-    var recipeItem = recipeItems[i];
-
-    // Get the diet tags for the current recipe item
-    var dietTags = recipeItem.getAttribute('data-diet-tags').split(',');
-
-    // Check if the recipe item has the selected diet
-    var hasDiet = dietTags.includes(diet);
-
-    // Show or hide the recipe item based on the selected diet
-    if (diet === 'Alle' || hasDiet) {
-      recipeItem.style.display = 'block';
-    } else {
-      recipeItem.style.display = 'none';
-    }
-  }
+  // Update the visibility of each recipe item based on its diet tags
+  recipeItems.forEach(item => {
+    const dietTags = item.dataset.dietTags.split(',');
+    const matchesFilters = checkedFilters.every(filter => dietTags.includes(filter));
+    item.style.display = matchesFilters ? 'block' : 'none';
+  });
 }
 
 
-
+function removeFilters() {
+  // Uncheck all checkboxes and show all recipe items
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+  document.querySelectorAll('.recipe-item').forEach(item => item.style.display = 'block');
+}
 </script>
 </body>
 </html>
