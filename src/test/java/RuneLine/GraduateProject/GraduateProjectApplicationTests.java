@@ -1,7 +1,5 @@
 package RuneLine.GraduateProject;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.TypedQuery;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -41,25 +39,13 @@ class GraduateProjectApplicationTests {
 	instructionList.add(instruction2);
 	instructionList.add(instruction3);
 
-	Diet diet1 = new Diet("vegetar");
+	Diet diet1 = new Diet(true, false, true, false);
 
 	List<Diet> diets = new ArrayList<>();
 	diets.add(diet1);
 
-	Recipe carrotSoup = new Recipe("CarrotSoup", 4, instructionList, ingredientList, diets, "www");
+	Recipe carrotSoup = new Recipe("CarrotSoup", 4, "www", instructionList, ingredientList, diets);
 	}
 
-	@Test
-	public void testScale (int numPersons) {
-		Recipe result = RecipeService.scaleRecipe(recipeTest,5);
-		assertEquals( 5, result.getTitle( ) );
-	}
-
-//	Så hvis man har gennemført et step, overstreges den. Boolean default false. Boolean if false == true. JS?
-	@Test
-	public void testNextStep2 (boolean done) {
-		Boolean result = RecipeService.isDone(false);
-		assertEquals( true, result.booleanValue( ));
-	}
 
 }

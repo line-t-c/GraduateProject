@@ -9,7 +9,16 @@ public class Diet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String diet;
+    @Column(name = "is_vegetarian")
+    private boolean isVegetarian;
+
+    @Column(name = "is_vegan")
+    private boolean isVegan;
+
+    @Column(name = "is_lactose_free")
+    private boolean isLactoseFree;
+    @Column(name = "is_gluten_free")
+    private boolean isGlutenFree;
 
     @ManyToOne
     @JoinColumn(name = "recipe_id_fk")
@@ -18,8 +27,11 @@ public class Diet {
     public Diet() {
     }
 
-    public Diet(String diet) {
-        this.diet = diet;
+    public Diet(boolean isVegetarian, boolean isVegan, boolean isLactoseFree, boolean isGlutenFree) {
+        this.isVegetarian = isVegetarian;
+        this.isVegan = isVegan;
+        this.isLactoseFree = isLactoseFree;
+        this.isGlutenFree = isGlutenFree;
     }
 
     public Long getId() {
@@ -30,12 +42,36 @@ public class Diet {
         this.id = id;
     }
 
-    public String getDiet() {
-        return diet;
+    public boolean isVegetarian() {
+        return isVegetarian;
     }
 
-    public void setDiet(String diet) {
-        this.diet = diet;
+    public void setVegetarian(boolean vegetarian) {
+        isVegetarian = vegetarian;
+    }
+
+    public boolean isVegan() {
+        return isVegan;
+    }
+
+    public void setVegan(boolean vegan) {
+        isVegan = vegan;
+    }
+
+    public boolean isLactoseFree() {
+        return isLactoseFree;
+    }
+
+    public void setLactoseFree(boolean lactoseFree) {
+        isLactoseFree = lactoseFree;
+    }
+
+    public boolean isGlutenFree() {
+        return isGlutenFree;
+    }
+
+    public void setGlutenFree(boolean glutenFree) {
+        isGlutenFree = glutenFree;
     }
 
     public Recipe getRecipe() {

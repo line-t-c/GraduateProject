@@ -51,32 +51,39 @@
         <div class="row">
             <!--Show search words in search bar-->
             <div class="col-4 spis2 text-white p-3">
+                <div class="search term">
+                    Du har søgt på <span style="font-style: italic;" th:text="${ingredientName}"></span>
+                </div>
                 <div class="button-group">
-                        <button type="button" onclick="updateSearch(Vegetar)">Vegetarisk</button>
-                        <button type="button" onclick="updateSearch(Vegansk)">Vegansk</button>
-                        <button type="button" onclick="updateSearch(Glutenfri)">Laktosefrit</button>
-                        <button type="button" onclick="updateSearch(Laktosefri)">Glutenfrit</button>
+                    <button type="button" onclick="filterByDiet('Vegetar')">Vegetarisk</button>
+                    <button type="button" onclick="filterByDiet('Vegansk')">Vegansk</button>
+                    <button type="button" onclick="filterByDiet('Glutenfri')">Glutenfrit</button>
+                    <button type="button" onclick="filterByDiet('Laktosefri')">Laktosefrit</button>
+                    <button type="button" onclick="filterByDiet('Alle')">Fjern filter</button>
                 </div>
             </div>
             <!--Search results-->
             <div class="col-8 spis3 text-dark p-3">
                 <div class="container">
-                    <!--If one or more search results-->
-                    <div th:if="${not #lists.isEmpty(searchResult)}">
-                        <div class="row gy-4">
-                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
+                <!--If one or more search results-->
+                    <div id="search-results-container">
+                        <div th:if="${not #lists.isEmpty(searchResult)}">
+                            <div class="row gy-4">
+                                <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12 recipe-item"
+                                     data-diet-tags="${result.diets.stream().map(d -> d.getDiet()).collect(Collectors.joining(','))}">
                                 <div class="card">
-                                    <a th:href="@{/opskrifter/{id}(id=${result.id})}">
-                                        <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                        <div class="card-body">
-                                            <h5 class="card-title" th:text="${result.title}"></h5>
-                                        </div>
-                                    </a>
+                                        <a th:href="@{/opskrifter/{id}(id=${result.id})}">
+                                            <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                            <div class="card-body">
+                                                <h5 class="card-title" th:text="${result.title}"></h5>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--If no search results-->
+                <!--If no search results-->
                     <div th:if="${#lists.isEmpty(searchResult)}">
                         <p>Der er desværre ingen opskrifter med de ingredienser.</p>
                         <p>Prøv en ny søgning.</p>
@@ -100,8 +107,31 @@
         input.style.display = 'none';
     });
 
+function filterByDiet(diet) {
+  // Get all recipe items
+  var recipeItems = document.querySelectorAll('.recipe-item');
+
+  // Loop through each recipe item
+  for (var i = 0; i < recipeItems.length; i++) {
+    var recipeItem = recipeItems[i];
+
+    // Get the diet tags for the current recipe item
+    var dietTags = recipeItem.getAttribute('data-diet-tags').split(',');
+
+    // Check if the recipe item has the selected diet
+    var hasDiet = dietTags.includes(diet);
+
+    // Show or hide the recipe item based on the selected diet
+    if (diet === 'Alle' || hasDiet) {
+      recipeItem.style.display = 'block';
+    } else {
+      recipeItem.style.display = 'none';
+    }
+  }
+}
+
+
 
 </script>
-
 </body>
 </html>
