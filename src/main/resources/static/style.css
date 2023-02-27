@@ -48,3 +48,15 @@ width: 60px;
 .portion-controls h5 {
   display: inline-block;
 }
+
+.btn btn-print {
+    background-color: #f7f4ef;
+    background-size: 32px 28px;
+    padding: 0 12px;
+    margin: 5px;
+    line-height: 43px;
+    cursor: pointer;
+}
+
+
+
