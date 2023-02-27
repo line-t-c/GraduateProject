@@ -88,19 +88,7 @@
     </a>
 </ul>-->
 
-<script>
-// HIDE SEARCH FIELD
-    var form = document.querySelector('.d-flex');
-    var input = document.querySelector('#search-input');
-
-    form.addEventListener('mouseover', function() {
-        input.style.display = 'block';
-    });
-
-    form.addEventListener('mouseout', function() {
-        input.style.display = 'none';
-    });
-</script>
+<script src="script.js" th:src="@{/script.js}"></script>
 
 </body>
 </html>
