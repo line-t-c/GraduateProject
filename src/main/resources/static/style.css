@@ -2,6 +2,14 @@ body {
 background-color: #EAECE1;
 }
 
+h1 {
+color: white;
+background-color: #00A748;
+padding: 10px;
+text-transform: uppercase;
+text-align: center;
+}
+
 .spis1 { background-color: #00A748; }
 .spis2 { background-color: #66AD61; }
 .spis3 { background-color: #8DCD77; }
@@ -27,70 +35,10 @@ padding: 0 15px;
 background-color: #EAECE1;
 }
 
-header {
-}
-
-h1 {
-color: white;
-background-color: #285735;
-padding: 10px;
-let width = screen.width;
-text-transform: uppercase;
-text-align: center;
-}
-
-.topnav {
-text-transform: uppercase;
-
-}
-
-.main {
-margin: 50px;
-font-size: 12px;
-}
-
-.searchTop {
-position: absolute;
-top: 20px;
-right: 0;
-width: 70px;
-height: 100px;
-}
-
-.logo {
-height=150px
-width=150px
-}
-
-
-.grid-container {
-  display: grid;
-  gap: 10px;
-  background-color: #66AD61;
-  padding: 10px;
-}
-.grid-item {
-  background-color: #8DCD77;
-  text-align: center;
-  padding: 20px;
-  font-size: 30px;
-}
-.item1 {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-.item2 {
-  grid-column: 2 / span 3;
-  grid-row: 1;
-}
-
-.box {
-  width: 300px;
-  border: 1px dotted black;
-  padding: 20px;
-  margin: 20px;
-}
+/*.logo {
+height: 60px;
+width: 60px;
+}*/
 
 .portion-controls button,
 .portion-controls h5 {

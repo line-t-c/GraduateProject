@@ -52,14 +52,7 @@
 <!-- Image -->
 <img th:src="${recipe.imageUrl}" height="230" width="250" alt="recipe image">
 
-<!-- ?? Diet Tag (outcommented first draft) ?? -->
-<!--<ul>-->
-<!--    <li th:each="diet : ${recipe.diets}">-->
-<!--        <span th:text="${diet.diet}"></span>-->
-<!--    </li>-->
-<!--</ul>-->
-
-<!-- ?? Diet Tag ?? -->
+<!-- Diet Tag -->
 <div class="button-group">
     <span th:each="diet : ${recipe.diets}">
         <button type="button" class="btn btn-secondary" th:text="${diet.diet}"></button>
