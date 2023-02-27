@@ -64,26 +64,19 @@ VALUES
 ('Skær syltede rødbeder i tern', 6),
 ('Drys med hakket purløg og ristede løg', 6);
 
--- Indsæt trin til diet / kostretning
-INSERT INTO DIET (DIET, RECIPE_ID_FK)
+-- Indsæt trin til diet / kostretning. Boolean in sql: 0 = false, 1 = true
+INSERT INTO DIET (IS_VEGETARIAN, IS_VEGAN, IS_LACTOSE_FREE, IS_GLUTEN_FREE, RECIPE_ID_FK)
 VALUES
-('Glutenfri', 2),
-('Vegetar', 3),
-('Vegansk', 3),
-('Glutenfri', 3),
-('Laktosefri', 3),
-('Vegetar', 4),
-('Vegansk', 4),
-('Glutenfri', 4),
-('Laktosefri', 4),
-('Vegetar', 5),
-('Vegansk', 5),
-('Glutenfri', 5),
-('Laktosefri', 5),
-('Vegetar', 6),
-('Vegansk', 6),
-('Glutenfri', 6),
-('Laktosefri', 6);
+(0, 0, 0, 0, 1),
+(0, 0, 0, 1, 2),
+(1, 1, 1, 1, 3),
+(1, 1, 1, 1, 4),
+(1, 1, 1, 1, 5),
+(1, 1, 1, 1, 6);
+
+
+
+
 
 
 

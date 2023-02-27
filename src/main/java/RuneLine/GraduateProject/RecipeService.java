@@ -5,9 +5,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-//Evt en serviceklasse til metoderne. Kan være statisk.
-//	JPA - der er ingen beregninger at teste på
-
 @Service
 public class RecipeService {
     @Autowired

@@ -29,7 +29,7 @@ public class RecipeController {
         List<Recipe> searchResult = recipeService.findByIngredients(ingredientList);
         model.addAttribute("ingredientName", ingredients);
         model.addAttribute("searchResult", searchResult);
-        return "searchResults";
+        return "searchTest";
     }
 
     @GetMapping("/opskrifter")
@@ -43,7 +43,7 @@ public class RecipeController {
     public String getRecipe(@PathVariable Long id, Model model) {
         Recipe recipe = repository.findById(id).get();
         model.addAttribute("recipe", recipe);
-        return "recipeDetails";
+        return "recipeDetailsOriginal";
     }
 
     @GetMapping("/saeson")

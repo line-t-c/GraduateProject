@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="/style.css" th:href="@{/style.css}">
+    <link rel="stylesheet" href="style.css" th:href="style.css">
 
     <title>Spis Op - Søgeresultat</title>
 </head>
@@ -49,34 +49,41 @@
     <h1>Opskrifter</h1>
     <div class="container-fluid">
         <div class="row">
-            <!-- Left coloumn: Show search words in search bar -->
+            <!--Show search words in search bar-->
             <div class="col-4 spis2 text-white p-3">
+                <div class="search term">
+                    Du har søgt på <span style="font-style: italic;" th:text="${ingredientName}"></span>
+                </div>
                 <div class="button-group">
-                        <button type="button" onclick="updateSearch(Vegetar)">Vegetarisk</button>
-                        <button type="button" onclick="updateSearch(Vegansk)">Vegansk</button>
-                        <button type="button" onclick="updateSearch(Glutenfri)">Laktosefrit</button>
-                        <button type="button" onclick="updateSearch(Laktosefri)">Glutenfrit</button>
+                    <button type="button" value="vegetarian" onclick="filterByDiet()"> Vegetarisk</button>
+                    <button type="button" value="vegan" onclick="filterByDiet()"> Vegansk</button>
+                    <button type="button" value="gluten-free" onclick="filterByDiet()"> Glutenfrit</button>
+                    <button type="button" value="lactose-free" onclick="filterByDiet()"> Laktosefrit</button>
+                    <button type="button" onclick="removeFilters()">Fjern filtre</button>
                 </div>
             </div>
-            <!-- Right coloumn: Search results -->
+            <!--Search results-->
             <div class="col-8 spis3 text-dark p-3">
                 <div class="container">
-                    <!-- If one or more search results -->
-                    <div th:if="${not #lists.isEmpty(searchResult)}">
-                        <div class="row gy-4">
-                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
+                <!--If one or more search results-->
+                    <div id="search-results-container">
+                        <div th:if="${not #lists.isEmpty(searchResult)}">
+                            <div class="row gy-4">
+                                <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12 recipe-item recipe-item-diet-match"
+                                     data-diet-tags="${result.diets.stream().map(d -> d.getDiet()).collect(Collectors.joining(','))}">
                                 <div class="card">
-                                    <a th:href="@{/opskrifter/{id}(id=${result.id})}">
-                                        <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                        <div class="card-body">
-                                            <h5 class="card-title" th:text="${result.title}"></h5>
-                                        </div>
-                                    </a>
+                                        <a th:href="@{/opskrifter/{id}(id=${result.id})}">
+                                            <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                            <div class="card-body">
+                                                <h5 class="card-title" th:text="${result.title}"></h5>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- If no search results -->
+                <!--If no search results-->
                     <div th:if="${#lists.isEmpty(searchResult)}">
                         <p>Der er desværre ingen opskrifter med de ingredienser.</p>
                         <p>Prøv en ny søgning.</p>
@@ -89,8 +96,8 @@
 
 <script>
 // HIDE SEARCH FIELD
-    var form = document.querySelector('.d-flex');
-    var input = document.querySelector('#search-input');
+    let form = document.querySelector('.d-flex');
+    let input = document.querySelector('#search-input');
 
     form.addEventListener('mouseover', function() {
         input.style.display = 'block';
@@ -100,8 +107,28 @@
         input.style.display = 'none';
     });
 
+function filterByDiet() {
+  // Get the value of all checked diet filter checkboxes
+  const checkedFilters = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                             .map(input => input.value);
 
+  // Get all recipe items
+  const recipeItems = Array.from(document.querySelectorAll('.recipe-item'));
+
+  // Update the visibility of each recipe item based on its diet tags
+  recipeItems.forEach(item => {
+    const dietTags = item.dataset.dietTags.split(',');
+    const matchesFilters = checkedFilters.every(filter => dietTags.includes(filter));
+    item.style.display = matchesFilters ? 'block' : 'none';
+  });
+}
+
+
+function removeFilters() {
+  // Uncheck all checkboxes and show all recipe items
+  document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => checkbox.checked = false);
+  document.querySelectorAll('.recipe-item').forEach(item => item.style.display = 'block');
+}
 </script>
-
 </body>
 </html>
