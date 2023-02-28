@@ -67,19 +67,19 @@
                     <p>Filtrer dit søgeresultat efter din kostretning.</p>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="btn spis3" onclick="updateSearch(Vegetar)">
+                    <button type="button" class="btn spis3" onclick="updateSearch(isVegetarian == true)">
                         <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
                         <p>vegetar</p>
                     </button>
-                    <button type="button" class="btn spis3">
+                    <button type="button" class="btn spis3" onclick="updateSearch(isVegan == true)">
                         <img th:src="@{/images/vegansk.png}" height="30" width="30" alt="Vegansk">
                         <p>vegansk</p>
                     </button>
-                    <button type="button" class="btn spis3">
+                    <button type="button" class="btn spis3" onclick="updateSearch(isLactoseFree == true)">
                         <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
                         <p>laktosefri </p>
                     </button>
-                    <button type="button" class="btn spis3" >
+                    <button type="button" class="btn spis3" onclick="updateSearch(isGlutenFree == true)" >
                         <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
                         <p>glutenfri </p>
                     </button>
