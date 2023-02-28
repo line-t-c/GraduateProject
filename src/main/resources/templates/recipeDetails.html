@@ -17,7 +17,7 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-light spis4 fixed-top">
         <div class="container-fluid">
-            <img src="/images/logo.png" alt="Logo" height="60" width="60" margin-left="20px">
+            <img src="/images/logo.png" href="/" alt="Logo" height="60" width="60" margin-left="20px">
             <a class="navbar-brand" href="/">Spis Op</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -70,16 +70,14 @@
                 </div>
                 <!-- Ingredient List -->
                 <ul>
-                    <div class="ingredients">
-                        <li th:each="ingredient : ${recipe.ingredients}">
+                    <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
                             <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
                             <span th:text="${ingredient.measurement}"></span>
                             <span th:text="${ingredient.ingredientName}"></span>
-                        </li>
                     </div>
                 </ul>
                 <!-- Print -->
-                <button type="button" class="btn spis3" onclick="window.print()">Print opskriften</button>
+                <button type="button" class="btn spis3" onclick="window.print()"><img src="/images/printer.png" alt="printSymbol" height="30" width="30"> Udskriv</button>
             </div>
             <div class="col-8 spis3 text-dark p-3">
                 <!-- Image -->
