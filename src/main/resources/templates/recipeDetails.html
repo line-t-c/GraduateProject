@@ -42,6 +42,7 @@
 </header>
 </br>
 </br>
+</br>
 
 <div class="container-fluid mt-3">
     <h1 th:text="${recipe.title}"></h1>
@@ -51,42 +52,42 @@
                 <!-- Diet Tag -->
                 <div class="button-group">
                     <span th:each="recipe : ${recipe.diets}">
-                        <button type="button" class="btn spis3" th:if="${recipe.isVegetarian}">
-                            <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
+                        <button type="button" class="btn diet" th:if="${recipe.isVegetarian}">
+                            <img th:src="@{/images/vegetar.png}" alt="Vegetar">
                             <p>vegetar</p>
                         </button>
-                        <button type="button" class="btn spis3" th:if="${recipe.isVegan}">
-                            <img th:src="@{/images/vegansk.png}" height="30" width="30" alt="Vegansk">
-                            <p>vegansk</p>
+                        <button type="button" class="btn diet" th:if="${recipe.isVegan}">
+                            <img th:src="@{/images/veganer.png}" alt="Veganer">
+                            <p>veganer</p>
                         </button>
-                        <button type="button" class="btn spis3" th:if="${recipe.isLactoseFree}">
-                            <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
-                            <p>laktosefri </p>
+                        <button type="button" class="btn diet" th:if="${recipe.isLactoseFree}">
+                            <img th:src="@{/images/laktosefri.png}" alt="Laktosefri">
+                            <p>laktosefri</p>
                         </button>
-                        <button type="button" class="btn spis3" th:if="${recipe.isGlutenFree}">
-                            <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
-                            <p>glutenfri </p>
+                        <button type="button" class="btn diet" th:if="${recipe.isGlutenFree}">
+                            <img th:src="@{/images/glutenfri.png}" alt="Glutenfri">
+                            <p>glutenfri</p>
                         </button>
                     </span>
                 </div>
                 </br>
                 <!-- Portion Control -->
                 <div class="portion-controls">
-                    <button type="button" class="btn btn-sm spis3" onclick="updatePortions(false)" style="display: inline-block;">-</button>
+                    <button type="button" class="btn btn-sm portion" onclick="updatePortions(false)">-</button>
                     <h5 id="portions" th:text="${recipe.portions}" style="display: inline-block;"></h5>
-                    <h5 th:text="' personer'" style="display: inline-block;"></h5>
-                    <button type="button" class="btn btn-sm spis3" onclick="updatePortions(true)" style="display: inline-block;">+</button>
+                    <h5 th:text="' personer '" style="display: inline-block;"></h5>
+                    <button type="button" class="btn btn-sm portion" onclick="updatePortions(true)">+</button>
                 </div>
+                </br>
                 <!-- Ingredient List -->
-                <ul>
-                    <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
-                            <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
-                            <span th:text="${ingredient.measurement}"></span>
-                            <span th:text="${ingredient.ingredientName}"></span>
-                    </div>
-                </ul>
+                <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
+                    <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
+                    <span th:text="${ingredient.measurement}"></span>
+                    <span th:text="${ingredient.ingredientName}"></span>
+                </div>
+                </br>
                 <!-- Print -->
-                <button type="button" class="btn spis3" onclick="window.print()"><img src="/images/printer.png" alt="printSymbol" height="30" width="30"> Udskriv</button>
+                <button type="button" class="btn spis3" onclick="window.print()"><img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv</button>
             </div>
             <div class="col-8 spis3 text-dark p-3">
                 <!-- Image -->

@@ -42,11 +42,35 @@ text-decoration: none;
 text-color: #00A748;
 }
 
+.diet {
+background-color: #8DCD77;
+font-size: 14px;
+text-align: center;
+height: 62px;
+width: 62px;
+padding: 5px 2px;
+margin: 2px 0px;
+}
+
+.diet img {
+height: 30px;
+width: 30px;
+}
+
+.portion {
+background-color: #8DCD77;
+font-size: 14px;
+padding: 0.1px 7px;
+border-radius: 9999px;
+display: inline-block;
+}
+
 .portion-controls button,
 .portion-controls h5 {
   display: inline-block;
 }
 
+/*Hvor bliver denne brugt?*/
 .btn btn-print {
     background-color: #f7f4ef;
     background-size: 32px 28px;
@@ -55,6 +79,3 @@ text-color: #00A748;
     line-height: 43px;
     cursor: pointer;
 }
-
-
-
