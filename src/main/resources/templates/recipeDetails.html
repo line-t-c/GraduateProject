@@ -51,10 +51,22 @@
                 <!-- Diet Tag -->
                 <div class="button-group">
                     <span th:each="recipe : ${recipe.diets}">
-                        <button type="button" class="btn spis3" th:if="${recipe.isVegetarian}" th:text="'Vegetarisk'"></button>
-                        <button type="button" class="btn spis3" th:if="${recipe.isVegan}" th:text="'Vegansk'"></button>
-                        <button type="button" class="btn spis3" th:if="${recipe.isLactoseFree}" th:text="'Laktosefri'"></button>
-                        <button type="button" class="btn spis3" th:if="${recipe.isGlutenFree}" th:text="'Glutenfri'"></button>
+                        <button type="button" class="btn spis3" th:if="${recipe.isVegetarian}">
+                            <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
+                            <p>vegetar</p>
+                        </button>
+                        <button type="button" class="btn spis3" th:if="${recipe.isVegan}">
+                            <img th:src="@{/images/vegansk.png}" height="30" width="30" alt="Vegansk">
+                            <p>vegansk</p>
+                        </button>
+                        <button type="button" class="btn spis3" th:if="${recipe.isLactoseFree}">
+                            <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
+                            <p>laktosefri </p>
+                        </button>
+                        <button type="button" class="btn spis3" th:if="${recipe.isGlutenFree}">
+                            <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
+                            <p>glutenfri </p>
+                        </button>
                     </span>
                 </div>
                 </br>
