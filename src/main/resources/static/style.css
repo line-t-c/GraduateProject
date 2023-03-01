@@ -8,6 +8,7 @@ font-size: 30px;
 color: white;
 background-color: #00A748;
 padding: 10px;
+margin-bottom: 0px;
 text-transform: uppercase;
 text-align: center;
 }
@@ -28,9 +29,14 @@ padding: 0 15px;
 }
 
 @media (max-width: 767px) {
-.container-fluid {
+  .container-fluid {
   padding: 0;
   }
+}
+
+.row {
+margin-right: 0px;
+margin-left: 0px;
 }
 
 .card {
@@ -40,6 +46,21 @@ background-color: #EAECE1;
 a {
 text-decoration: none;
 text-color: #00A748;
+}
+
+.recipeImg {
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 655px;
+}
+
+.dietOnImg {
+position: absolute;
+/*top: 50%;*/
+left: 50%;
+transform: translate(-50%, -100%);
+max-width: 655px;
 }
 
 .diet {
@@ -67,7 +88,22 @@ display: inline-block;
 
 .portion-controls button,
 .portion-controls h5 {
-  display: inline-block;
+display: inline-block;
+}
+
+.print {
+background-color: #66AD61;
+font-size: 14px;
+text-align: center;
+height: 62px;
+width: 62px;
+padding: 5px 2px;
+margin: 2px 0px;
+}
+
+.print img {
+height: 30px;
+width: 30px;
 }
 
 /*Hvor bliver denne brugt?*/

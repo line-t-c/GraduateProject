@@ -44,59 +44,59 @@
 </br>
 </br>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid">
     <h1>Alle opskrifter</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left coloumn: Show search words in search bar -->
-            <div class="col-4 spis2 text-white p-3">
-                <div>
-                    <p>Søg på de ingredienser du har i køleskabet.</p>
-                    <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
-                </div>
-                <div id="search-container">
-                    <form th:action="@{/search}" method="get" class="d-flex">
-                        <input type="text" name="ingredients" id="ingredientsSearch" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2" th:value="${ingredientName}">
-                        <button type="submit" class="btn spis3">Søg</button>
-                    </form>
-                </div>
-                </br>
-                <div>
-                    <p>Filtrer dit søgeresultat efter din kostretning.</p>
-                </div>
-                <div class="button-group">
-                    <button type="button" class="btn diet" onclick="filterRecipesDietOnly('vegetar')">
-                        <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
-                        <p>vegetar</p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="filterRecipesDietOnly('veganer')">
-                        <img th:src="@{/images/veganer.png}" height="30" width="30" alt="Vegansk">
-                        <p>vegansk</p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="filterRecipesDietOnly('laktosefri')">
-                        <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
-                        <p>laktosefri </p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="filterRecipesDietOnly('glutenfri')" >
-                        <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
-                        <p>glutenfri </p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="removeDietFilters()" >fjern filter</button>
-                </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left coloumn: Search field -->
+        <div class="col-4 spis2 text-white p-3">
+            <div>
+                <p>Søg på de ingredienser du har i køleskabet.</p>
+                <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
             </div>
-            <!-- Right coloumn: All recipes, filtered results -->
-            <div class="col-8 spis3 text-dark p-3">
-                <div class="container">
-                    <div class="row gy-4">
-                        <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card">
-                                <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
-                                    <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                    <div class="card-body">
-                                        <h5 class="card-title" th:text="${recipe.title}"></h5>
-                                    </div>
-                                </a>
-                            </div>
+            <div id="search-container">
+                <form th:action="@{/search}" method="get" class="d-flex">
+                    <input type="text" name="ingredients" id="ingredientsSearch" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2" th:value="${ingredientName}">
+                    <button type="submit" class="btn spis3">Søg</button>
+                </form>
+            </div>
+            </br>
+            <div>
+                <p>Filtrer dit søgeresultat efter din kostretning.</p>
+            </div>
+            <div class="button-group">
+                <button type="button" class="btn diet" onclick="filterRecipesDietOnly('vegetar')">
+                    <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetar">
+                    <p>vegetar</p>
+                </button>
+                <button type="button" class="btn diet" onclick="filterRecipesDietOnly('veganer')">
+                    <img th:src="@{/images/veganer.png}" height="30" width="30" alt="Veganer">
+                    <p>vegansk</p>
+                </button>
+                <button type="button" class="btn diet" onclick="filterRecipesDietOnly('laktosefri')">
+                    <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
+                    <p>laktosefri </p>
+                </button>
+                <button type="button" class="btn diet" onclick="filterRecipesDietOnly('glutenfri')" >
+                    <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
+                    <p>glutenfri </p>
+                </button>
+                <button type="button" class="btn diet" onclick="removeDietFilters()" >nulstil filter</button>
+            </div>
+        </div>
+        <!-- Right coloumn: All recipes, filtered results -->
+        <div class="col-8 spis3 text-dark p-3">
+            <div class="container">
+                <div class="row gy-4">
+                    <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
+                                <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${recipe.title}"></h5>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

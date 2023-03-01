@@ -28,9 +28,6 @@
                         <a class="nav-link" href="/opskrifter">Opskrifter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/saeson">Sæson</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/om">Om</a>
                     </li>
                 </ul>
@@ -45,71 +42,72 @@
 </header>
 </br>
 </br>
+</br>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid">
     <h1>Opskrifter</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left coloumn: Show search words in search bar -->
-            <div class="col-4 spis2 text-white p-3">
-                <div>
-                    <p>Søg på de ingredienser du har i køleskabet.</p>
-                    <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
-                </div>
-                <div id="search-container">
-                    <form th:action="@{/search}" method="get" class="d-flex">
-                        <input type="text" name="ingredients" id="ingredientsSearch" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2" th:value="${ingredientName}">
-                        <button type="submit" class="btn spis3">Søg</button>
-                    </form>
-                </div>
-                </br>
-                <div>
-                    <p>Filtrer dit søgeresultat efter din kostretning.</p>
-                </div>
-                <div class="button-group">
-                    <button type="button" class="btn diet" onclick="filterRecipes('vegetar')">
-                        <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
-                        <p>vegetar</p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="filterRecipes('veganer')">
-                        <img th:src="@{/images/veganer.png}" height="30" width="30" alt="Vegansk">
-                        <p>vegansk</p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="filterRecipes('laktosefri')">
-                        <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
-                        <p>laktosefri </p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="filterRecipes('glutenfri')" >
-                        <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
-                        <p>glutenfri </p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="removeFilters()" >fjern filter</button>
-                </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left coloumn: Show search words in search bar -->
+        <div class="col-4 spis2 text-white p-3">
+            <div>
+                <p>Søg på de ingredienser du har i køleskabet.</p>
+                <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
             </div>
-            <!-- Right coloumn: Search results -->
-            <div class="col-8 spis3 text-dark p-3">
-                <div class="container">
-                    <!-- If one or more search results -->
-                    <div th:if="${not #lists.isEmpty(searchResult)}">
-                        <div class="row gy-4">
-                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12" id="search-results">
-                                <div class="card" data-isvegetarian="${result.isVegetarian}">
-                                    <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
-                                        <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                        <div class="card-body">
-                                            <h5 class="card-title" th:text="${result.title}"></h5>
-                                        </div>
-                                        <div id="recipe-id" th:text="${result.id}" hidden></div>
-                                    </a>
-                                </div>
+            <div id="search-container">
+                <form th:action="@{/search}" method="get" class="d-flex">
+                    <input type="text" name="ingredients" id="ingredientsSearch" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2" th:value="${ingredientName}">
+                    <button type="submit" class="btn spis3">Søg</button>
+                </form>
+            </div>
+            </br>
+            <div>
+                <p>Filtrer dit søgeresultat efter din kostretning.</p>
+            </div>
+            <div class="button-group">
+                <button type="button" class="btn diet" onclick="filterRecipes('vegetar')">
+                    <img th:src="@{/images/vegetar.png}" alt="Vegetar">
+                    <p>vegetar</p>
+                </button>
+                <button type="button" class="btn diet" onclick="filterRecipes('veganer')">
+                    <img th:src="@{/images/veganer.png}" alt="Veganer">
+                    <p>vegansk</p>
+                </button>
+                <button type="button" class="btn diet" onclick="filterRecipes('laktosefri')">
+                    <img th:src="@{/images/laktosefri.png}" alt="Laktosefri">
+                    <p>laktosefri </p>
+                </button>
+                <button type="button" class="btn diet" onclick="filterRecipes('glutenfri')" >
+                    <img th:src="@{/images/glutenfri.png}" alt="Glutenfri">
+                    <p>glutenfri </p>
+                </button>
+                <button type="button" class="btn diet" onclick="removeFilters()" >nulstil filter</button>
+            </div>
+        </div>
+        <!-- Right coloumn: Search results -->
+        <div class="col-8 spis3 text-dark p-3">
+            <div class="container">
+                <!-- If one or more search results -->
+                <div th:if="${not #lists.isEmpty(searchResult)}">
+                    <div class="row gy-4">
+                        <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12" id="search-results">
+                            <div class="card" data-isvegetarian="${result.isVegetarian}">
+                                <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
+                                    <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                    <div class="card-body">
+                                        <h5 class="card-title" th:text="${result.title}"></h5>
+                                    </div>
+                                    <div id="recipe-id" th:text="${result.id}" hidden></div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <!-- If no search results -->
-                    <div th:if="${#lists.isEmpty(searchResult)}">
-                        <p>Der er desværre ingen opskrifter med de ingredienser eller filtre.</p>
-                        <p>Prøv en ny søgning.</p>
-                    </div>
+                </div>
+                <!-- If no search results -->
+                <div th:if="${#lists.isEmpty(searchResult)}">
+                    <p>Der er desværre ingen opskrifter med de ingredienser eller filtre.</p>
+                    <p>Prøv en ny søgning.</p>
                 </div>
             </div>
         </div>
@@ -117,5 +115,6 @@
 </div>
 
 <script src="script.js" th:src="@{/script.js}"></script>
+
 </body>
 </html>

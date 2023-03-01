@@ -44,64 +44,70 @@
 </br>
 </br>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid">
+    <!-- Title -->
     <h1 th:text="${recipe.title}"></h1>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-4 spis2 text-white p-3">
-                <!-- Diet Tag -->
-                <div class="button-group">
-                    <span th:each="recipe : ${recipe.diets}">
-                        <button type="button" class="btn diet" th:if="${recipe.isVegetarian}" onclick="filterRecipesDietOnly('vegetar')">
-                            <img th:src="@{/images/vegetar.png}" alt="Vegetar">
-                            <p>vegetar</p>
-                        </button>
-                        <button type="button" class="btn diet" th:if="${recipe.isVegan}">
-                            <img th:src="@{/images/veganer.png}" alt="Veganer">
-                            <p>veganer</p>
-                        </button>
-                        <button type="button" class="btn diet" th:if="${recipe.isLactoseFree}">
-                            <img th:src="@{/images/laktosefri.png}" alt="Laktosefri">
-                            <p>laktosefri</p>
-                        </button>
-                        <button type="button" class="btn diet" th:if="${recipe.isGlutenFree}">
-                            <img th:src="@{/images/glutenfri.png}" alt="Glutenfri">
-                            <p>glutenfri</p>
-                        </button>
-                    </span>
-                </div>
-                </br>
-                <!-- Portion Control -->
-                <div class="portion-controls">
-                    <button type="button" class="btn btn-sm portion" onclick="updatePortions(false)">-</button>
-                    <h5 id="portions" th:text="${recipe.portions}" style="display: inline-block;"></h5>
-                    <h5 th:text="' personer '" style="display: inline-block;"></h5>
-                    <button type="button" class="btn btn-sm portion" onclick="updatePortions(true)">+</button>
-                </div>
-                </br>
-                <!-- Ingredient List -->
-                <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
-                    <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
-                    <span th:text="${ingredient.measurement}"></span>
-                    <span th:text="${ingredient.ingredientName}"></span>
-                </div>
-                </br>
-                <!-- Print -->
-                <button type="button" class="btn spis3" onclick="window.print()"><img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv</button>
+</div>
+<div class="container-fluid">
+    <!-- Image -->
+    <div class="recipeImg">
+        <img class="img-fluid" th:src="${recipe.imageUrl}" alt="recipe image">
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left coloumn: -->
+        <div class="col-4 spis2 text-white p-3">
+            <!-- Diet Tag -->
+            <div class="button-group">
+                <span th:each="recipe : ${recipe.diets}">
+                    <button type="button" class="btn diet" th:if="${recipe.isVegetarian}" onclick="filterRecipesDietOnly('vegetar')">
+                        <img th:src="@{/images/vegetar.png}" alt="Vegetar">
+                        <p>vegetar</p>
+                    </button>
+                    <button type="button" class="btn diet" th:if="${recipe.isVegan}" onclick="filterRecipesDietOnly('veganer')">
+                        <img th:src="@{/images/veganer.png}" alt="Veganer">
+                        <p>veganer</p>
+                    </button>
+                    <button type="button" class="btn diet" th:if="${recipe.isLactoseFree}" onclick="filterRecipesDietOnly('laktosefri')">
+                        <img th:src="@{/images/laktosefri.png}" alt="Laktosefri">
+                        <p>laktosefri</p>
+                    </button>
+                    <button type="button" class="btn diet" th:if="${recipe.isGlutenFree}" onclick="filterRecipesDietOnly('glutenfri')">
+                        <img th:src="@{/images/glutenfri.png}" alt="Glutenfri">
+                        <p>glutenfri</p>
+                    </button>
+                </span>
             </div>
-            <div class="col-8 spis3 text-dark p-3">
-                <!-- Image -->
-                <img class="img-fluid" th:src="${recipe.imageUrl}" width="800" alt="recipe image">
-                <div>
-                    </br>
-                </div>
-                <!-- Instruction -->
-                <ol>
-                    <li th:each="instruction : ${recipe.instruction}">
-                        <span onclick="overline(this)" th:text="${instruction.recipeSteps}"></span>
-                    </li>
-                </ol>
+            </br>
+            <!-- Portion Control -->
+            <div class="portion-controls">
+                <button type="button" class="btn btn-sm portion" onclick="updatePortions(false)">-</button>
+                <h5 id="portions" th:text="${recipe.portions}" style="display: inline-block;"></h5>
+                <h5 th:text="' pers '" style="display: inline-block;"></h5>
+                <button type="button" class="btn btn-sm portion" onclick="updatePortions(true)">+</button>
             </div>
+            </br>
+            <!-- Ingredient List -->
+            <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
+                <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
+                <span th:text="${ingredient.measurement}"></span>
+                <span th:text="${ingredient.ingredientName}"></span>
+            </div>
+            </br>
+        </div>
+        <div class="col-8 spis3 text-dark p-3">
+            <!-- Print -->
+            <button type="button" class="btn spis3" onclick="window.print()"><img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv</button>
+            <div>
+                </br>
+            </div>
+            <!-- Instruction -->
+            <ol>
+                <li th:each="instruction : ${recipe.instruction}">
+                    <span onclick="overline(this)" th:text="${instruction.recipeSteps}"></span>
+                </li>
+            </ol>
         </div>
     </div>
 </div>

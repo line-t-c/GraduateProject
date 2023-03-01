@@ -46,46 +46,46 @@
 
 <div class="container-fluid">
     <h1>Find opskrifter</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left coloumn: Search field -->
-            <div class="col-4 spis2 text-white p-3">
-                <div>
-                    <p>Søg på de ingredienser du har i køleskabet.</p>
-                    <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
-                </div>
-                <div id="search-container">
-                    <form th:action="@{/search}" method="get" class="d-flex">
-                        <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2">
-                        <button type="submit" class="btn spis3">Søg</button>
-                    </form>
-                </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left coloumn: Search field -->
+        <div class="col-4 spis2 text-white p-3">
+            <div>
+                <p>Søg på de ingredienser du har i køleskabet.</p>
+                <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
             </div>
-            <!-- Right coloumn: Yet to be decided what to put here -->
-            <div class="col-8 spis3 text-dark p-3">
-            <!--Evt. indsæt alle opskrifter her-->
+            <div id="search-container">
+                <form th:action="@{/search}" method="get" class="d-flex">
+                    <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2">
+                    <button type="submit" class="btn spis3">Søg</button>
+                </form>
             </div>
+        </div>
+        <!-- Right coloumn: Yet to be decided what to put here -->
+        <div class="col-8 spis3 text-dark p-3">
+        <!--Evt. indsæt alle opskrifter her-->
         </div>
     </div>
 </div>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-2">
     <h1>Udvalgte opskrifter</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 spis3 text-dark p-3">
-                <div class="container">
-                    <div class="row gy-4">
-                        <!-- Kopieret fra allRecipes. Virker ikke uden sin egen GetMapping. Kan bruges som skabelon. -->
-                        <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
-                            <div class="card">
-                                <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
-                                    <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                    <div class="card-body">
-                                        <h5 class="card-title" th:text="${recipe.title}"></h5>
-                                    </div>
-                                </a>
-                            </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 spis3 text-dark p-3">
+            <div class="container">
+                <div class="row gy-4">
+                    <!-- Kopieret fra allRecipes. Virker ikke uden sin egen GetMapping. Kan bruges som skabelon. -->
+                    <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card">
+                            <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
+                                <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${recipe.title}"></h5>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
