@@ -1,5 +1,6 @@
 package RuneLine.GraduateProject;
 
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
+@Transactional
+
 class GraduateProjectApplicationTests {
 
 	@Autowired
@@ -21,46 +24,17 @@ class GraduateProjectApplicationTests {
 	void contextLoads() {
 	}
 
-	List<Recipe> recipeTest;
-	@BeforeEach
-	public void before() {
-    recipeTest = new ArrayList<>();
-
-//	Set up recipes for testing
-
-	Ingredient ingredient1 = new Ingredient("Carrot", 1, "https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg");
-	Ingredient ingredient2 = new Ingredient("Water", 1, "https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg");
-
-	List<Ingredient> ingredientList = new ArrayList<>();
-	ingredientList.add(ingredient1);
-	ingredientList.add(ingredient2);
-
-	Instruction instruction1 = new Instruction("Peel the carrot");
-	Instruction instruction2 = new Instruction("Boil it");
-	Instruction instruction3 = new Instruction("Blend it");
-
-	List<Instruction> instructionList = new ArrayList<>();
-	instructionList.add(instruction1);
-	instructionList.add(instruction2);
-	instructionList.add(instruction3);
-
-	Diet diet1 = new Diet(true, false, true, false);
-
-	List<Diet> diets = new ArrayList<>();
-	diets.add(diet1);
-
-	Recipe carrotSoup = new Recipe("CarrotSoup", 4, "www", instructionList, ingredientList, diets);
-	}
-
 	@Test
-	public void testFindByIngredients() {
-		List<String> ingredients = Arrays.asList("Carrot", "Water");
-		List<Recipe> recipes = recipeService.findByIngredients(ingredients);
-		assertEquals(1, recipes.size());
-		Recipe recipe = recipes.get(0);
-		assertEquals("CarrotSoup", recipe.getTitle());
+	public void testFindByIngredient() {
+		List<String> ingredients1 = Arrays.asList("bacon", "parmesan");
+		List<String> ingredients2 = Arrays.asList("kartofler", "syltede rødbeder");
+		List<Recipe> recipes1 = recipeService.findByIngredients(ingredients1);
+		List<Recipe> recipes2 = recipeService.findByIngredients(ingredients2);
+		assertEquals(1, recipes1.size());
+		assertEquals(4, recipes2.size());
+		Recipe recipe1 = recipes1.get(0);
+		Recipe recipe2 = recipes2.get(0);
+		assertEquals("Pasta Carbonara", recipe1.getTitle());
+		assertEquals("Vegetarisk Brændende Kæerlighed", recipe2.getTitle());
 	}
-
-
-
 }
