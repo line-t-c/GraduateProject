@@ -48,15 +48,5 @@ function overline(element) {
 }
 
 //// FILTER BY DIET TAG
-const recipeCards = document.querySelectorAll('#search-results');
 
-function filterVegetarian() {
-    recipeCards.forEach(function(recipe) {
-        if (recipe.dataset.isvegetarian === 'true') {
-            recipe.style.display = "block"; // show the result item
-        } else {
-            recipe.style.display = "none"; // hide the result item
-        }
-    });
-}
 
