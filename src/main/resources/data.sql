@@ -74,6 +74,21 @@ VALUES
 (1, 0, 1, 0, 5),
 (0, 0, 1, 1, 6);
 
+-- Indsæt trin til season. Boolean in sql: 0 = false, 1 = true
+INSERT INTO SEASON (IS_SPRING, IS_SUMMER, IS_FALL, IS_WINTER, RECIPE_ID_FK)
+VALUES
+(0, 0, 1, 1, 1),
+(1, 1, 0, 0, 2),
+(0, 0, 1, 1, 3),
+(0, 0, 0, 0, 4),
+(0, 0, 1, 0, 5),
+(0, 0, 1, 1, 6);
+
+-- Indsæt tips
+INSERT INTO TIPS (TIPS, INGREDIENT_ID_FK)
+VALUES
+('Gem skrællen fra kartofler til at koge grøntsagsboullion', 5);
+
 
 
 
