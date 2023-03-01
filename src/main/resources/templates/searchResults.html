@@ -83,7 +83,7 @@
                         <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
                         <p>glutenfri </p>
                     </button>
-                    <button type="button" class="btn spis3" >fjern filter</button>
+                    <button type="button" class="btn spis3" onclick="removeFilters()" >fjern filter</button>
                 </div>
             </div>
             <!-- Right coloumn: Search results -->
@@ -92,8 +92,8 @@
                     <!-- If one or more search results -->
                     <div th:if="${not #lists.isEmpty(searchResult)}">
                         <div class="row gy-4">
-                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card" id="search-results">
+                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12" id="search-results">
+                                <div class="card" data-isvegetarian="${result.isVegetarian}">
                                     <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
                                         <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
                                         <div class="card-body">
@@ -117,35 +117,31 @@
 </div>
 
 <script>
+const recipeCards = document.querySelectorAll('#search-results .card');
 
-function filterRecipes(dietaryRestriction) {
-/* get list of recipes from search results */
-  let recipes = ;
-  let filteredRecipes = recipes.filter(function(recipe) {
-    return recipe.diets[dietaryRestriction];
-  });
 
-  let searchResultsDiv = document.getElementById("search-results");
-  let cardDivs = searchResultsDiv.querySelectorAll(".card");
-  cardDivs.forEach(function(cardDiv) {
-    let recipeId = document.getElementById("recipe-id");
-    let recipe = recipes.find(function(recipe) {
-      return recipe.id === recipeId;
-    });
-    if (recipe && recipe.diets[dietaryRestriction]) {
-      cardDiv.style.display = "block";
-    } else {
-      cardDiv.style.display = "none";
-    }
-  });
+let ingredients = document.getElementById("ingredients").value;
+
+function filterRecipes(diet) {
+  let url = "/search?ingredients=" + encodeURIComponent(ingredients);
+  if (diet) {
+    url += "&diet=" + encodeURIComponent(diet);
+  }
+  window.location.href = url;
 }
 
-
+function removeFilters() {
+  let url = "/search?ingredients=" + encodeURIComponent(ingredients);
+}
 
 
 </script>
 
-<!--<script src="script.js" th:src="@{/script.js}"></script>-->
+<!-- http://localhost:8080/search?ingredients=kartofler&diet=vegetar -->
+
+<!-- Get/post metode, property den rammer er ikke requered. Så skal den bare have det hele. Mulighed for at  -->
+
+<!-- JS til at bygge det rigtige link op -- window href. Selve JS skifter URL addressen -->
 
 </body>
 </html>

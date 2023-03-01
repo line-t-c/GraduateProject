@@ -24,12 +24,13 @@ public class RecipeController {
     }
 
     @GetMapping("/search")
-    public String searchRecipesByIngredients(@RequestParam String ingredients, Model model) {
+    public String searchRecipesByIngredients(@RequestParam String ingredients, @RequestParam (required = false, defaultValue = "false") Boolean diet, Model model) {
         List<String> ingredientList = Arrays.asList(ingredients.split("\\s*,\\s*"));
         List<Recipe> searchResult = recipeService.findByIngredients(ingredientList);
         model.addAttribute("ingredientName", ingredients);
+        model.addAttribute("diet", diet);
         model.addAttribute("searchResult", searchResult);
-        return "searchTESTS";
+        return "searchResults";
     }
 
     @GetMapping("/opskrifter")
