@@ -86,7 +86,7 @@
           <span th:text="${ingredient.ingredientName}" id="ingredientName" onmouseover="showIngredientTips(this)"></span>
           <span th:each="tips : ${ingredient.tips}">
             <ul class="ingredient-tips" style="display: none;">
-              <li th:text="${tips.tips}"></li>
+              <li th:text="${tips.tips}" id="tipsValue"></li>
             </ul>
           </span>
         </div>
@@ -112,6 +112,7 @@
 </div>
 
 <script>
+console.log('Tips: ', tips.tips);
 
 function showIngredientTips(element) {
   // Get the tips for the ingredient
@@ -120,6 +121,20 @@ function showIngredientTips(element) {
   // Display the tips
   tips.style.display = "block";
 }
+
+<!--function showIngredientTips(event) {-->
+<!--  var ingredient = event.target.getAttribute('data-ingredient');-->
+<!--  let tipValue = document.querySelector('#tipsValue');-->
+<!--  var tip = document.querySelector('.tip[data-ingredient="' + ingredient + '"]');-->
+<!--  if (tip !== null) {-->
+<!--    tip.style.display = 'block';-->
+<!--    console.log(tipValue.value);-->
+<!--  }-->
+<!--}-->
+
+
+
+
 
 <!--  let inputIngredient = document.querySelector('#ingredientName');-->
 <!--  let formTips = document.querySelector('#ingredientTips');-->
