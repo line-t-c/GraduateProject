@@ -52,7 +52,7 @@
                 <!-- Diet Tag -->
                 <div class="button-group">
                     <span th:each="recipe : ${recipe.diets}">
-                        <button type="button" class="btn diet" th:if="${recipe.isVegetarian}">
+                        <button type="button" class="btn diet" th:if="${recipe.isVegetarian}" onclick="filterRecipesDietOnly('vegetar')">
                             <img th:src="@{/images/vegetar.png}" alt="Vegetar">
                             <p>vegetar</p>
                         </button>
