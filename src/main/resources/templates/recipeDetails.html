@@ -79,12 +79,12 @@
                     <button type="button" class="btn btn-sm portion" onclick="updatePortions(true)">+</button>
                 </div>
                 </br>
-                <!-- Ingredient List -->
                 <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
                     <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
                     <span th:text="${ingredient.measurement}"></span>
-                    <span th:text="${ingredient.ingredientName}" id="ingredientTips"></span>
+                    <span class="ingredient-name" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
                 </div>
+
                 </br>
                 <!-- Print -->
                 <button type="button" class="btn spis3" onclick="window.print()"><img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv</button>
@@ -106,7 +106,12 @@
     </div>
 </div>
 
+<script>
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
 <script src="script.js" th:src="@{/script.js}"></script>
-
 </body>
 </html>

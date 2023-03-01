@@ -17,17 +17,16 @@ public class Ingredient {
 
     private String measurement;
 
+    private String tips;
+
     @ManyToOne
     @JoinColumn(name = "recipe_id_fk")
     private Recipe recipe;
 
-    @OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL)
-    private List<Tips> tips;
-
     public Ingredient() {
     }
 
-    public Ingredient(String ingredientName, int amount, String measurement, List<Tips> tips) {
+    public Ingredient(String ingredientName, int amount, String measurement, String tips) {
         this.ingredientName = ingredientName;
         this.amount = amount;
         this.measurement = measurement;
@@ -66,11 +65,11 @@ public class Ingredient {
         this.measurement = measurement;
     }
 
-    public List<Tips> getTips() {
+    public String getTips() {
         return tips;
     }
 
-    public void setTips(List<Tips> tips) {
+    public void setTips(String tips) {
         this.tips = tips;
     }
 }
