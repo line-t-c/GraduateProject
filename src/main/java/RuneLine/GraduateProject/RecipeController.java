@@ -27,7 +27,7 @@ public class RecipeController {
         List<Long> id = Arrays.asList(6L, 7L, 8L);
         List<Recipe> recipes = repository.findRecipesById(id);
         model.addAttribute("recipes", recipes);
-        return "home2";
+        return "home";
     }
 
     @GetMapping("/search")
