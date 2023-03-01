@@ -107,6 +107,10 @@ height: 30px;
 width: 30px;
 }
 
+.footer {
+text-align: center;
+}
+
 /*Hvor bliver denne brugt?*/
 .btn btn-print {
     background-color: #f7f4ef;
