@@ -67,19 +67,19 @@
                     <p>Filtrer dit søgeresultat efter din kostretning.</p>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="btn spis3" onclick="updateSearch(isVegetarian == true)">
+                    <button type="button" class="btn spis3" onclick="filterRecipes('isVegetarian')">
                         <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
                         <p>vegetar</p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="updateSearch(isVegan == true)">
+                    <button type="button" class="btn spis3" onclick="filterRecipes('isVegan')">
                         <img th:src="@{/images/vegansk.png}" height="30" width="30" alt="Vegansk">
                         <p>vegansk</p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="updateSearch(isLactoseFree == true)">
+                    <button type="button" class="btn spis3" onclick="filterRecipes('isLactoseFree')">
                         <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
                         <p>laktosefri </p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="updateSearch(isGlutenFree == true)" >
+                    <button type="button" class="btn spis3" onclick="filterRecipes('isGlutenFree')" >
                         <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
                         <p>glutenfri </p>
                     </button>
@@ -93,12 +93,13 @@
                     <div th:if="${not #lists.isEmpty(searchResult)}">
                         <div class="row gy-4">
                             <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card">
+                                <div class="card" id="search-results">
                                     <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
                                         <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
                                         <div class="card-body">
                                             <h5 class="card-title" th:text="${result.title}"></h5>
                                         </div>
+                                        <div id="recipe-id" th:text="${result.id}" hidden></div>
                                     </a>
                                 </div>
                             </div>
@@ -115,7 +116,36 @@
     </div>
 </div>
 
-<script src="script.js" th:src="@{/script.js}"></script>
+<script>
+
+function filterRecipes(dietaryRestriction) {
+/* get list of recipes from search results */
+  let recipes = ;
+  let filteredRecipes = recipes.filter(function(recipe) {
+    return recipe.diets[dietaryRestriction];
+  });
+
+  let searchResultsDiv = document.getElementById("search-results");
+  let cardDivs = searchResultsDiv.querySelectorAll(".card");
+  cardDivs.forEach(function(cardDiv) {
+    let recipeId = document.getElementById("recipe-id");
+    let recipe = recipes.find(function(recipe) {
+      return recipe.id === recipeId;
+    });
+    if (recipe && recipe.diets[dietaryRestriction]) {
+      cardDiv.style.display = "block";
+    } else {
+      cardDiv.style.display = "none";
+    }
+  });
+}
+
+
+
+
+</script>
+
+<!--<script src="script.js" th:src="@{/script.js}"></script>-->
 
 </body>
 </html>

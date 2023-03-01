@@ -67,11 +67,11 @@ VALUES
 -- Indsæt trin til diet / kostretning. Boolean in sql: 0 = false, 1 = true
 INSERT INTO DIET (IS_VEGETARIAN, IS_VEGAN, IS_LACTOSE_FREE, IS_GLUTEN_FREE, RECIPE_ID_FK)
 VALUES
-(0, 0, 0, 0, 1),
+(1, 0, 0, 0, 1),
 (0, 0, 0, 1, 2),
 (1, 1, 1, 1, 3),
 (1, 1, 1, 1, 4),
-(1, 1, 1, 1, 5),
+(0, 0, 0, 0, 5),
 (1, 1, 1, 1, 6);
 
 

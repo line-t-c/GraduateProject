@@ -29,7 +29,7 @@ public class RecipeController {
         List<Recipe> searchResult = recipeService.findByIngredients(ingredientList);
         model.addAttribute("ingredientName", ingredients);
         model.addAttribute("searchResult", searchResult);
-        return "searchResults";
+        return "searchTESTS";
     }
 
     @GetMapping("/opskrifter")
