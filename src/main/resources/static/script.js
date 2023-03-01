@@ -65,9 +65,15 @@ function removeFilters() {
 }
 
 // FILTER BY DIET TAG ONLY
-//    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-//    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-//        return new bootstrap.Popover(popoverTriggerEl)
-//    })
+function filterRecipesDietOnly(diet) {
+  let url = "/opskrifter?diet=" + encodeURIComponent(diet);
+// redirect to the new URL
+  window.location.href = url;
+}
+
+function removeDietFilters() {
+  let url = "/opskrifter";
+  window.location.href = url;
+}
 
 
