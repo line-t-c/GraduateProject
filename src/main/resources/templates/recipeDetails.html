@@ -92,7 +92,7 @@
             <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
                 <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
                 <span th:text="${ingredient.measurement}"></span>
-                <span th:text="${ingredient.ingredientName}"></span>
+                <span class="ingredient-name" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
             </div>
             </br>
         </div>
@@ -119,6 +119,12 @@
     </div>
 </footer>
 
+<script>
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
 <script src="script.js" th:src="@{/script.js}"></script>
 
 </body>
