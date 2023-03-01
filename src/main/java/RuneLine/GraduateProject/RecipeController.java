@@ -23,8 +23,11 @@ public class RecipeController {
     private RecipeService recipeService;
 
     @GetMapping("/")
-    public String home () {
-        return "home";
+    public String showRecipesByIds(Model model) {
+        List<Long> id = Arrays.asList(6L, 7L, 8L);
+        List<Recipe> recipes = repository.findRecipesById(id);
+        model.addAttribute("recipes", recipes);
+        return "home2";
     }
 
     @GetMapping("/search")
