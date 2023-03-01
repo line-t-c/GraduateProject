@@ -57,6 +57,17 @@ function filterRecipes(diet) {
   let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value) + "&diet=" + encodeURIComponent(diet);
 // redirect to the new URL
   window.location.href = url;
+
+    // get all buttons with the 'diet' class
+    const buttons = document.querySelectorAll('.diet');
+
+    // remove the 'active' class from all buttons
+    buttons.forEach(button => {
+      button.classList.remove('active');
+    });
+
+    // add the 'active' class to the clicked button
+    event.currentTarget.classList.add('active');
 }
 
 function removeFilters() {
@@ -64,12 +75,23 @@ function removeFilters() {
   window.location.href = url;
 }
 
-// FILTER BY DIET TAG ONLY
 function filterRecipesDietOnly(diet) {
   let url = "/opskrifter?diet=" + encodeURIComponent(diet);
-// redirect to the new URL
+  // redirect to the new URL
   window.location.href = url;
+
+  // get all buttons with the 'diet' class
+  const buttons = document.querySelectorAll('.diet');
+
+  // remove the 'active' class from all buttons
+  buttons.forEach(button => {
+    button.classList.remove('active');
+  });
+
+  // add the 'active' class to the clicked button
+  event.currentTarget.classList.add('active');
 }
+
 
 function removeDietFilters() {
   let url = "/opskrifter";

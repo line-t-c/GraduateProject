@@ -120,3 +120,7 @@ text-align: center;
     line-height: 43px;
     cursor: pointer;
 }
+
+.diet.active {
+  background-color: green;
+}
