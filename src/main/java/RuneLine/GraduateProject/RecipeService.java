@@ -24,4 +24,15 @@ public class RecipeService {
                 .collect(Collectors.toList());
     }
 
+    public List<Recipe> findByDiet(String diet) {
+        List<Recipe> recipes = (List<Recipe>) repository.findAll();
+        return recipes.stream()
+                .filter(recipe -> diet == null || recipe.getDiets().stream().anyMatch(d ->
+                        (diet.equals("vegetar") && d.isVegetarian()) ||
+                                (diet.equals("vegansk") && d.isVegan()) ||
+                                (diet.equals("laktosefri") && d.isLactoseFree()) ||
+                                (diet.equals("glutenfri") && d.isGlutenFree())))
+                .collect(Collectors.toList());
+    }
+
 }
