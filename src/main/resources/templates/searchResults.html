@@ -67,23 +67,23 @@
                     <p>Filtrer dit søgeresultat efter din kostretning.</p>
                 </div>
                 <div class="button-group">
-                    <button type="button" class="btn spis3" onclick="filterRecipes('vegetar')">
+                    <button type="button" class="btn diet" onclick="filterRecipes('vegetar')">
                         <img th:src="@{/images/vegetar.png}" height="30" width="30" alt="Vegetarisk">
                         <p>vegetar</p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="filterRecipes('vegansk')">
-                        <img th:src="@{/images/vegansk.png}" height="30" width="30" alt="Vegansk">
+                    <button type="button" class="btn diet" onclick="filterRecipes('veganer')">
+                        <img th:src="@{/images/veganer.png}" height="30" width="30" alt="Vegansk">
                         <p>vegansk</p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="filterRecipes('laktosefri')">
+                    <button type="button" class="btn diet" onclick="filterRecipes('laktosefri')">
                         <img th:src="@{/images/laktosefri.png}" height="30" width="30" alt="Laktosefri">
                         <p>laktosefri </p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="filterRecipes('glutenfri')" >
+                    <button type="button" class="btn diet" onclick="filterRecipes('glutenfri')" >
                         <img th:src="@{/images/glutenfri.png}" height="30" width="30" alt="Glutenfri">
                         <p>glutenfri </p>
                     </button>
-                    <button type="button" class="btn spis3" onclick="removeFilters()" >fjern filter</button>
+                    <button type="button" class="btn diet" onclick="removeFilters()" >fjern filter</button>
                 </div>
             </div>
             <!-- Right coloumn: Search results -->

@@ -38,8 +38,8 @@ public class RecipeController {
     }
 
     @GetMapping("/opskrifter")
-    public String alleOpskrifter (Model model) {
-        List<Recipe> recipes = (List<Recipe>) repository.findAll();
+    public String allRecipes (@RequestParam(required = false) String diet, Model model) {
+        List<Recipe> recipes = recipeService.findByDiet(diet);
         model.addAttribute("recipes", recipes);
         return "allRecipes";
     }

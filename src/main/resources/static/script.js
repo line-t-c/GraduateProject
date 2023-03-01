@@ -47,7 +47,7 @@ function overline(element) {
     }
 }
 
-//// FILTER BY DIET TAG
+// FILTER BY DIET TAG AND INGREDIENT
 let ingredientsSearch = document.getElementById("ingredientsSearch");
 
 function filterRecipes(diet) {
@@ -60,4 +60,17 @@ function removeFilters() {
   let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value);
   window.location.href = url;
 }
+
+// FILTER BY DIET TAG ONLY
+function filterRecipesDietOnly(diet) {
+  let url = "/opskrifter?diet=" + encodeURIComponent(diet);
+// redirect to the new URL
+  window.location.href = url;
+}
+
+function removeDietFilters() {
+  let url = "/opskrifter" + encodeURIComponent(ingredientsSearch.value);
+  window.location.href = url;
+}
+
 
