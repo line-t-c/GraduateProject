@@ -26,20 +26,16 @@ public class Recipe {
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
     private List<Diet> diets = new ArrayList<>();
 
-    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
-    private List<Season> seasons = new ArrayList<>();
-
     public Recipe() {
     }
 
-    public Recipe(String title, int portions, String imageUrl, List<Instruction> instruction, List<Ingredient> ingredients, List<Diet> diets, List<Season> seasons) {
+    public Recipe(String title, int portions, String imageUrl, List<Instruction> instruction, List<Ingredient> ingredients, List<Diet> diets) {
         this.title = title;
         this.portions = portions;
         this.imageUrl = imageUrl;
         this.instruction = instruction;
         this.ingredients = ingredients;
         this.diets = diets;
-        this.seasons = seasons;
     }
 
     public Long getId() {
@@ -98,11 +94,4 @@ public class Recipe {
         this.diets = diets;
     }
 
-    public List<Season> getSeasons() {
-        return seasons;
-    }
-
-    public void setSeasons(List<Season> seasons) {
-        this.seasons = seasons;
-    }
 }
