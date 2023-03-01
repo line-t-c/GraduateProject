@@ -3,9 +3,9 @@ INSERT INTO RECIPE (TITLE, PORTIONS, IMAGE_URL) VALUES
 ('Pasta Carbonara', 4, 'https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg'),
 ('Grillet Kyllingesalat', 4, 'https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg'),
 ('Vegetarisk Brændende Kæerlighed', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
-('Opskrift 4', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
-('Opskrift 5', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
-('Opskrift 6', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg');
+('Vegetar og vegansk', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
+('Vegetar og laktosefri', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
+('Laktosefri og glutenfri', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg');
 
 -- Indsæt ingredienser til opskriften, forbind med ID i enden
 INSERT INTO INGREDIENT (INGREDIENT_NAME, AMOUNT, MEASUREMENT, RECIPE_ID_FK)
@@ -69,10 +69,11 @@ INSERT INTO DIET (IS_VEGETARIAN, IS_VEGAN, IS_LACTOSE_FREE, IS_GLUTEN_FREE, RECI
 VALUES
 (0, 0, 0, 0, 1),
 (0, 0, 0, 1, 2),
-(1, 1, 0, 1, 3),
-(1, 1, 0, 1, 4),
-(0, 0, 1, 0, 5),
-(1, 1, 0, 1, 6);
+(1, 1, 1, 1, 3),
+(1, 1, 0, 0, 4),
+(1, 0, 1, 0, 5),
+(0, 0, 1, 1, 6);
+
 
 
 

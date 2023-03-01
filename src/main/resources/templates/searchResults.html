@@ -107,7 +107,7 @@
                     </div>
                     <!-- If no search results -->
                     <div th:if="${#lists.isEmpty(searchResult)}">
-                        <p>Der er desværre ingen opskrifter med de ingredienser.</p>
+                        <p>Der er desværre ingen opskrifter med de ingredienser eller filtre.</p>
                         <p>Prøv en ny søgning.</p>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
 
 <script>
 
-    let ingredients = document.getElementById("ingredientsSearch");
+let ingredients = document.getElementById("ingredientsSearch");
 
 function filterRecipes(diet) {
   let url = "/search?ingredients=" + encodeURIComponent(ingredients.value) + "&diet=" + encodeURIComponent(diet);
@@ -133,7 +133,6 @@ function removeFilters() {
 
 </script>
 
-<!-- Get/post metode, property den rammer er ikke requered. Så skal den bare have det hele. Mulighed for at  -->
-
+<script src="script.js" th:src="@{/script.js}"></script>
 </body>
 </html>
