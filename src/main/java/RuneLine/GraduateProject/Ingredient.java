@@ -2,6 +2,8 @@ package RuneLine.GraduateProject;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Ingredient {
     @Id
@@ -19,17 +21,16 @@ public class Ingredient {
     @JoinColumn(name = "recipe_id_fk")
     private Recipe recipe;
 
-    @OneToOne(mappedBy = "ingredient", cascade = CascadeType.ALL)
-    private Tips tips;
+    @OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL)
+    private List<Tips> tips;
 
     public Ingredient() {
     }
 
-    public Ingredient(String ingredientName, int amount, String measurement, Recipe recipe, Tips tips) {
+    public Ingredient(String ingredientName, int amount, String measurement, List<Tips> tips) {
         this.ingredientName = ingredientName;
         this.amount = amount;
         this.measurement = measurement;
-        this.recipe = recipe;
         this.tips = tips;
     }
 
@@ -65,11 +66,11 @@ public class Ingredient {
         this.measurement = measurement;
     }
 
-    public Tips getTips() {
+    public List<Tips> getTips() {
         return tips;
     }
 
-    public void setTips(Tips tips) {
+    public void setTips(List<Tips> tips) {
         this.tips = tips;
     }
 }

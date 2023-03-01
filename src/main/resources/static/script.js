@@ -10,6 +10,9 @@ form.addEventListener('mouseout', function() {
     input.style.display = 'none';
 });
 
+// SHOW INGREDIENT TIPS
+
+
 
 // CHANGE NUMBER OF PORTIONS
 function updatePortions(addPortion) {

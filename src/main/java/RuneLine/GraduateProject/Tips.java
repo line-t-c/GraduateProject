@@ -11,7 +11,7 @@ public class Tips {
 
     private String tips;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ingredient_id_fk")
     private Ingredient ingredient;
 
