@@ -46,3 +46,18 @@ function overline(element) {
         element.style.textDecoration = 'line-through';
     }
 }
+
+//// FILTER BY DIET TAG
+let ingredientsSearch = document.getElementById("ingredientsSearch");
+
+function filterRecipes(diet) {
+  let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value) + "&diet=" + encodeURIComponent(diet);
+// redirect to the new URL
+  window.location.href = url;
+}
+
+function removeFilters() {
+  let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value);
+  window.location.href = url;
+}
+

@@ -10,13 +10,17 @@ public class RecipeService {
     @Autowired
     private RecipeRepo repository;
 
-//    search for recipes that contain all of the given ingredients with allMatch method
-    public List<Recipe> findByIngredients(List<String> ingredientNames) {
+    public List<Recipe> findByIngredientsAndDiet(List<String> ingredientNames, String diet) {
         List<Recipe> recipes = (List<Recipe>) repository.findAll();
         return recipes.stream()
                 .filter(recipe -> ingredientNames.stream().allMatch(
                         ingredient -> recipe.getIngredients().stream()
                                 .anyMatch(recipeIngredient -> recipeIngredient.getIngredientName().equals(ingredient))))
+                .filter(recipe -> diet == null || recipe.getDiets().stream().anyMatch(d ->
+                        (diet.equals("vegetar") && d.isVegetarian()) ||
+                                (diet.equals("vegansk") && d.isVegan()) ||
+                                (diet.equals("laktosefri") && d.isLactoseFree()) ||
+                                (diet.equals("glutenfri") && d.isGlutenFree())))
                 .collect(Collectors.toList());
     }
 

@@ -6,9 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
-/**/
+import java.util.stream.Collectors;
+
+/*hej*/
 @Controller
 public class RecipeController {
 
@@ -24,9 +29,9 @@ public class RecipeController {
     }
 
     @GetMapping("/search")
-    public String searchRecipesByIngredients(@RequestParam String ingredients, Model model) {
-        List<String> ingredientList = Arrays.asList(ingredients.split("\\s*,\\s*"));
-        List<Recipe> searchResult = recipeService.findByIngredients(ingredientList);
+    public String searchRecipesByIngredients(@RequestParam String ingredients, @RequestParam(required = false) String diet, Model model) {
+        List<String> ingredientList = Arrays.asList(ingredients.split("\s*,\s*"));
+        List<Recipe> searchResult = recipeService.findByIngredientsAndDiet(ingredientList,diet);
         model.addAttribute("ingredientName", ingredients);
         model.addAttribute("searchResult", searchResult);
         return "searchResults";
