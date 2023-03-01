@@ -93,4 +93,5 @@ public class Recipe {
     public void setDiets(List<Diet> diets) {
         this.diets = diets;
     }
+
 }

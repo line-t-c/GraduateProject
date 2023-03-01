@@ -10,6 +10,9 @@ form.addEventListener('mouseout', function() {
     input.style.display = 'none';
 });
 
+// SHOW INGREDIENT TIPS
+
+
 
 // CHANGE NUMBER OF PORTIONS
 function updatePortions(addPortion) {
@@ -62,15 +65,9 @@ function removeFilters() {
 }
 
 // FILTER BY DIET TAG ONLY
-function filterRecipesDietOnly(diet) {
-  let url = "/opskrifter?diet=" + encodeURIComponent(diet);
-// redirect to the new URL
-  window.location.href = url;
-}
-
-function removeDietFilters() {
-  let url = "/opskrifter" + encodeURIComponent(ingredientsSearch.value);
-  window.location.href = url;
-}
+//    let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+//    let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+//        return new bootstrap.Popover(popoverTriggerEl)
+//    })
 
 

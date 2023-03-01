@@ -1,9 +1,8 @@
 package RuneLine.GraduateProject;
 
-// Season tag - skal den som en variable eller et ENUM eller hvordan?
-// Allergier.
-
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Ingredient {
@@ -18,6 +17,8 @@ public class Ingredient {
 
     private String measurement;
 
+    private String tips;
+
     @ManyToOne
     @JoinColumn(name = "recipe_id_fk")
     private Recipe recipe;
@@ -25,10 +26,11 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String ingredientName, int amount, String measurement) {
+    public Ingredient(String ingredientName, int amount, String measurement, String tips) {
         this.ingredientName = ingredientName;
         this.amount = amount;
         this.measurement = measurement;
+        this.tips = tips;
     }
 
     public Long getId() {
@@ -63,4 +65,11 @@ public class Ingredient {
         this.measurement = measurement;
     }
 
+    public String getTips() {
+        return tips;
+    }
+
+    public void setTips(String tips) {
+        this.tips = tips;
+    }
 }
