@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RecipeRepo extends CrudRepository<Recipe, Long> {
-    Iterable <Recipe> findByTitle (String title);
+//    Iterable <Recipe> findByTitle (String title);
 
 }

@@ -2,15 +2,20 @@ package RuneLine.GraduateProject;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class GraduateProjectApplicationTests {
+
+	@Autowired
+	private RecipeService recipeService;
 
 	@Test
 	void contextLoads() {
@@ -46,6 +51,16 @@ class GraduateProjectApplicationTests {
 
 	Recipe carrotSoup = new Recipe("CarrotSoup", 4, "www", instructionList, ingredientList, diets);
 	}
+
+	@Test
+	public void testFindByIngredients() {
+		List<String> ingredients = Arrays.asList("Carrot", "Water");
+		List<Recipe> recipes = recipeService.findByIngredients(ingredients);
+		assertEquals(1, recipes.size());
+		Recipe recipe = recipes.get(0);
+		assertEquals("CarrotSoup", recipe.getTitle());
+	}
+
 
 
 }
