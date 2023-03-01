@@ -46,67 +46,67 @@
 
 <div class="container-fluid">
     <h1>Opskrifter</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <!-- Left coloumn: Show search words in search bar -->
-            <div class="col-4 spis2 text-white p-3">
-                <div>
-                    <p>Søg på de ingredienser du har i køleskabet.</p>
-                    <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
-                </div>
-                <div id="search-container">
-                    <form th:action="@{/search}" method="get" class="d-flex">
-                        <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2" th:value="${ingredientName}">
-                        <button type="submit" class="btn spis3">Søg</button>
-                    </form>
-                </div>
-                </br>
-                <div>
-                    <p>Filtrer dit søgeresultat efter din kostretning.</p>
-                </div>
-                <div class="button-group">
-                    <button type="button" class="btn diet" onclick="updateSearch(isVegetarian == true)">
-                        <img th:src="@{/images/vegetar.png}" alt="Vegetar">
-                        <p>vegetar</p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="updateSearch(isVegan == true)">
-                        <img th:src="@{/images/veganer.png}" alt="Veganer">
-                        <p>veganer</p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="updateSearch(isLactoseFree == true)">
-                        <img th:src="@{/images/laktosefri.png}" alt="Laktosefri">
-                        <p>laktosefri </p>
-                    </button>
-                    <button type="button" class="btn diet" onclick="updateSearch(isGlutenFree == true)" >
-                        <img th:src="@{/images/glutenfri.png}" alt="Glutenfri">
-                        <p>glutenfri</p>
-                    </button>
-                    <button type="button" class="btn diet" >fjern filter</button>
-                </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Left coloumn: Show search words in search bar -->
+        <div class="col-4 spis2 text-white p-3">
+            <div>
+                <p>Søg på de ingredienser du har i køleskabet.</p>
+                <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
             </div>
-            <!-- Right coloumn: Search results -->
-            <div class="col-8 spis3 text-dark p-3">
-                <div class="container">
-                    <!-- If one or more search results -->
-                    <div th:if="${not #lists.isEmpty(searchResult)}">
-                        <div class="row gy-4">
-                            <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card">
-                                    <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
-                                        <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                        <div class="card-body">
-                                            <h5 class="card-title" th:text="${result.title}"></h5>
-                                        </div>
-                                    </a>
-                                </div>
+            <div id="search-container">
+                <form th:action="@{/search}" method="get" class="d-flex">
+                    <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2" th:value="${ingredientName}">
+                    <button type="submit" class="btn spis3">Søg</button>
+                </form>
+            </div>
+            </br>
+            <div>
+                <p>Filtrer dit søgeresultat efter din kostretning.</p>
+            </div>
+            <div class="button-group">
+                <button type="button" class="btn diet" onclick="updateSearch(isVegetarian == true)">
+                    <img th:src="@{/images/vegetar.png}" alt="Vegetar">
+                    <p>vegetar</p>
+                </button>
+                <button type="button" class="btn diet" onclick="updateSearch(isVegan == true)">
+                    <img th:src="@{/images/veganer.png}" alt="Veganer">
+                    <p>veganer</p>
+                </button>
+                <button type="button" class="btn diet" onclick="updateSearch(isLactoseFree == true)">
+                    <img th:src="@{/images/laktosefri.png}" alt="Laktosefri">
+                    <p>laktosefri </p>
+                </button>
+                <button type="button" class="btn diet" onclick="updateSearch(isGlutenFree == true)" >
+                    <img th:src="@{/images/glutenfri.png}" alt="Glutenfri">
+                    <p>glutenfri</p>
+                </button>
+                <button type="button" class="btn diet" >fjern filter</button>
+            </div>
+        </div>
+        <!-- Right coloumn: Search results -->
+        <div class="col-8 spis3 text-dark p-3">
+            <div class="container">
+                <!-- If one or more search results -->
+                <div th:if="${not #lists.isEmpty(searchResult)}">
+                    <div class="row gy-4">
+                        <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12">
+                            <div class="card">
+                                <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
+                                    <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                    <div class="card-body">
+                                        <h5 class="card-title" th:text="${result.title}"></h5>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
-                    <!-- If no search results -->
-                    <div th:if="${#lists.isEmpty(searchResult)}">
-                        <p>Der er desværre ingen opskrifter med de ingredienser.</p>
-                        <p>Prøv en ny søgning.</p>
-                    </div>
+                </div>
+                <!-- If no search results -->
+                <div th:if="${#lists.isEmpty(searchResult)}">
+                    <p>Der er desværre ingen opskrifter med de ingredienser.</p>
+                    <p>Prøv en ny søgning.</p>
                 </div>
             </div>
         </div>

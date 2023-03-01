@@ -8,6 +8,7 @@ font-size: 30px;
 color: white;
 background-color: #00A748;
 padding: 10px;
+margin-bottom: 0px;
 text-transform: uppercase;
 text-align: center;
 }
@@ -34,8 +35,8 @@ padding: 0 15px;
 }
 
 .row {
-margin-right: -15px;
-margin-left: -15px;
+margin-right: 0px;
+margin-left: 0px;
 }
 
 .card {
