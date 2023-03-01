@@ -41,6 +41,7 @@ margin-left: 0px;
 
 .card {
 background-color: #EAECE1;
+min-width: 180px;
 }
 
 a {

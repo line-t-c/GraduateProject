@@ -87,28 +87,26 @@
         </div>
         <!-- Right coloumn: Search results -->
         <div class="col-8 spis3 text-dark p-3">
-            <div class="container">
-                <!-- If one or more search results -->
-                <div th:if="${not #lists.isEmpty(searchResult)}">
-                    <div class="row gy-4">
-                        <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12" id="search-results">
-                            <div class="card" data-isvegetarian="${result.isVegetarian}">
-                                <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
-                                    <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                    <div class="card-body">
-                                        <h5 class="card-title" th:text="${result.title}"></h5>
-                                    </div>
-                                    <div id="recipe-id" th:text="${result.id}" hidden></div>
-                                </a>
-                            </div>
+            <!-- If one or more search results -->
+            <div th:if="${not #lists.isEmpty(searchResult)}">
+                <div class="row gy-4 card-deck">
+                    <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12" id="search-results">
+                        <div class="card h-100" data-isvegetarian="${result.isVegetarian}">
+                            <a class="link-dark" th:href="@{/opskrifter/{id}(id=${result.id})}">
+                                <img th:src="${result.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                                <div class="card-body">
+                                    <h5 class="card-title" th:text="${result.title}"></h5>
+                                </div>
+                                <div id="recipe-id" th:text="${result.id}" hidden></div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <!-- If no search results -->
-                <div th:if="${#lists.isEmpty(searchResult)}">
-                    <p>Der er desværre ingen opskrifter med de ingredienser eller filtre.</p>
-                    <p>Prøv en ny søgning.</p>
-                </div>
+            </div>
+            <!-- If no search results -->
+            <div th:if="${#lists.isEmpty(searchResult)}">
+                <p>Der er desværre ingen opskrifter med de ingredienser eller filtre.</p>
+                <p>Prøv en ny søgning.</p>
             </div>
         </div>
     </div>
