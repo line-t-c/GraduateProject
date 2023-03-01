@@ -65,9 +65,4 @@ public class RecipeController {
     public String fejl () {
         return "error";
     }
-
-    @GetMapping("/testview")
-    public String testview () {
-        return "testview";
-    }
 }
