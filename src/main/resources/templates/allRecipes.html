@@ -87,23 +87,30 @@
         </div>
         <!-- Right coloumn: All recipes, filtered results -->
         <div class="col-8 spis3 text-dark p-3">
-            <div class="container">
-                <div class="row gy-4">
-                    <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card">
-                            <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
-                                <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
-                                <div class="card-body">
-                                    <h5 class="card-title" th:text="${recipe.title}"></h5>
-                                </div>
-                            </a>
-                        </div>
+            <div class="row gy-4 card-deck">
+                <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="card h-100">
+                        <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
+                            <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${recipe.title}"></h5>
+                            </div>
+                        </a>
                     </div>
                 </div>
+                <!-- Pagination -->
+                <!-- Insert pagination here -->
             </div>
         </div>
     </div>
 </div>
+
+<footer>
+    <div class="container-fluid footer">
+        </br>
+        <p>Copyright &copy; Spis Op</p>
+    </div>
+</footer>
 
 <script src="script.js" th:src="@{/script.js}"></script>
 

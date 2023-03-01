@@ -41,6 +41,7 @@ margin-left: 0px;
 
 .card {
 background-color: #EAECE1;
+min-width: 180px;
 }
 
 a {
@@ -104,6 +105,10 @@ margin: 2px 0px;
 .print img {
 height: 30px;
 width: 30px;
+}
+
+.footer {
+text-align: center;
 }
 
 /*Hvor bliver denne brugt?*/
