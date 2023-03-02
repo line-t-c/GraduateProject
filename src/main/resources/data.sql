@@ -14,20 +14,23 @@ INSERT INTO RECIPE (TITLE, PORTIONS, IMAGE_URL) VALUES
 ('Lækre sprøde polenta fritter', 4, 'https://www.valdemarsro.dk/wp-content/2015/11/polentafritter.jpg'),
 ('Rørt tatar med ovnbagte fritter', 4, 'https://www.valdemarsro.dk/wp-content/2014/10/roert-tatar.jpg'),
 ('Risalamande cheesecake', 4, 'https://www.valdemarsro.dk/wp-content/2021/02/risalamandecheesecake.jpg'),
-('Nøddetærte med saltkaramel', 4, 'https://www.valdemarsro.dk/wp-content/2020/02/noeddetaerte-opskrift_.jpg');
+('Nøddetærte med saltkaramel', 4, 'https://www.valdemarsro.dk/wp-content/2020/02/noeddetaerte-opskrift_.jpg'),
+('Gulerodskage', 4, 'https://www.valdemarsro.dk/wp-content/2013/08/gulerodskage.jpg'),
+('Karbonader med ærter og gulerødder', 4, 'https://www.valdemarsro.dk/wp-content/2021/03/karbonader.jpg'),
+('Lørdagskylling med gulerødder', 4, 'https://www.valdemarsro.dk/wp-content/2019/03/loerdagskylling.jpg');
 
 -- Indsæt ingredienser til opskriften, forbind med ID i enden
 INSERT INTO INGREDIENT (INGREDIENT_NAME, AMOUNT, MEASUREMENT, TIPS, RECIPE_ID_FK)
 VALUES
-('bacon', 4, 'skiver', 'Gem bacon fedtet til at stege i', 1),
+('bacon *', 4, 'skiver', 'Gem bacon fedtet til at stege i', 1),
 ('æg', 4, 'stk', NULL, 1),
-('parmesan', 75, 'g', 'Parmesan kan fryses ned', 1),
+('parmesan *', 75, 'g', 'Parmesan kan fryses ned', 1),
 ('spaghetti', 400, 'g', NULL, 1),
 
-('kyllingebryst', 2, 'stk', 'Stegt kylling kan holde sig 5-6 dage i køleskabet', 2),
+('kyllingebryst *', 2, 'stk', 'Stegt kylling kan holde sig 5-6 dage i køleskabet', 2),
 ('blandet salat', 1, 'pose', NULL, 2),
 ('cherrytomater', 250, 'g', NULL, 2),
-('dressing', 2, 'spsk', 'Frys overskydende dressing ned i isterningeposer', 2),
+('dressing *', 2, 'spsk', 'Frys overskydende dressing ned i isterningeposer', 2),
 
 ('kartofler', 500, 'g', NULL, 3),
 ('syltede rødbeder', 100, 'g', NULL, 3),
@@ -175,7 +178,32 @@ VALUES
 ('nougat', 50, 'g', NULL, 15),
 ('hasselnødder', 100, 'g', NULL, 15),
 ('mandler', 100, 'g', NULL, 15),
-('pekannødder', 75, 'g', NULL, 15);
+('pekannødder', 75, 'g', NULL, 15),
+
+('hvedemel', 240, 'g', NULL, 16),
+('flormelis', 50, 'g', NULL, 16),
+('salt', 1, 'knivspids', NULL, 16),
+('smør', 120, 'g', NULL, 16),
+('æg', 1, 'stk', NULL, 16),
+('sukker', 250, 'g', NULL, 16),
+('hasselnødder', 100, 'g', NULL, 16),
+('gulerødder', 250, 'g', NULL, 16),
+
+('hakket svinekød', 500, 'g', NULL, 17),
+('mælk', 2, 'spsk', NULL, 17),
+('glutenfri brød', 1, 'skive', NULL, 17),
+('æg', 1, 'stk', NULL, 17),
+('salt', 1, 'tsk', NULL, 17),
+('ærter', 300, 'g', NULL, 17),
+('gulerødder', 200, 'g', NULL, 17),
+
+('kyllingelår', 500, 'g', NULL, 18),
+('kartofler', 1, 'kg', NULL, 18),
+('gulerødder', 300, 'g', NULL, 18),
+('tørret timian', 1, 'tsk', NULL, 18),
+('grøntsagsbouillon', 1, 'dl', NULL, 18);
+
+
 
 -- Indsæt trin til opskriften
 INSERT INTO INSTRUCTION (RECIPE_STEPS, RECIPE_ID_FK)
@@ -273,7 +301,22 @@ VALUES
 ('Tilsæt smør, pisk det godt sammen og hæld derefter den varme fløde i lidt efter lidt. Kog karamellen op og sluk for varmen.', 15),
 ('Rør godt igennem og sæt gryden med karamel i køleskabet.', 15),
 ('Rør ½ tsk flagesalt i den afkølede karamel og fordel halvdelen af karamellen i den afkølede tærtebund.', 15),
-('Fordel derefter alle nødderne oven på karamellen og hæld resten af karamellen over. Sæt kagen i køleskabet i min. 2 timer inden servering.', 15);
+('Fordel derefter alle nødderne oven på karamellen og hæld resten af karamellen over. Sæt kagen i køleskabet i min. 2 timer inden servering.', 15),
+
+('Pisk smør, sukker og brun farin sammen, til det er luftigt. Pisk derefter et æg i ad gangen.', 16),
+('Bland hvedemel, bagepulver, kanel og salt godt sammen og sigt det i dejen. Rør dejen sammen og bland derefter også de revne gulerødder og hakkede valnødder i dejen. ', 16),
+('Kom bagepapir i bunden af en springform på 20 cm i diameter, smør siderne med smør og kom dejen i. Bag den i en forvarmet ovn ved 170 grader varmluft i ca. 45 minutter.', 16),
+('Lad kagen køle helt af på en rist.', 16),
+
+('Smuldr brødskiven og bland den med mælk. Lad det trække et par minutter og rør derefter farsen af kød, brød og mælkeblanding, et halvt æg, salt og peber. Del farsen i fire og form dem.', 17),
+('Sigt hvedemel over på begge sider af karbonaderne.', 17),
+('Vend dem enkeltvis først i en skål med sammenpisket æg og dernæst i en skål med rasp blandet med salt.', 17),
+('Opvarm en pande med smør og olie. Steg karbonaderne ved middelhøj  varme 2 minutter på hver side.', 17),
+('Optø ærterne og kog gulerødderne.', 17),
+
+('Smør et ovnfast fad grundigt med smør. Skær kartoflerne i halve og kom kartofler, gulerødder og boullion i fadet, sammen med krydderurterne. Vend det godt sammen.', 18),
+('Krydre kyllingestykkerne godt med salt og peber, læg dem øverst i fadet og bag i en forvarmet ovn ved 175 grader varmluft i ca. 45 minutter eller til kartoflerne er møre og kyllingen gennemstegt og med sprødt skind.', 18),
+('Drys med friske krydderurter inden servering og server med en god blandet salat og lækkert brød.', 18);
 
 -- Indsæt trin til diet / kostretning. Boolean in sql: 0 = false, 1 = true
 INSERT INTO DIET (IS_VEGETARIAN, IS_VEGAN, IS_LACTOSE_FREE, IS_GLUTEN_FREE, RECIPE_ID_FK)
@@ -292,7 +335,10 @@ VALUES
 (1, 0, 0, 1, 12),
 (0, 0, 1, 1, 13),
 (0, 0, 0, 0, 14),
-(1, 0, 0, 0, 15);
+(1, 0, 0, 0, 15),
+(1, 0, 0, 0, 16),
+(0, 0, 0, 1, 17),
+(0, 0, 1, 1, 18);
 
 
 
