@@ -3,7 +3,7 @@ INSERT INTO RECIPE (TITLE, PORTIONS, IMAGE_URL) VALUES
 ('Pasta Carbonara', 4, 'https://www.valdemarsro.dk/wp-content/2016/10/carbonara_app-1300.jpg'),
 ('Grillet Kyllingesalat', 4, 'https://www.valdemarsro.dk/wp-content/2018/01/kyllingesalat.jpg'),
 ('Vegetarisk Brændende Kærlighed', 4, 'https://www.valdemarsro.dk/wp-content/2023/02/vegetarisk-braendende-kaerlighed.jpg'),
-('Majspandekager', 4, 'https://www.valdemarsro.dk/wp-content/2015/01/majspandekager-2.jpg'),
+('Majs-pandekager', 4, 'https://www.valdemarsro.dk/wp-content/2015/01/majspandekager-2.jpg'),
 ('Hjemmelavet nutella', 4, 'https://www.valdemarsro.dk/wp-content/hjemmelavet-nutella-e1619018331581.jpg'),
 ('Fiskefrikadeller med remoulade og råkostsalat', 4, 'https://www.valdemarsro.dk/wp-content/2012/09/fiskefrikadeller.jpg'),
 ('Halloumi Burger', 4, 'https://www.valdemarsro.dk/wp-content/2019/09/halloumiburger.jpg'),
@@ -22,15 +22,15 @@ INSERT INTO RECIPE (TITLE, PORTIONS, IMAGE_URL) VALUES
 -- Indsæt ingredienser til opskriften, forbind med ID i enden
 INSERT INTO INGREDIENT (INGREDIENT_NAME, AMOUNT, MEASUREMENT, TIPS, RECIPE_ID_FK)
 VALUES
-('bacon *', 4, 'skiver', 'Gem bacon fedtet til at stege i', 1),
+('bacon', 4, 'skiver', 'Gem bacon fedtet til at stege i', 1),
 ('æg', 4, 'stk', NULL, 1),
-('parmesan *', 75, 'g', 'Parmesan kan fryses ned', 1),
+('parmesan', 75, 'g', 'Parmesan kan fryses ned', 1),
 ('spaghetti', 400, 'g', NULL, 1),
 
-('kyllingebryst *', 2, 'stk', 'Stegt kylling kan holde sig 5-6 dage i køleskabet', 2),
+('kyllingebryst', 2, 'stk', 'Stegt kylling kan holde sig 5-6 dage i køleskabet', 2),
 ('blandet salat', 1, 'pose', NULL, 2),
 ('cherrytomater', 250, 'g', NULL, 2),
-('dressing *', 2, 'spsk', 'Frys overskydende dressing ned i isterningeposer', 2),
+('dressing', 2, 'spsk', 'Frys overskydende dressing ned i isterningeposer', 2),
 
 ('kartofler', 500, 'g', NULL, 3),
 ('syltede rødbeder', 100, 'g', NULL, 3),
