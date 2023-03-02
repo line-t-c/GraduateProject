@@ -53,8 +53,6 @@ text-color: #00A748;
 text-align: center;
 }
 
-
-
 .recipeImg {
 display: block;
 margin-left: auto;
@@ -84,13 +82,13 @@ max-width: 250px;
     margin-right: 10px;
 }*/
 
-.dietOnImg {
+/*.dietOnImg {
 position: absolute;
-/*top: 50%;*/
+*//*top: 50%;*//*
 left: 50%;
 transform: translate(-50%, -100%);
 max-width: 655px;
-}
+}*/
 
 .diet {
 background-color: #8DCD77;
