@@ -10,10 +10,6 @@ form.addEventListener('mouseout', function() {
     input.style.display = 'none';
 });
 
-// SHOW INGREDIENT TIPS
-
-
-
 // CHANGE NUMBER OF PORTIONS
 function updatePortions(addPortion) {
     let currentPortions = parseInt(document.getElementById('portions').innerHTML);
@@ -50,48 +46,39 @@ function overline(element) {
     }
 }
 
-// FILTER BY DIET TAG AND INGREDIENT
+// FILTER BY INGREDIENT AND/OR DIET TAG
 let ingredientsSearch = document.getElementById("ingredientsSearch");
 
 function filterRecipes(diet) {
+
   let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value) + "&diet=" + encodeURIComponent(diet);
 // redirect to the new URL
   window.location.href = url;
-
-    // get all buttons with the 'diet' class
-    const buttons = document.querySelectorAll('.diet');
-
-    // remove the 'active' class from all buttons
-    buttons.forEach(button => {
-      button.classList.remove('active');
-    });
-
-    // add the 'active' class to the clicked button
-    event.currentTarget.classList.add('active');
 }
 
 function removeFilters() {
+
   let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value);
   window.location.href = url;
 }
 
 function filterRecipesDietOnly(diet) {
+
   let url = "/opskrifter?diet=" + encodeURIComponent(diet);
   window.location.href = url;
-
-  const buttons = document.querySelectorAll('.diet');
-
-  buttons.forEach(button => {
-    button.classList.remove('active');
-  });
-
-  event.currentTarget.classList.add('active');
 }
 
-
 function removeDietFilters() {
+
   let url = "/opskrifter";
   window.location.href = url;
 }
+
+// SHOW INGREDIENT TIPS
+let popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+let popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+    return new bootstrap.Popover(popoverTriggerEl)
+})
+
 
 
