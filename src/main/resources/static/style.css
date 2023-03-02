@@ -127,3 +127,21 @@ text-align: center;
     font-style: italic;
     font-size: 12px;
 }
+
+.card-img-top {
+  height: 120px;
+}
+
+.card-body {
+  height: 100px;
+}
+
+
+.home-page .card-img-top {
+  height: 200px;
+}
+
+.home-page .card-body {
+  height: 150px;
+}
+
