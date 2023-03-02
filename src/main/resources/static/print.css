@@ -1,0 +1,16 @@
+.img-fluid {
+max-width: 255px;
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
+@media print {
+  .print {
+    display: none;
+  } span {
+  text-decoration: none !important;
+    }
+}
+
+
