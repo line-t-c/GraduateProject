@@ -49,23 +49,33 @@
 </div>
 <div class="container-fluid">
   <div class="row">
-    <!-- Left coloumn: Search field -->
+    <!-- Left coloumn: -->
     <div class="col-4 spis2 text-white p-3">
-      <h6>3 facts om madspild</h6>
-      <ul>
-        <li>Du vil kunne spare flere timer i madindkøb hver måned.</li>
-        <li>Du vil være med til at mindske miljøbelastning og CO2-udledning.</li>
-        <li>Du vil være med til at passe på Jordens i forvejen knappe ressourcer samt mindske naturbeslaglæggelsen.</li>
-      </ul>
-
+      <div class="center">
+        <h4>Hvorfor undgå madspild?</h4>
+        <div>
+          <span>Vi sparer flere timer i madindkøb hver måned.</span>
+        </div>
+        <span>o</span>
+        <div>
+          <span>Vi mindsker miljøbelastning og CO2-udledning.</span>
+        </div>
+        <span>o</span>
+        <div>
+          <span>Vi passer på Jordens ressourcer, så mere natur kan vokse vildt uden at blive brugt til landbrug.</span>
+        </div>
+      </div>
     </div>
-    <!-- Right coloumn: Yet to be decided what to put here -->
+    <!-- Right coloumn: -->
     <div class="col-8 spis3 text-dark p-3">
       <div>
-        <h5>Tøm køleskabet og reducer dit madspild</h5>
+        <h3>Tøm køleskabet</h3>
+        <h5>- lad os hjælpe dig med at bruge alt hvad du har!</h5>
+        </br>
         <p>Søg på de ingredienser du har i køleskabet.</p>
         <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
       </div>
+      <!-- Search field -->
       <div id="search-container">
         <form th:action="@{/search}" method="get" class="d-flex">
           <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2">
