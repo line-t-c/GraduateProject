@@ -12,6 +12,9 @@ margin-right: auto;
   span {
   text-decoration: none !important;
   }
+    .madspilds-tips {
+      display: none;
+    }
 }
 
 
