@@ -119,7 +119,7 @@
             <!-- Instruction -->
             <ol>
                 <li th:each="instruction : ${recipe.instruction}">
-                    <span onclick="overline(this)" th:text="${instruction.recipeSteps}"></span>
+                    <span onclick="overline(this)" th:text="${instruction.recipeSteps}" style="cursor: pointer;"></span>
                 </li>
             </ol>
         </div>
