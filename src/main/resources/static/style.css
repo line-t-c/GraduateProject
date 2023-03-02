@@ -53,12 +53,36 @@ text-color: #00A748;
 text-align: center;
 }
 
+
+
 .recipeImg {
 display: block;
 margin-left: auto;
 margin-right: auto;
 max-width: 655px;
 }
+
+.illustrationImg {
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 610px;
+}
+
+.portraitImg {
+display: block;
+margin-left: auto;
+margin-right: auto;
+max-width: 250px;
+}
+/*.portraitImg {
+    display: flex;
+    flex-wrap: wrap;
+}
+.portraitImg img {
+    flex: 1;
+    margin-right: 10px;
+}*/
 
 .dietOnImg {
 position: absolute;
