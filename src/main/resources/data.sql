@@ -38,12 +38,12 @@ VALUES
 ('ristede løg', 30, 'g', NULL, 3),
 ('hakket purløg', 1, 'lille bundt', NULL, 3),
 
-('mælk', 4, 'dl', NULL, 4),
-('æg', 4, 'stk', NULL, 4),
+('mælk', 4, 'dl', 'Frys overskydende mælk i isterningeposer', 4),
+('æg', 4, 'stk', 'Tjek om dit æg stadig er frisk i et glas vand. Hvis ægget synker til bunds, er det fint', 4),
 ('salt', 0.5, 'tsk', NULL, 4),
 ('majsmel', 200, 'g', NULL, 4),
 ('olivenolie', 1, 'spsk', NULL, 4),
-('smør', 1, 'spsk', NULL, 4),
+('smør', 1, 'spsk', 'Smør kan holde sig op til 3 mdr i fryseren', 4),
 
 ('hasselnødder', 50, 'g', NULL, 5),
 ('mælkechokolade', 100, 'g', NULL, 5),
