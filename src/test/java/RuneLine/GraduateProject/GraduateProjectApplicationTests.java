@@ -1,7 +1,6 @@
 package RuneLine.GraduateProject;
 
 import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,8 +23,8 @@ class GraduateProjectApplicationTests {
 
 	@Test
 	public void testFindByIngredient() {
-		List<String> ingredients1 = Arrays.asList("kyllingebryst", "blandet salat");
-		List<String> ingredients2 = Arrays.asList("kartofler", "syltede rødbeder");
+		List<String> ingredients1 = Arrays.asList("gulerødder", "kartofler");
+		List<String> ingredients2 = Arrays.asList("smør", "æg");
 		String diets1 = "glutenfri";
 		String diets2 = "vegetar";
 		List<Recipe> recipes1 = recipeService.findByIngredientsAndDiet(ingredients1, diets1);
@@ -34,7 +33,8 @@ class GraduateProjectApplicationTests {
 		assertEquals(3, recipes2.size());
 		Recipe recipe1 = recipes1.get(0);
 		Recipe recipe2 = recipes2.get(0);
-		assertEquals("Grillet Kyllingesalat", recipe1.getTitle());
-		assertEquals("Vegetarisk Brændende Kæerlighed", recipe2.getTitle());
+		assertEquals("Lørdagskylling med gulerødder", recipe1.getTitle());
+		assertEquals("Majspandekager", recipe2.getTitle());
 	}
+
 }
