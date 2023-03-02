@@ -97,19 +97,15 @@
                 <span class="ingredient-name" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
             </div>
             </br>
-            <span style="font-style: italic; font-size: 12px;">* madspildstip</span>
+            <span class="madspilds-tips" media="print">* madspildstip</span>
             </br>
         </div>
         <div class="col-8 spis3 text-dark p-3">
             <!-- Print -->
-            <!--      <button type="button" class="btn print" onclick="window.print()"><img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv</button>-->
             <button type="button" class="btn print" onclick="window.print()" media="print">
                 <img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv
             </button>
-
-            <div>
-                </br>
-            </div>
+            </br>
             <!-- Instruction -->
             <ol>
                 <li th:each="instruction : ${recipe.instruction}">

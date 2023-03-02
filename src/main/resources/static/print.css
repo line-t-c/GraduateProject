@@ -8,8 +8,12 @@ margin-right: auto;
 @media print {
   .print {
     display: none;
-  } span {
+  }
+  span {
   text-decoration: none !important;
+  }
+    .madspilds-tips {
+      display: none;
     }
 }
 
