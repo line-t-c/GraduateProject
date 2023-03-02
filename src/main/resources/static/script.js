@@ -16,7 +16,7 @@ function updatePortions(addPortion) {
 
     // Check if current portion is already 1
     if (currentPortions === 1 && !addPortion) {
-        alert("Du kan ikke reducere portionstørrelsen mere");
+        alert("Du kan ikke reducere antallet mere");
         return;
     }
 
