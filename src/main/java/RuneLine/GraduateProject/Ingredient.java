@@ -2,8 +2,6 @@ package RuneLine.GraduateProject;
 
 import jakarta.persistence.*;
 
-import java.util.List;
-
 @Entity
 public class Ingredient {
     @Id
