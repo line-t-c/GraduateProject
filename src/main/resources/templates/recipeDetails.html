@@ -94,8 +94,10 @@
             <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
                 <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
                 <span th:text="${ingredient.measurement}"></span>
-                <span class="ingredient-name" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
+                <span class="ingredient-name" th:if="${ingredient.tips != null}" th:text="${ingredient.ingredientName + ' *'}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
+                <span class="ingredient-name" th:if="${ingredient.tips == null}" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
             </div>
+
             </br>
             <span class="madspilds-tips" media="print">* madspildstip</span>
             </br>
