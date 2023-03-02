@@ -45,7 +45,7 @@ public class RecipeController {
     public String getRecipe(@PathVariable Long id, Model model) {
         Recipe recipe = repository.findById(id).get();
         model.addAttribute("recipe", recipe);
-        return "details";
+        return "recipeDetails";
     }
 
     @GetMapping("/saeson")

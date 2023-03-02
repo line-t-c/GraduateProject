@@ -118,3 +118,8 @@ text-align: center;
 .diet.active {
   background-color: #00A748;
 }
+
+.madspilds-tips {
+    font-style: italic;
+    font-size: 12px;
+}
