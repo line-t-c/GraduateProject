@@ -47,18 +47,18 @@ public class RecipeController {
         return "recipeDetails";
     }
 
-    @GetMapping("/saeson")
-    public String season () {
-        return "season";
+    @GetMapping("/madspild")
+    public String foodwaste() {
+        return "foodwaste";
     }
 
     @GetMapping("/om")
-    public String about () {
+    public String about() {
         return "about";
     }
 
     @GetMapping("/fejl")
-    public String fejl () {
+    public String fejl() {
         return "error";
     }
 }

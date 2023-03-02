@@ -28,6 +28,9 @@
                         <a class="nav-link" href="/opskrifter">Opskrifter</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/madspild">Madspild</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/om">Om</a>
                     </li>
                 </ul>
@@ -49,8 +52,9 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <!-- Left coloumn: Search field -->
+        <!-- Left coloumn -->
         <div class="col-4 spis2 text-white p-3">
+            <!-- Search bar -->
             <div>
                 <p>Søg på de ingredienser du har i køleskabet.</p>
                 <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
@@ -62,6 +66,7 @@
                 </form>
             </div>
             </br>
+            <!-- Filter recipes with diet tags -->
             <div>
                 <p>Filtrer dit søgeresultat efter din kostretning.</p>
             </div>
@@ -85,8 +90,9 @@
                 <button type="button" class="btn diet" onclick="removeDietFilters()" >nulstil filter</button>
             </div>
         </div>
-        <!-- Right coloumn: All recipes, filtered results -->
+        <!-- Right coloumn -->
         <div class="col-8 spis3 text-dark p-3">
+            <!-- All recipes, filtered results -->
             <div class="row gy-4 card-deck">
                 <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card h-100">

@@ -28,6 +28,9 @@
                         <a class="nav-link" href="/opskrifter">Opskrifter</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/madspild">Madspild</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/om">Om</a>
                     </li>
                 </ul>
@@ -49,8 +52,9 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <!-- Left coloumn: Show search words in search bar -->
+        <!-- Left coloumn -->
         <div class="col-4 spis2 text-white p-3">
+            <!-- Search bar with search words -->
             <div>
                 <p>Søg på de ingredienser du har i køleskabet.</p>
                 <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
@@ -62,6 +66,7 @@
                 </form>
             </div>
             </br>
+            <!-- Filter with diet tags -->
             <div>
                 <p>Filtrer dit søgeresultat efter din kostretning.</p>
             </div>
@@ -85,9 +90,9 @@
                 <button type="button" class="btn diet" onclick="removeFilters()" >nulstil filter</button>
             </div>
         </div>
-        <!-- Right coloumn: Search results -->
+        <!-- Right coloumn -->
         <div class="col-8 spis3 text-dark p-3">
-            <!-- If one or more search results -->
+            <!-- Search result: If one or more -->
             <div th:if="${not #lists.isEmpty(searchResult)}">
                 <div class="row gy-4 card-deck">
                     <div th:each="result : ${searchResult}" class="col-lg-4 col-md-6 col-sm-12" id="search-results">
@@ -103,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <!-- If no search results -->
+            <!-- Search result: If none -->
             <div th:if="${#lists.isEmpty(searchResult)}">
                 <p>Der er desværre ingen opskrifter med de ingredienser eller filtre.</p>
                 <p>Prøv en ny søgning.</p>

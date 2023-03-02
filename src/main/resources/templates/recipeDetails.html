@@ -28,6 +28,9 @@
                         <a class="nav-link" href="/opskrifter">Opskrifter</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/madspild">Madspild</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/om">Om</a>
                     </li>
                 </ul>
@@ -56,7 +59,7 @@
 </div>
 <div class="container-fluid">
     <div class="row">
-        <!-- Left coloumn: -->
+        <!-- Left coloumn -->
         <div class="col-4 spis2 text-white p-3">
             <!-- Diet Tag -->
             <div class="button-group">
@@ -95,9 +98,11 @@
                 <span class="ingredient-name" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
             </div>
             </br>
+            <!-- Foodwaste Tip -->
             <span style="font-style: italic; font-size: 12px;">* madspildstip</span>
             </br>
         </div>
+        <!-- Right coloumn -->
         <div class="col-8 spis3 text-dark p-3">
             <!-- Print -->
             <button type="button" class="btn print" onclick="window.print()"><img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv</button>
