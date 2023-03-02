@@ -36,5 +36,4 @@ class GraduateProjectApplicationTests {
 		assertEquals("Lørdagskylling med gulerødder", recipe1.getTitle());
 		assertEquals("Majspandekager", recipe2.getTitle());
 	}
-
 }

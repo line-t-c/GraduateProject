@@ -25,7 +25,8 @@ public class RecipeController {
     }
 
     @GetMapping("/search")
-    public String searchRecipesByIngredients(@RequestParam String ingredients, @RequestParam(required = false) String diet, Model model) {
+    public String searchRecipesByIngredients(@RequestParam String ingredients,
+                                             @RequestParam(required = false) String diet, Model model) {
         List<String> ingredientList = Arrays.asList(ingredients.split("\s*,\s*"));
         List<Recipe> searchResult = recipeService.findByIngredientsAndDiet(ingredientList,diet);
         model.addAttribute("ingredientName", ingredients);
@@ -44,7 +45,7 @@ public class RecipeController {
     public String getRecipe(@PathVariable Long id, Model model) {
         Recipe recipe = repository.findById(id).get();
         model.addAttribute("recipe", recipe);
-        return "recipeDetails";
+        return "details";
     }
 
     @GetMapping("/saeson")
