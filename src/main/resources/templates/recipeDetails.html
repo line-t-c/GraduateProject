@@ -97,8 +97,10 @@
             <div class="ingredients" th:each="ingredient : ${recipe.ingredients}">
                 <span class="ingredient-amount" th:text="${ingredient.amount}"></span>
                 <span th:text="${ingredient.measurement}"></span>
-                <span class="ingredient-name" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
+                <span class="ingredient-name" th:if="${ingredient.tips != null}" th:text="${ingredient.ingredientName + ' *'}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
+                <span class="ingredient-name" th:if="${ingredient.tips == null}" th:text="${ingredient.ingredientName}" data-bs-toggle="popover" th:data-bs-content="${ingredient.tips}" data-bs-trigger="hover"></span>
             </div>
+
             </br>
             <!-- Foodwaste Tip -->
             <span class="madspilds-tips" media="print">* madspildstip</span>
@@ -110,7 +112,10 @@
             <button type="button" class="btn print" onclick="window.print()" media="print">
                 <img src="/images/printer.png" alt="print" height="30" width="30"> Udskriv
             </button>
-            </br>
+            <span>
+                </br>
+                </br>
+            </span>
             <!-- Instruction -->
             <ol>
                 <li th:each="instruction : ${recipe.instruction}">
