@@ -76,12 +76,12 @@
         <h5>- lad os hjælpe dig med at bruge alt hvad du har!</h5>
         </br>
         <p>Søg på de ingredienser du har i køleskabet.</p>
-        <p>Adskil med komma (fx "gulerødder, blomkål, ærter").</p>
+        <p>Adskil med komma.</p>
       </div>
       <!-- Search field -->
       <div id="search-container">
         <form th:action="@{/search}" method="get" class="d-flex">
-          <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål" class="form-control me-2">
+          <input type="text" name="ingredients" placeholder="Søg fx gulerødder, blomkål, ærter" class="form-control me-2">
           <button type="submit" class="btn spis1">Søg</button>
         </form>
       </div>
