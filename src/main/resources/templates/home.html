@@ -85,7 +85,6 @@
           <button type="submit" class="btn spis1">Søg</button>
         </form>
       </div>
-
     </div>
   </div>
 </div>
@@ -96,10 +95,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12 spis3 text-dark p-3">
-      <div class="row gy-4">
-        <!-- Modul med udvalgte opskrifter -->
+      <div class="row gy-4 card-deck">
+        <!-- Udvalgte opskrifter -->
         <div th:each="recipe : ${recipes}" class="col-lg-4 col-md-6 col-sm-12">
-          <div class="home-page">
             <div class="card h-100">
               <a class="link-dark" th:href="@{/opskrifter/{id}(id=${recipe.id})}">
                 <img th:src="${recipe.imageUrl}" class="card-img-top img-fluid" alt="recipe image">
@@ -108,7 +106,6 @@
                 </div>
               </a>
             </div>
-          </div>
         </div>
       </div>
     </div>
