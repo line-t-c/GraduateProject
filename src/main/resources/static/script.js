@@ -50,28 +50,24 @@ function overline(element) {
 let ingredientsSearch = document.getElementById("ingredientsSearch");
 
 function filterRecipes(diet) {
-
-  let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value) + "&diet=" + encodeURIComponent(diet);
+    let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value) + "&diet=" + encodeURIComponent(diet);
 // redirect to the new URL
-  window.location.href = url;
+    window.location.href = url;
 }
 
 function removeFilters() {
-
-  let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value);
-  window.location.href = url;
+    let url = "/search?ingredients=" + encodeURIComponent(ingredientsSearch.value);
+    window.location.href = url;
 }
 
 function filterRecipesDietOnly(diet) {
-
-  let url = "/opskrifter?diet=" + encodeURIComponent(diet);
-  window.location.href = url;
+    let url = "/opskrifter?diet=" + encodeURIComponent(diet);
+    window.location.href = url;
 }
 
 function removeDietFilters() {
-
-  let url = "/opskrifter";
-  window.location.href = url;
+    let url = "/opskrifter";
+    window.location.href = url;
 }
 
 // SHOW INGREDIENT TIPS
